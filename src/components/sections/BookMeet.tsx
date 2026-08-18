@@ -13,6 +13,8 @@ import {
   Video,
 } from "lucide-react";
 import { useIsClient } from "@/lib/hooks";
+import { openMailDraft } from "@/lib/mailto";
+import { site } from "@/lib/data";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Button } from "../ui/Button";
 import { Reveal } from "../ui/Reveal";
@@ -128,20 +130,15 @@ export function BookMeet() {
   async function submit() {
     setStatus("sending");
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          kind: "booking",
-          meetingType: selectedType.label,
-          duration: selectedType.duration,
-          date,
-          slot,
-          timezone: tz,
-          ...form,
-        }),
+      openMailDraft(`Meeting request — ${form.name.trim()}`, {
+        Name: form.name,
+        Email: form.email,
+        Company: form.company,
+        Meeting: `${selectedType.label} (${selectedType.duration})`,
+        Date: date,
+        Time: slot ? `${slot} ${tz}` : null,
+        Notes: form.notes,
       });
-      if (!res.ok) throw new Error("Request failed");
       setStatus("done");
     } catch {
       setStatus("error");
@@ -223,7 +220,7 @@ export function BookMeet() {
                       <Check className="size-6" strokeWidth={2.5} />
                     </span>
                     <h3 className="mt-6 font-display text-2xl font-semibold text-white">
-                      You&apos;re booked in.
+                      Almost booked in.
                     </h3>
                     <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/55">
                       {selectedType.label} · {selectedType.duration} on{" "}
@@ -231,8 +228,9 @@ export function BookMeet() {
                         {selectedDay?.weekday} {selectedDay?.day}{" "}
                         {selectedDay?.month}
                       </span>{" "}
-                      at <span className="text-white">{slot}</span> ({tz}). A
-                      calendar invite is on its way to {form.email}.
+                      at <span className="text-white">{slot}</span> ({tz}).
+                      Send the draft we just opened to {site.email} and the
+                      calendar invite follows within the hour.
                     </p>
                     <Button
                       variant="secondary"

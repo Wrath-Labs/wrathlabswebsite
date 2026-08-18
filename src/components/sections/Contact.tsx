@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, Check, ChevronDown, Clock, Loader2, Mail, MapPin, Phone } from "lucide-react";
 import { services, site, socials } from "@/lib/data";
+import { openMailDraft } from "@/lib/mailto";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Button } from "../ui/Button";
 import { Reveal } from "../ui/Reveal";
@@ -54,16 +55,18 @@ export function Contact() {
     setStatus("sending");
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ kind: "enquiry", ...form }),
+      openMailDraft(`New enquiry — ${form.name.trim()}`, {
+        Name: form.name,
+        Email: form.email,
+        Company: form.company,
+        Budget: form.budget,
+        Interest: form.interest,
+        Message: form.message,
       });
-      if (!res.ok) throw new Error();
       setStatus("done");
     } catch {
       setStatus("error");
-      setError("That didn't send. Email us directly and we'll pick it up.");
+      setError("Couldn't open your mail app. Email us directly and we'll pick it up.");
     }
   }
 
@@ -146,11 +149,12 @@ export function Contact() {
                     <Check className="size-6" strokeWidth={2.5} />
                   </span>
                   <h3 className="mt-6 font-display text-2xl font-semibold text-white">
-                    Message received.
+                    Nearly there.
                   </h3>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/55">
-                    Thanks {form.name.split(" ")[0]}. A founder will reply to{" "}
-                    {form.email} within one business day — usually sooner.
+                    Thanks {form.name.split(" ")[0]} — we&apos;ve opened a
+                    prefilled draft to {site.email} in your mail app. Hit send
+                    and a founder will reply within one business day.
                   </p>
                   <Button
                     variant="secondary"
