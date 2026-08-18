@@ -44,7 +44,7 @@ function ProductVisual({ product }: { product: Product }) {
           <span className="size-2 rounded-full bg-white/15" />
         </div>
         <span className="ml-1 font-mono text-[10.5px] text-white/30">
-          {product.name.toLowerCase()}.wrathlabs.com
+          {product.name.toLowerCase()}.wrathlabs.in
         </span>
       </div>
 

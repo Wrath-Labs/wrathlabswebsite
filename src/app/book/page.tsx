@@ -34,7 +34,7 @@ export default function BookPage() {
       <PageHero
         eyebrow="Book a meeting"
         title="Thirty minutes, no deck."
-        description="Pick a format and a slot below. If nothing suits, email hello@wrathlabs.com and we'll work around you."
+        description="Pick a format and a slot below. If nothing suits, email hello@wrathlabs.in and we'll work around you."
         breadcrumb={[{ label: "Book a Meeting", href: "/book" }]}
       >
         <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.05] sm:grid-cols-3">

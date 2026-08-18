@@ -24,4 +24,4 @@ than hand-edit if the component changes.
   that reads as pale pink and it thins out below ~32px — prefer `icon-white-512`
   or a solid background for small light-background placements.
 - These ship inside `public/`, so they're also live at
-  `https://wrath-labs.github.io/wrathlabswebsite/brand/<file>`.
+  `https://wrathlabs.in/brand/<file>`.

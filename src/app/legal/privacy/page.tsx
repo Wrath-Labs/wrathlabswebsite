@@ -38,7 +38,7 @@ const sections = [
   {
     heading: "Your rights",
     body: [
-      "You can ask us for a copy of the data we hold about you, ask us to correct it, or ask us to delete it. Email hello@wrathlabs.com and we'll action the request within 30 days.",
+      "You can ask us for a copy of the data we hold about you, ask us to correct it, or ask us to delete it. Email hello@wrathlabs.in and we'll action the request within 30 days.",
       "If you're in the UK or EEA you also have the right to complain to your local data protection authority.",
     ],
   },

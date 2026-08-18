@@ -55,7 +55,7 @@ export function CTA({
 
         <Reveal delay={0.3}>
           <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.18em] text-white/25">
-            hello@wrathlabs.com · Replies within one business day
+            hello@wrathlabs.in · Replies within one business day
           </p>
         </Reveal>
       </div>

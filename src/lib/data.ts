@@ -9,8 +9,8 @@ export const site = {
   tagline: "We build the products. We build yours too.",
   description:
     "Wrath Labs is a product studio and engineering lab. We ship our own software products and partner with teams to design, build, and scale theirs.",
-  url: "https://wrathlabs.com",
-  email: "hello@wrathlabs.com",
+  url: "https://wrathlabs.in",
+  email: "hello@wrathlabs.in",
   phone: "+44 20 7946 0812",
   address: "Remote-first · London · Bengaluru",
   founded: 2019,

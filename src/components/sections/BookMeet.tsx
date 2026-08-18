@@ -448,9 +448,9 @@ export function BookMeet() {
                             Something went wrong sending that. Email{" "}
                             <a
                               className="underline"
-                              href="mailto:hello@wrathlabs.com"
+                              href="mailto:hello@wrathlabs.in"
                             >
-                              hello@wrathlabs.com
+                              hello@wrathlabs.in
                             </a>{" "}
                             and we&apos;ll sort it.
                           </p>

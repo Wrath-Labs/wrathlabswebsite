@@ -30,9 +30,9 @@ jobs:
         run: npm ci
 
       - name: Build static export
-        env:
-          # Pages serves the site from /<repo>, so links and assets need the prefix.
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+        # Served from the apex of wrathlabs.in (see public/CNAME), so no
+        # basePath — set NEXT_PUBLIC_BASE_PATH only if this ever moves back
+        # to a wrath-labs.github.io/<repo> subpath.
         run: npm run build
 
       - uses: actions/configure-pages@v5
