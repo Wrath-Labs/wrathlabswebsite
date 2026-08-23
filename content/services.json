@@ -1,0 +1,141 @@
+{
+  "_note": [
+    "WHAT YOU DO FOR CLIENTS — the six service cards, plus the Services page.",
+    "",
+    "Add or remove an entry in `items` and it updates the home page grid, the",
+    "Services page, the footer menu and the dropdown on the contact form, all",
+    "at once.",
+    "",
+    "`id` is the short name used in web addresses (lower case, dashes instead",
+    "of spaces). Changing it changes the link to that service."
+  ],
+
+  "page": {
+    "seo": {
+      "title": "Services",
+      "description": "Product engineering, AI engineering, cloud and DevOps, design systems, data platforms, and security engineering — delivered by senior squads in two-week sprints."
+    },
+    "hero": {
+      "eyebrow": "Services",
+      "title": "Senior squads, embedded in your roadmap.",
+      "description": "We staff a cross-functional team from six disciplines and work in your repo, on your infra, at your cadence. No junior bench, no handoff to a delivery manager you've never met.",
+      "breadcrumb": [
+        { "label": "Services", "href": "{{navigation.paths.services}}" }
+      ]
+    },
+    "buttons": {
+      "primary": {
+        "label": "{{shared.buttons.bookScopingCall.label}}",
+        "href": "{{shared.buttons.bookScopingCall.href}}"
+      },
+      "secondary": { "label": "See pricing", "href": "{{navigation.paths.pricing}}" }
+    },
+    "closing": {
+      "_note": "The big invitation band at the bottom of the Services page.",
+      "eyebrow": "Get started",
+      "title": "Let's scope the first sprint.",
+      "description": "Bring the problem, the constraints, and the deadline. We'll come back with an architecture, a plan, and a fixed price."
+    }
+  },
+
+  "section": {
+    "_note": [
+      "The heading above the six cards on the home page. `titleMuted` is the",
+      "greyed-out second half of the sentence."
+    ],
+    "heading": {
+      "eyebrow": "What we do",
+      "title": "Six disciplines,",
+      "titleMuted": "one delivery team.",
+      "description": "We staff a squad from these, not a department per line item. Most engagements pull from three or four at once."
+    },
+    "button": { "label": "All services", "href": "{{navigation.paths.services}}" }
+  },
+
+  "items": [
+    {
+      "_note": [
+        "`icon` picks the small symbol on the card. See the list of allowed",
+        "icon names at the bottom of content/README.md.",
+        "`deliverables` only appear on the Services page, not the home page.",
+        "`stack` are the little tags along the bottom of the card."
+      ],
+      "id": "product-engineering",
+      "title": "Product Engineering",
+      "icon": "Boxes",
+      "blurb": "Zero-to-one builds and rescue missions. We own the whole surface — architecture, API, interface, release — and hand you a codebase your team will actually enjoy inheriting.",
+      "deliverables": [
+        "Web & mobile applications",
+        "API and backend architecture",
+        "Legacy migration & rescue",
+        "Test and CI foundations"
+      ],
+      "stack": ["Next.js", "React Native", "TypeScript", "Go", "PostgreSQL"]
+    },
+    {
+      "id": "ai-engineering",
+      "title": "AI Engineering",
+      "icon": "BrainCircuit",
+      "blurb": "Applied AI that survives production. Retrieval pipelines, agentic workflows, evals, guardrails — built with the same rigour we give payment systems.",
+      "deliverables": [
+        "RAG & knowledge systems",
+        "Multi-agent workflows",
+        "Eval harnesses & observability",
+        "Fine-tuning & model routing"
+      ],
+      "stack": ["Claude", "LangGraph", "pgvector", "Python", "Modal"]
+    },
+    {
+      "id": "cloud-devops",
+      "title": "Cloud & DevOps",
+      "icon": "Cloud",
+      "blurb": "Infrastructure as a product. Reproducible environments, sane pipelines, and observability that tells you what broke before your users do.",
+      "deliverables": [
+        "Terraform & IaC",
+        "Kubernetes platforms",
+        "CI/CD & release automation",
+        "Cost & performance tuning"
+      ],
+      "stack": ["AWS", "Kubernetes", "Terraform", "GitHub Actions", "Grafana"]
+    },
+    {
+      "id": "design-systems",
+      "title": "Design & Systems",
+      "icon": "Palette",
+      "blurb": "Interfaces with intent. We design in code, ship tokenised component libraries, and leave you a system instead of a pile of screens.",
+      "deliverables": [
+        "Product & UX design",
+        "Design tokens & theming",
+        "Component libraries",
+        "Brand & motion language"
+      ],
+      "stack": ["Figma", "Tailwind", "Radix", "Motion", "Storybook"]
+    },
+    {
+      "id": "data-platforms",
+      "title": "Data Platforms",
+      "icon": "Database",
+      "blurb": "From event to insight. Warehouses, streams, and contracts that keep analytics trustworthy as your product multiplies.",
+      "deliverables": [
+        "Event pipelines & CDC",
+        "Warehouse modelling",
+        "Streaming architecture",
+        "BI & self-serve analytics"
+      ],
+      "stack": ["Kafka", "dbt", "ClickHouse", "Snowflake", "Airflow"]
+    },
+    {
+      "id": "security-engineering",
+      "title": "Security Engineering",
+      "icon": "ShieldCheck",
+      "blurb": "Threat modelling, hardening, and audit prep. We break it on purpose so nobody else gets the chance, then leave the controls documented.",
+      "deliverables": [
+        "Threat models & reviews",
+        "Pen-test remediation",
+        "SOC 2 / ISO readiness",
+        "Secrets & access hygiene"
+      ],
+      "stack": ["OWASP", "Vault", "Snyk", "Cloudflare", "Auth0"]
+    }
+  ]
+}

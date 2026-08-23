@@ -7,28 +7,22 @@ import { TechMarquee } from "@/components/sections/TechMarquee";
 import { Socials } from "@/components/sections/Socials";
 import { CTA } from "@/components/sections/CTA";
 import { Button } from "@/components/ui/Button";
+import { content } from "@/content";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Wrath Labs is a product studio and engineering lab founded in 2019 — five products of our own, and senior squads embedded with client teams across 19 countries.",
-};
+const { hero, buttons, closing, seo } = content.about.page;
+
+export const metadata: Metadata = seo;
 
 export default function AboutPage() {
   return (
     <>
-      <PageHero
-        eyebrow="About"
-        title="A studio that has to live with its own code."
-        description="Founded in 2019 by two engineers who were tired of shipping software they'd never maintain. Today we run five products of our own and build with teams across 19 countries."
-        breadcrumb={[{ label: "About", href: "/about" }]}
-      >
+      <PageHero {...hero}>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <Button href="/book" size="lg" withArrow magnetic>
-            Meet the team
+          <Button href={buttons.primary.href} size="lg" withArrow magnetic>
+            {buttons.primary.label}
           </Button>
-          <Button href="/case-studies" size="lg" variant="secondary">
-            See the work
+          <Button href={buttons.secondary.href} size="lg" variant="secondary">
+            {buttons.secondary.label}
           </Button>
         </div>
       </PageHero>
@@ -40,11 +34,7 @@ export default function AboutPage() {
       <Timeline />
       <TechMarquee />
       <Socials />
-      <CTA
-        eyebrow="Work with us"
-        title="We're picky about projects, not about people."
-        description="If you're building something that has to hold up under real load, we'd like to hear about it."
-      />
+      <CTA {...closing} />
     </>
   );
 }

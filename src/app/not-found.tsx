@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { navLinks } from "@/lib/data";
+import { content } from "@/content";
 import { Button } from "@/components/ui/Button";
 import { ParticleField } from "@/components/fx/ParticleField";
+
+const page = content.notFound;
+const { links } = content.navigation.navbar;
 
 export default function NotFound() {
   return (
@@ -16,32 +19,35 @@ export default function NotFound() {
 
       <div className="shell relative flex flex-col items-center text-center">
         <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ember-400">
-          Error 404
+          {page.eyebrow}
         </span>
 
         <h1 className="mt-6 font-display text-[22vw] font-bold leading-none tracking-tighter text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.14)] sm:text-[12rem]">
-          404
+          {page.code}
         </h1>
 
         <h2 className="mt-4 max-w-lg font-display text-2xl font-semibold tracking-tight text-white md:text-3xl">
-          This page didn&apos;t make it past code review.
+          {page.title}
         </h2>
         <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/50">
-          The URL you followed doesn&apos;t exist — or it did, and we shipped
-          something better in its place.
+          {page.description}
         </p>
 
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <Button href="/" size="lg" withArrow magnetic>
-            Back to home
+          <Button href={page.primaryButton.href} size="lg" withArrow magnetic>
+            {page.primaryButton.label}
           </Button>
-          <Button href="/contact" size="lg" variant="secondary">
-            Report a broken link
+          <Button
+            href={page.secondaryButton.href}
+            size="lg"
+            variant="secondary"
+          >
+            {page.secondaryButton.label}
           </Button>
         </div>
 
         <nav className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-          {navLinks.map((link) => (
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}

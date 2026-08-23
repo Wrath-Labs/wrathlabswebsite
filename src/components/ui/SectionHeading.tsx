@@ -25,9 +25,19 @@ export function Eyebrow({
   );
 }
 
+/**
+ * The band heading used by every section. Takes plain strings so it can be
+ * spread straight from a content file:
+ *
+ *   <SectionHeading {...content.services.section.heading} />
+ *
+ * `titleMuted` is the dimmed second half of the sentence — the pattern the
+ * whole site uses to land a headline on two tones.
+ */
 export function SectionHeading({
   eyebrow,
   title,
+  titleMuted,
   description,
   align = "left",
   className,
@@ -35,8 +45,9 @@ export function SectionHeading({
   children,
 }: {
   eyebrow?: string;
-  title: ReactNode;
-  description?: ReactNode;
+  title: string;
+  titleMuted?: string;
+  description?: string;
   align?: "left" | "center";
   className?: string;
   titleClassName?: string;
@@ -64,6 +75,12 @@ export function SectionHeading({
           )}
         >
           {title}
+          {titleMuted && (
+            <>
+              {" "}
+              <span className="text-white/40">{titleMuted}</span>
+            </>
+          )}
         </h2>
       </Reveal>
 

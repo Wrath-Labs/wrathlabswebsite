@@ -1,0 +1,53 @@
+{
+  "_note": [
+    "HOW YOU WORK — the five numbered stages on the timeline.",
+    "",
+    "This section appears on both the home page and the Services page. Add or",
+    "remove a stage and the timeline redraws itself.",
+    "",
+    "`step` is the number shown beside the stage, `duration` is the little",
+    "pill next to it."
+  ],
+
+  "section": {
+    "heading": {
+      "eyebrow": "How it goes",
+      "title": "Five stages.",
+      "titleMuted": "No black boxes.",
+      "description": "You see working software in week three and every Friday after that. Nothing about our process requires you to take our word for it."
+    }
+  },
+
+  "items": [
+    {
+      "step": "01",
+      "title": "Signal",
+      "duration": "Week 0",
+      "blurb": "A 45-minute call and a short written brief. We pressure-test the problem before anyone talks solutions."
+    },
+    {
+      "step": "02",
+      "title": "Blueprint",
+      "duration": "Week 1–2",
+      "blurb": "Architecture, scope, and a clickable prototype. You get a fixed plan with named risks — not a vague statement of work."
+    },
+    {
+      "step": "03",
+      "title": "Forge",
+      "duration": "Week 3+",
+      "blurb": "Two-week sprints, demo every Friday, main always deployable. You watch it get built in your own repo."
+    },
+    {
+      "step": "04",
+      "title": "Launch",
+      "duration": "Launch",
+      "blurb": "Load tested, instrumented, documented. We ship behind flags and stay on call through the ramp."
+    },
+    {
+      "step": "05",
+      "title": "Compound",
+      "duration": "Ongoing",
+      "blurb": "Post-launch retainer or a clean handover with recorded walkthroughs. Your team owns it either way."
+    }
+  ]
+}

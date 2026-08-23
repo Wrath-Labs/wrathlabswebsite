@@ -1,26 +1,19 @@
-import { timeline, values } from "@/lib/data";
+import { content } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { SpotlightCard } from "../ui/SpotlightCard";
 import { Reveal } from "../ui/Reveal";
 import { Icon } from "../ui/Icon";
 
+const { manifesto, timeline, values } = content.about;
+
 export function Values() {
   return (
     <Section id="values">
       <div className="shell">
-        <SectionHeading
-          eyebrow="How we operate"
-          title={
-            <>
-              Four rules we don&apos;t{" "}
-              <span className="text-white/40">bend on.</span>
-            </>
-          }
-          description="Everything else is negotiable. These four are why clients come back and why our own products stay maintainable."
-        />
+        <SectionHeading {...values.heading} />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((value, i) => (
+          {values.items.map((value, i) => (
             <Reveal key={value.title} delay={i * 0.08} className="h-full">
               <SpotlightCard className="h-full">
                 <div className="flex h-full flex-col p-7">
@@ -50,14 +43,7 @@ export function Timeline() {
         <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading
-              eyebrow="The story"
-              title={
-                <>
-                  Six years,{" "}
-                  <span className="text-white/40">two disciplines.</span>
-                </>
-              }
-              description="We started as contractors, got tired of shipping software we'd never have to maintain, and built a company where we do both."
+              {...timeline.heading}
               titleClassName="md:text-[2.75rem]"
             />
           </div>
@@ -65,7 +51,7 @@ export function Timeline() {
           <div className="relative flex flex-col">
             <div className="absolute bottom-8 left-[7px] top-3 w-px bg-gradient-to-b from-ember-500/50 via-white/[0.09] to-transparent" />
 
-            {timeline.map((entry, i) => (
+            {timeline.items.map((entry, i) => (
               <Reveal key={entry.year} delay={i * 0.08}>
                 <div className="relative flex gap-6 pb-11 pl-9">
                   <span className="absolute left-0 top-2 grid size-4 place-items-center">
@@ -102,12 +88,8 @@ export function Manifesto() {
       <div className="shell relative max-w-4xl">
         <Reveal>
           <p className="font-display text-2xl font-medium leading-[1.4] tracking-tight text-white/85 md:text-[2rem]">
-            Software is only finished when someone has to keep it running at
-            3am. That&apos;s the standard we hold our own products to, and it&apos;s
-            the standard we bring to yours —{" "}
-            <span className="text-gradient-ember">
-              build it like you&apos;ll be the one carrying the pager.
-            </span>
+            {manifesto.text}
+            <span className="text-gradient-ember">{manifesto.emphasis}</span>
           </p>
         </Reveal>
 
@@ -115,7 +97,7 @@ export function Manifesto() {
           <div className="mt-10 flex items-center gap-4">
             <span className="h-px w-12 bg-ember-500/60" />
             <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
-              The founders, Wrath Labs
+              {manifesto.attribution}
             </span>
           </div>
         </Reveal>

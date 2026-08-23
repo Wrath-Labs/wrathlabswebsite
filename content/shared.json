@@ -1,0 +1,49 @@
+{
+  "_note": [
+    "TEXT THAT APPEARS IN MORE THAN ONE PLACE.",
+    "",
+    "Only put something here if it shows up on several pages. Everything that",
+    "appears once lives in the file for its own page instead.",
+    "",
+    "Reuse any of it elsewhere by writing {{shared.buttons.bookMeeting.label}}",
+    "and so on."
+  ],
+
+  "buttons": {
+    "_note": [
+      "Each button has the words on it (`label`) and where it goes (`href`).",
+      "These same buttons are used on several pages at once."
+    ],
+    "bookMeeting": {
+      "label": "Book a meeting",
+      "href": "{{navigation.paths.book}}"
+    },
+    "bookCall": {
+      "label": "Book a call",
+      "href": "{{navigation.paths.book}}"
+    },
+    "bookScopingCall": {
+      "label": "Book a scoping call",
+      "href": "{{navigation.paths.book}}"
+    },
+    "bookWalkthrough": {
+      "label": "Book a walkthrough",
+      "href": "{{navigation.paths.book}}"
+    },
+    "seeTheWork": {
+      "label": "See the work",
+      "href": "{{navigation.paths.caseStudies}}"
+    },
+    "sendMessage": {
+      "label": "Send a message",
+      "href": "{{navigation.paths.contact}}"
+    }
+  },
+
+  "labels": {
+    "_note": "Small pieces of wording that show up on every page.",
+    "breadcrumbHome": "Home",
+    "breadcrumbAriaLabel": "Breadcrumb",
+    "skipToContent": "Skip to content"
+  }
+}

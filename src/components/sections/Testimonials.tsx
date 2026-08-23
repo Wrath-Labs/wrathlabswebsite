@@ -1,14 +1,16 @@
 import { Quote, Star } from "lucide-react";
-import { testimonials, type Testimonial } from "@/lib/data";
+import { content, type Testimonial } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Marquee } from "../ui/Marquee";
 import { Reveal } from "../ui/Reveal";
+
+const { section, items } = content.testimonials;
 
 function TestimonialCard({ item }: { item: Testimonial }) {
   return (
     <figure className="mx-2.5 flex w-[340px] shrink-0 flex-col justify-between rounded-2xl border border-white/[0.07] bg-white/[0.02] p-6 transition-colors duration-500 hover:border-white/[0.14] hover:bg-white/[0.04] sm:w-[400px]">
       <div>
-        <div className="flex gap-0.5" aria-label="5 out of 5">
+        <div className="flex gap-0.5" aria-label={section.ratingLabel}>
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
               key={i}
@@ -40,22 +42,15 @@ function TestimonialCard({ item }: { item: Testimonial }) {
 }
 
 export function Testimonials() {
-  const rows = [testimonials.slice(0, 3), testimonials.slice(3)];
-  const featured = testimonials[0];
+  const rows = [items.slice(0, 3), items.slice(3)];
+  const featured = items[0];
 
   return (
     <Section id="testimonials" className="overflow-hidden">
       <div className="shell">
         <SectionHeading
+          {...section.heading}
           align="center"
-          eyebrow="Client words"
-          title={
-            <>
-              They kept us{" "}
-              <span className="text-white/40">after the first project.</span>
-            </>
-          }
-          description="98% of the teams we've worked with came back for a second engagement. Here's why, in their words."
           className="mx-auto items-center"
         />
       </div>

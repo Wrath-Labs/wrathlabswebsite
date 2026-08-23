@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
-import { footerNav, site, socials } from "@/lib/data";
+import { content } from "@/content";
 import { Logo } from "./Logo";
 import { BrandIcon } from "../ui/BrandIcon";
 import { Reveal } from "../ui/Reveal";
+
+const { brand } = content;
+const { footer } = content.navigation;
 
 export function Footer() {
   return (
@@ -14,8 +17,8 @@ export function Footer() {
       <div className="shell relative">
         {/* Oversized wordmark */}
         <div className="pointer-events-none select-none pt-20 md:pt-28">
-          <h2 className="font-display text-[15vw] font-bold leading-[0.82] tracking-[-0.05em] text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.09)] md:text-[13vw]">
-            WRATH LABS
+          <h2 className="font-display text-[15vw] font-bold uppercase leading-[0.82] tracking-[-0.05em] text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.09)] md:text-[13vw]">
+            {brand.name}
           </h2>
         </div>
 
@@ -23,26 +26,26 @@ export function Footer() {
           <div className="flex flex-col gap-6">
             <Logo />
             <p className="max-w-xs text-sm leading-relaxed text-white/45">
-              {site.description}
+              {footer.description}
             </p>
 
             <div className="flex flex-col gap-2.5 text-sm">
               <a
-                href={`mailto:${site.email}`}
+                href={`mailto:${brand.email}`}
                 className="group inline-flex items-center gap-2.5 text-white/60 transition-colors hover:text-white"
               >
                 <Mail className="size-4 text-ember-500" strokeWidth={1.5} />
-                {site.email}
+                {brand.email}
                 <ArrowUpRight className="size-3.5 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
               </a>
               <span className="inline-flex items-center gap-2.5 text-white/45">
                 <MapPin className="size-4 text-ember-500" strokeWidth={1.5} />
-                {site.address}
+                {brand.address}
               </span>
             </div>
 
             <div className="flex flex-wrap items-center gap-2 pt-1">
-              {socials.map((s) => (
+              {brand.socials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
@@ -52,14 +55,14 @@ export function Footer() {
                   title={`${s.label} · ${s.handle}`}
                   className="group grid size-9 place-items-center rounded-full border border-white/[0.08] text-white/50 transition-all duration-300 hover:-translate-y-0.5 hover:border-ember-500/40 hover:bg-ember-500/10 hover:text-ember-400"
                 >
-                  <BrandIcon brand={s.brand} className="size-3.5" />
+                  <BrandIcon brand={s.icon} className="size-3.5" />
                 </a>
               ))}
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
-            {footerNav.map((col, i) => (
+            {footer.columns.map((col, i) => (
               <Reveal key={col.title} delay={i * 0.05}>
                 <div className="flex flex-col gap-4">
                   <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/35">
@@ -88,19 +91,27 @@ export function Footer() {
 
         <div className="flex flex-col-reverse items-start justify-between gap-4 border-t border-white/[0.07] py-7 text-xs text-white/35 sm:flex-row sm:items-center">
           <p>
-            © {new Date().getFullYear()} {site.name} Ltd. All rights reserved.
+            {footer.copyright.replace(
+              "{year}",
+              String(new Date().getFullYear()),
+            )}
           </p>
           <div className="flex items-center gap-5">
-            <span className="inline-flex items-center gap-2 font-mono">
-              <span className="size-1.5 rounded-full bg-emerald-400" />
-              All systems operational
-            </span>
-            <Link href="/legal/privacy" className="transition-colors hover:text-white/70">
-              Privacy
-            </Link>
-            <Link href="/legal/terms" className="transition-colors hover:text-white/70">
-              Terms
-            </Link>
+            {footer.status.show && (
+              <span className="inline-flex items-center gap-2 font-mono">
+                <span className="size-1.5 rounded-full bg-emerald-400" />
+                {footer.status.text}
+              </span>
+            )}
+            {footer.legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-colors hover:text-white/70"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

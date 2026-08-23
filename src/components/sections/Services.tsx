@@ -1,10 +1,12 @@
 import { ArrowUpRight, Check } from "lucide-react";
-import { services } from "@/lib/data";
+import { content } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { SpotlightCard } from "../ui/SpotlightCard";
 import { Reveal } from "../ui/Reveal";
 import { Icon } from "../ui/Icon";
 import { Button } from "../ui/Button";
+
+const { section, items } = content.services;
 
 export function Services({
   detailed = false,
@@ -19,26 +21,17 @@ export function Services({
       <div className="shell">
         {showHeading && (
           <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
-            <SectionHeading
-              eyebrow="What we do"
-              title={
-                <>
-                  Six disciplines,{" "}
-                  <span className="text-white/40">one delivery team.</span>
-                </>
-              }
-              description="We staff a squad from these, not a department per line item. Most engagements pull from three or four at once."
-            />
+            <SectionHeading {...section.heading} />
             <Reveal delay={0.2}>
-              <Button href="/services" variant="secondary" withArrow>
-                All services
+              <Button href={section.button.href} variant="secondary" withArrow>
+                {section.button.label}
               </Button>
             </Reveal>
           </div>
         )}
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
+          {items.map((service, i) => (
             <Reveal key={service.id} delay={(i % 3) * 0.08} className="h-full">
               <SpotlightCard
                 className="h-full"

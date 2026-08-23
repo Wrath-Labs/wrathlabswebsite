@@ -1,0 +1,77 @@
+{
+  "_note": [
+    "THE HOME PAGE — everything in the first screen visitors see.",
+    "",
+    "The bands further down the home page live in their own files:",
+    "sections.json, services.json, products.json, process.json,",
+    "case-studies.json, testimonials.json, pricing.json and faq.json."
+  ],
+
+  "hero": {
+    "badge": {
+      "_note": [
+        "The pill above the headline. `tag` is the bright gradient label on the",
+        "left. Set `show` to false to hide the whole pill."
+      ],
+      "show": true,
+      "tag": "New",
+      "text": "Nexus agent runtime is in open beta",
+      "href": "{{products.items.2.href}}"
+    },
+    "headline": {
+      "_note": [
+        "Two lines. The second is the one painted in the orange/red gradient.",
+        "Both come from brand.json so the tagline stays consistent with the",
+        "business card and social previews."
+      ],
+      "lineOne": "{{brand.tagline.lineOne}}",
+      "lineTwo": "{{brand.tagline.lineTwo}}"
+    },
+    "description": "{{brand.name}} is a product studio and engineering lab. We ship our own software — then bring everything we learned to the teams we build with.",
+    "primaryButton": {
+      "label": "{{shared.buttons.bookMeeting.label}}",
+      "href": "{{shared.buttons.bookMeeting.href}}"
+    },
+    "secondaryButton": {
+      "label": "{{shared.buttons.seeTheWork.label}}",
+      "href": "{{shared.buttons.seeTheWork.href}}"
+    },
+    "footnote": "No sales deck · A senior engineer on the first call"
+  },
+
+  "telemetry": {
+    "_note": [
+      "The dark panel under the headline, styled like a live dashboard.",
+      "",
+      "`value` must be a plain number because it counts up on load — put any",
+      "symbol in `suffix`. `trend` draws the little line graph: any list of",
+      "numbers works, they are scaled to fit, so bigger last numbers make an",
+      "upward line.",
+      "",
+      "Set `show` to false to remove the panel entirely."
+    ],
+    "show": true,
+    "address": "wrathlabs://lab/telemetry",
+    "liveLabel": "live",
+    "metrics": [
+      {
+        "label": "Agent runs / mo",
+        "value": 6.1,
+        "suffix": "M",
+        "trend": [8, 14, 11, 19, 16, 24, 22, 31, 28, 36]
+      },
+      {
+        "label": "Deploys / week",
+        "value": 412,
+        "suffix": "",
+        "trend": [20, 18, 26, 22, 30, 27, 34, 31, 38, 41]
+      },
+      {
+        "label": "Platform uptime",
+        "value": 99.98,
+        "suffix": "%",
+        "trend": [34, 36, 35, 37, 36, 38, 37, 38, 39, 39]
+      }
+    ]
+  }
+}

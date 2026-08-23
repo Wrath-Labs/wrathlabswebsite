@@ -1,0 +1,197 @@
+{
+  "_note": [
+    "PRICES — both the agency engagements and the product plans.",
+    "",
+    "The two tabs on the pricing band come from `tabs` below. Each tab has its",
+    "own list of `tiers`.",
+    "",
+    "`price` and `unit` are free text, so \"$12k\" / \"/ 2-week sprint\" or",
+    "\"Custom\" / \"/ annual\" all work. Exactly one tier per tab should have",
+    "`featured` set to true — that is the one lifted out with the red glow and",
+    "the \"Most popular\" ribbon."
+  ],
+
+  "page": {
+    "seo": {
+      "title": "Pricing",
+      "description": "Transparent pricing for agency engagements and lab products. Sprints from $12k, retainers from $24k/month, product plans from free."
+    },
+    "hero": {
+      "eyebrow": "Pricing",
+      "title": "What it costs, before you ask.",
+      "description": "We publish our rates because chasing a quote wastes everyone's week. Sprints are fixed-price, retainers are monthly, and products are self-serve.",
+      "breadcrumb": [{ "label": "Pricing", "href": "{{navigation.paths.pricing}}" }]
+    },
+    "closing": {
+      "eyebrow": "Still deciding",
+      "title": "Cheapest way to evaluate us: talk to us.",
+      "description": "A scoping call costs nothing and you'll leave with an architecture opinion whether or not you hire us."
+    }
+  },
+
+  "section": {
+    "heading": {
+      "eyebrow": "Pricing",
+      "title": "Priced in public.",
+      "titleMuted": "No discovery call required.",
+      "description": "Two ways to work with us: hire the studio, or buy the software the studio built."
+    },
+    "featuredBadge": "Most popular"
+  },
+
+  "tabs": [
+    {
+      "_note": "`note` is the small print under the cards for this tab.",
+      "id": "agency",
+      "label": "Agency engagements",
+      "note": "All engagements include a named product lead, your own Slack channel, and full IP transfer. Prices exclude VAT.",
+      "tiers": [
+        {
+          "name": "Sprint",
+          "price": "$12k",
+          "unit": "/ 2-week sprint",
+          "featured": false,
+          "blurb": "A fixed, scoped burst of senior work. Ideal for prototypes, audits, and unblocking a stalled build.",
+          "features": [
+            "1 senior engineer + 0.5 designer",
+            "Fixed scope, fixed price",
+            "Friday demo & written recap",
+            "Your repo, your infra",
+            "Async Slack channel"
+          ],
+          "cta": {
+            "label": "{{shared.buttons.bookScopingCall.label}}",
+            "href": "{{shared.buttons.bookScopingCall.href}}"
+          }
+        },
+        {
+          "name": "Retainer",
+          "price": "$24k",
+          "unit": "/ month",
+          "featured": true,
+          "blurb": "A standing squad that treats your roadmap as theirs. Our most common engagement, minimum three months.",
+          "features": [
+            "2–3 engineers + designer",
+            "Dedicated product lead",
+            "Two-week sprint cadence",
+            "Architecture & code ownership",
+            "Priority Slack + weekly call",
+            "Pause or resize with 30 days' notice"
+          ],
+          "cta": { "label": "Start a conversation", "href": "{{navigation.paths.book}}" }
+        },
+        {
+          "name": "Embedded",
+          "price": "Custom",
+          "unit": "/ quarterly",
+          "featured": false,
+          "blurb": "We operate as your product org — hiring alongside you, owning delivery, and handing over as your team grows.",
+          "features": [
+            "Cross-functional pod, 4–8 people",
+            "Fractional CTO available",
+            "24/7 on-call rotation",
+            "SOC 2 & compliance support",
+            "Hiring & onboarding support",
+            "Quarterly roadmap planning"
+          ],
+          "cta": { "label": "Talk to a founder", "href": "{{navigation.paths.contact}}" }
+        }
+      ]
+    },
+    {
+      "id": "products",
+      "label": "Lab products",
+      "note": "Pricing shown for {{products.items.3.name}}. {{products.items.0.name}}, {{products.items.1.name}}, and {{products.items.2.name}} follow the same tiers with volume measured per product.",
+      "tiers": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "unit": "/ month",
+          "featured": false,
+          "blurb": "For side projects and evaluation. No card, no expiry.",
+          "features": [
+            "1 project",
+            "50k events / month",
+            "7-day retention",
+            "Community support"
+          ],
+          "cta": { "label": "Get started", "href": "{{navigation.paths.contact}}" }
+        },
+        {
+          "name": "Pro",
+          "price": "$59",
+          "unit": "/ month",
+          "featured": true,
+          "blurb": "For teams running something real in production.",
+          "features": [
+            "5 projects",
+            "2M events / month",
+            "90-day retention",
+            "Alerting & integrations",
+            "Email support, 1 business day"
+          ],
+          "cta": { "label": "Start free trial", "href": "{{navigation.paths.contact}}" }
+        },
+        {
+          "name": "Scale",
+          "price": "$249",
+          "unit": "/ month",
+          "featured": false,
+          "blurb": "For products where downtime has a dollar figure.",
+          "features": [
+            "Unlimited projects",
+            "25M events / month",
+            "13-month retention",
+            "SSO & audit logs",
+            "Warehouse sync",
+            "Shared Slack channel"
+          ],
+          "cta": { "label": "Start free trial", "href": "{{navigation.paths.contact}}" }
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "unit": "/ annual",
+          "featured": false,
+          "blurb": "Self-hosted or in your own cloud, with terms to match.",
+          "features": [
+            "Self-host or private cloud",
+            "Unlimited volume",
+            "Custom data residency",
+            "99.99% uptime SLA",
+            "Named solutions engineer"
+          ],
+          "cta": { "label": "Contact sales", "href": "{{navigation.paths.contact}}" }
+        }
+      ]
+    }
+  ],
+
+  "finePrint": {
+    "_note": [
+      "The two lists near the bottom of the Pricing page — one ticked in green,",
+      "one crossed out in red."
+    ],
+    "heading": {
+      "eyebrow": "The fine print",
+      "title": "Always included.",
+      "titleMuted": "Never charged extra."
+    },
+    "includedTitle": "In every engagement",
+    "included": [
+      "Senior engineers only — no junior bench",
+      "Your repository, your infrastructure",
+      "Full IP transfer from the first commit",
+      "Friday demos and written weekly recaps",
+      "Architecture decision records",
+      "Recorded handover walkthroughs"
+    ],
+    "excludedTitle": "Things we don't do",
+    "excluded": [
+      "Minimum 12-month lock-ins",
+      "Change-request surcharges",
+      "Charging for the scoping call",
+      "Account managers between you and the team"
+    ]
+  }
+}

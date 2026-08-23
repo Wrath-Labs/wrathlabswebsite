@@ -1,0 +1,109 @@
+{
+  "_note": [
+    "THE ABOUT PAGE — your story, your principles, and the manifesto quote.",
+    "",
+    "The About page also shows the numbers band (stats.json), the Lab/Studio",
+    "panels and the technology marquee (sections.json), so if something on that",
+    "page isn't here, try those."
+  ],
+
+  "page": {
+    "seo": {
+      "title": "About",
+      "description": "{{brand.name}} is a product studio and engineering lab founded in {{brand.founded}} — {{brand.words.productCount}} products of our own, and senior squads embedded with client teams across {{brand.words.countriesServed}} countries."
+    },
+    "hero": {
+      "eyebrow": "About",
+      "title": "A studio that has to live with its own code.",
+      "description": "Founded in {{brand.founded}} by two engineers who were tired of shipping software they'd never maintain. Today we run {{brand.words.productCount}} products of our own and build with teams across {{brand.words.countriesServed}} countries.",
+      "breadcrumb": [{ "label": "About", "href": "{{navigation.paths.about}}" }]
+    },
+    "buttons": {
+      "primary": { "label": "Meet the team", "href": "{{navigation.paths.book}}" },
+      "secondary": {
+        "label": "{{shared.buttons.seeTheWork.label}}",
+        "href": "{{shared.buttons.seeTheWork.href}}"
+      }
+    },
+    "closing": {
+      "eyebrow": "Work with us",
+      "title": "We're picky about projects, not about people.",
+      "description": "If you're building something that has to hold up under real load, we'd like to hear about it."
+    }
+  },
+
+  "manifesto": {
+    "_note": [
+      "The single large paragraph near the top. `emphasis` is the closing part",
+      "of the sentence, painted in the orange/red gradient — it is joined onto",
+      "the end of `text`, so leave a space at the end of `text`."
+    ],
+    "text": "Software is only finished when someone has to keep it running at 3am. That's the standard we hold our own products to, and it's the standard we bring to yours — ",
+    "emphasis": "build it like you'll be the one carrying the pager.",
+    "attribution": "The founders, {{brand.name}}"
+  },
+
+  "values": {
+    "_note": "The four principle cards. Add a fifth and the grid re-flows.",
+    "heading": {
+      "eyebrow": "How we operate",
+      "title": "Four rules we don't",
+      "titleMuted": "bend on.",
+      "description": "Everything else is negotiable. These four are why clients come back and why our own products stay maintainable."
+    },
+    "items": [
+      {
+        "title": "Senior only",
+        "icon": "Award",
+        "blurb": "No junior bench, no bait-and-switch. The people on your scoping call are the people writing the code."
+      },
+      {
+        "title": "Written by default",
+        "icon": "FileText",
+        "blurb": "Decisions live in documents, not in someone's memory. You can audit why anything is the way it is."
+      },
+      {
+        "title": "Ship weekly",
+        "icon": "Rocket",
+        "blurb": "Something demoable every Friday from week one. Progress you can click beats progress you're told about."
+      },
+      {
+        "title": "Own the outcome",
+        "icon": "Target",
+        "blurb": "We measure ourselves on what your product does in production, not on hours logged against a spec."
+      }
+    ]
+  },
+
+  "timeline": {
+    "_note": "The company story, oldest first.",
+    "heading": {
+      "eyebrow": "The story",
+      "title": "Six years,",
+      "titleMuted": "two disciplines.",
+      "description": "We started as contractors, got tired of shipping software we'd never have to maintain, and built a company where we do both."
+    },
+    "items": [
+      {
+        "year": "2019",
+        "title": "Two engineers, one contract",
+        "blurb": "Founded in London after a decade of building payments and infrastructure inside other people's companies."
+      },
+      {
+        "year": "2021",
+        "title": "The lab opens",
+        "blurb": "Carved out 40% of engineering time for our own products. {{products.items.0.name}} started as an internal tool we refused to stop using."
+      },
+      {
+        "year": "2023",
+        "title": "Bengaluru studio",
+        "blurb": "A second timezone, and with it round-the-clock on-call for the platforms we run."
+      },
+      {
+        "year": "2025",
+        "title": "Five products, {{stats.items.0.value}} launches",
+        "blurb": "{{products.items.0.name}} and {{products.items.3.name}} went GA, {{products.items.2.name}} entered beta, and client work crossed {{brand.words.countriesServed}} countries."
+      }
+    ]
+  }
+}

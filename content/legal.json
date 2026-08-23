@@ -1,0 +1,132 @@
+{
+  "_note": [
+    "PRIVACY POLICY AND TERMS OF SERVICE.",
+    "",
+    "Each document is a list of `sections`, and each section has a `heading`",
+    "plus one or more paragraphs in `body`. The contents list down the side of",
+    "the page is built from the headings automatically.",
+    "",
+    "Remember to update `lastUpdated` when you change the wording."
+  ],
+
+  "contentsLabel": "Contents",
+
+  "disclaimer": {
+    "_note": [
+      "The orange warning box beside both documents. Set `show` to false once a",
+      "solicitor has signed these off."
+    ],
+    "show": true,
+    "text": "Template copy. Have a solicitor review this before you rely on it commercially."
+  },
+
+  "privacy": {
+    "seo": {
+      "title": "Privacy Policy",
+      "description": "How {{brand.name}} collects, uses, and stores personal data."
+    },
+    "hero": {
+      "eyebrow": "Legal",
+      "title": "Privacy Policy",
+      "description": "Plain English, no dark patterns. Last updated {{legal.privacy.lastUpdated}}.",
+      "breadcrumb": [{ "label": "Privacy", "href": "{{navigation.paths.privacy}}" }]
+    },
+    "lastUpdated": "August 2026",
+    "sections": [
+      {
+        "heading": "What we collect",
+        "body": [
+          "When you submit the contact or booking form we collect your name, email address, company name, and whatever you write in the message field. That's it — we don't ask for anything we don't need to reply to you.",
+          "We collect aggregate, cookieless analytics about page visits (page path, referrer, country, device class). This data is not tied to an individual and never leaves our own infrastructure."
+        ]
+      },
+      {
+        "heading": "Why we collect it",
+        "body": [
+          "To reply to your enquiry, schedule a meeting you requested, and keep a record of the conversation for as long as it's commercially relevant.",
+          "To understand which pages are useful so we can improve them. Nothing more."
+        ]
+      },
+      {
+        "heading": "What we don't do",
+        "body": [
+          "We don't sell, rent, or share your data with third parties for marketing. We don't add you to a mailing list or an automated sequence because you filled in a form.",
+          "We don't use third-party advertising trackers, and we don't set cookies for advertising purposes."
+        ]
+      },
+      {
+        "heading": "How long we keep it",
+        "body": [
+          "Enquiry data is retained for 24 months from the last contact, then deleted. Contractual records are kept for the period required by UK company and tax law."
+        ]
+      },
+      {
+        "heading": "Your rights",
+        "body": [
+          "You can ask us for a copy of the data we hold about you, ask us to correct it, or ask us to delete it. Email {{brand.email}} and we'll action the request within 30 days.",
+          "If you're in the UK or EEA you also have the right to complain to your local data protection authority."
+        ]
+      },
+      {
+        "heading": "Sub-processors",
+        "body": [
+          "We use a small number of third-party services to run this site and our business: cloud hosting, transactional email, and a video conferencing provider for scheduled calls. Each is contractually bound to process data only on our instructions."
+        ]
+      }
+    ]
+  },
+
+  "terms": {
+    "seo": {
+      "title": "Terms of Service",
+      "description": "The terms covering use of the {{brand.name}} website and lab products."
+    },
+    "hero": {
+      "eyebrow": "Legal",
+      "title": "Terms of Service",
+      "description": "Short, readable, and not a substitute for the contract we'd actually sign. Last updated {{legal.terms.lastUpdated}}.",
+      "breadcrumb": [{ "label": "Terms", "href": "{{navigation.paths.terms}}" }]
+    },
+    "lastUpdated": "August 2026",
+    "sections": [
+      {
+        "heading": "Using this site",
+        "body": [
+          "You're welcome to read, quote, and link to anything on this site. Please don't scrape it at a volume that affects other visitors, and don't republish whole pages as your own."
+        ]
+      },
+      {
+        "heading": "Engagement terms",
+        "body": [
+          "Nothing on this site constitutes a binding offer. Client engagements are governed by a separate master services agreement and statement of work signed by both parties.",
+          "Prices shown are indicative, exclude VAT and applicable taxes, and may change. The price in your signed statement of work is the one that applies."
+        ]
+      },
+      {
+        "heading": "Intellectual property",
+        "body": [
+          "Work product created for a client under a statement of work transfers to that client on payment, as set out in the agreement.",
+          "The {{brand.name}} name, logo, and the source code of our own products remain ours. Product use is governed by the licence accompanying each product."
+        ]
+      },
+      {
+        "heading": "Product availability",
+        "body": [
+          "Products marked Beta, Alpha, or Research are provided as-is and may change or be withdrawn. Uptime commitments apply only to plans that state them explicitly."
+        ]
+      },
+      {
+        "heading": "Liability",
+        "body": [
+          "To the extent permitted by law, we're not liable for indirect or consequential loss arising from use of this site. Liability under a client engagement is capped as set out in the relevant agreement."
+        ]
+      },
+      {
+        "heading": "Governing law",
+        "body": [
+          "These terms are governed by the laws of England and Wales, and the courts of England and Wales have exclusive jurisdiction over any dispute."
+        ]
+      }
+    ]
+  }
+}

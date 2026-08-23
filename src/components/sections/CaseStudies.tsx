@@ -1,10 +1,20 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { caseStudies, type CaseStudy } from "@/lib/data";
+import { content, type CaseStudy } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
 import { Button } from "../ui/Button";
 import { cn } from "@/lib/utils";
+
+const { section, items } = content.caseStudies;
+
+/** Cover-art gradients for the `accent` values allowed in the content file. */
+const accents: Record<string, string> = {
+  ember: "from-ember-500 to-flare-500",
+  flare: "from-flare-500 to-ember-500",
+  volt: "from-volt-500 to-volt-400",
+  duotone: "from-ember-400 to-volt-500",
+};
 
 /** Generated cover art — a mesh wash, grid, and the client's initials. */
 function CaseCover({ study }: { study: CaseStudy }) {
@@ -19,7 +29,7 @@ function CaseCover({ study }: { study: CaseStudy }) {
       <div
         className={cn(
           "absolute inset-0 bg-gradient-to-br opacity-25 transition-opacity duration-700 group-hover:opacity-40",
-          study.accent,
+          accents[study.accent] ?? accents.ember,
         )}
       />
       <div className="bg-grid absolute inset-0 opacity-40 [background-size:40px_40px]" />
@@ -89,7 +99,7 @@ export function CaseStudyCard({
           </div>
 
           <div className="mt-6 flex items-center gap-2 text-sm font-medium text-white/70 transition-colors group-hover:text-ember-400">
-            Read the case study
+            {section.cardLink}
             <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </div>
         </div>
@@ -103,25 +113,16 @@ export function CaseStudiesSection({ limit = 2 }: { limit?: number }) {
     <Section id="case-studies">
       <div className="shell">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
-          <SectionHeading
-            eyebrow="Selected work"
-            title={
-              <>
-                Shipped, measured,{" "}
-                <span className="text-white/40">still running.</span>
-              </>
-            }
-            description="Every number here came from production instrumentation, not a pitch deck."
-          />
+          <SectionHeading {...section.heading} />
           <Reveal delay={0.2}>
-            <Button href="/case-studies" variant="secondary" withArrow>
-              All case studies
+            <Button href={section.button.href} variant="secondary" withArrow>
+              {section.button.label}
             </Button>
           </Reveal>
         </div>
 
         <div className="mt-14 grid gap-5 lg:grid-cols-2">
-          {caseStudies.slice(0, limit).map((study, i) => (
+          {items.slice(0, limit).map((study, i) => (
             <CaseStudyCard key={study.slug} study={study} index={i} />
           ))}
         </div>

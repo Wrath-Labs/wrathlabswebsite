@@ -1,10 +1,20 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
+import { content } from "@/content";
 import { AmbientOrbs } from "../fx/Atmosphere";
 import { Eyebrow } from "../ui/SectionHeading";
 import { Reveal, TextReveal } from "../ui/Reveal";
 
+const { labels } = content.shared;
+const { paths } = content.navigation;
+
+/**
+ * The heading block at the top of every page other than the home page. Props
+ * match the `hero` object in each page's content file, so callers spread it:
+ *
+ *   <PageHero {...content.services.page.hero} />
+ */
 export function PageHero({
   eyebrow,
   title,
@@ -30,11 +40,14 @@ export function PageHero({
         {breadcrumb && (
           <Reveal duration={0.5}>
             <nav
-              aria-label="Breadcrumb"
+              aria-label={labels.breadcrumbAriaLabel}
               className="mb-7 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-white/30"
             >
-              <Link href="/" className="transition-colors hover:text-white/70">
-                Home
+              <Link
+                href={paths.home}
+                className="transition-colors hover:text-white/70"
+              >
+                {labels.breadcrumbHome}
               </Link>
               {breadcrumb.map((crumb, i) => (
                 <span key={crumb.href} className="flex items-center gap-1.5">

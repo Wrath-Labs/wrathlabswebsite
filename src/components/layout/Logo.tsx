@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { content } from "@/content";
 import { cn } from "@/lib/utils";
+
+const { brand, navigation } = content;
 
 export function LogoMark({ className }: { className?: string }) {
   return (
@@ -39,7 +42,7 @@ export function LogoMark({ className }: { className?: string }) {
 
 export function Logo({
   className,
-  href = "/",
+  href = navigation.paths.home,
 }: {
   className?: string;
   href?: string;
@@ -48,7 +51,7 @@ export function Logo({
     <Link
       href={href}
       className={cn("group flex items-center gap-2.5", className)}
-      aria-label="Wrath Labs — home"
+      aria-label={brand.logo.ariaLabel}
     >
       <span className="relative">
         <LogoMark className="size-8 transition-transform duration-500 group-hover:rotate-[8deg]" />
@@ -58,9 +61,9 @@ export function Logo({
         />
       </span>
       <span className="font-display text-[17px] font-semibold leading-none tracking-tight text-white">
-        Wrath
+        {brand.nameParts.first}
         <span className="ml-1 font-normal text-white/45 transition-colors duration-300 group-hover:text-ember-400">
-          Labs
+          {brand.nameParts.second}
         </span>
       </span>
     </Link>

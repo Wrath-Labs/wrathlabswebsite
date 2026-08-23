@@ -1,0 +1,74 @@
+{
+  "_note": [
+    "SEARCH ENGINES AND LINK PREVIEWS — the site-wide defaults.",
+    "",
+    "Each page's own title and description live in that page's file, under",
+    "`page.seo`. This file only holds the settings that apply everywhere.",
+    "",
+    "`titleTemplate` is how a page title is written in the browser tab. The %s",
+    "stands for the page's own title, so \"%s · {{brand.name}}\" comes out as",
+    "\"Pricing · {{brand.name}}\". Keep the %s.",
+    "",
+    "`sitemap` is the list handed to Google. Every page should be in it, with a",
+    "priority between 0 and 1 saying how important it is relative to the",
+    "others. Case study pages are added automatically."
+  ],
+
+  "titleDefault": "{{brand.name}} — Product studio & engineering lab",
+  "titleTemplate": "%s · {{brand.name}}",
+  "description": "{{brand.description}}",
+  "locale": "en_GB",
+  "language": "en",
+
+  "keywords": [
+    "product studio",
+    "software agency",
+    "AI engineering",
+    "Next.js development",
+    "platform engineering",
+    "{{brand.name}}"
+  ],
+
+  "twitter": {
+    "_note": "The X / Twitter account credited when someone shares a link.",
+    "site": "@wrathlabs",
+    "creator": "@wrathlabs"
+  },
+
+  "theme": {
+    "_note": [
+      "The colour mobile browsers paint around the page. Should match the site",
+      "background in content/../src/app/globals.css."
+    ],
+    "colour": "#030305",
+    "colourScheme": "dark"
+  },
+
+  "indexing": {
+    "_note": [
+      "Whether search engines may list the site. Set both to false while the",
+      "site is still a work in progress."
+    ],
+    "allowIndexing": true,
+    "allowFollowingLinks": true,
+    "disallowPaths": ["/api/"]
+  },
+
+  "sitemap": {
+    "changeFrequency": "monthly",
+    "caseStudyChangeFrequency": "yearly",
+    "caseStudyPriority": 0.6,
+    "pages": [
+      { "path": "{{navigation.paths.home}}", "priority": 1 },
+      { "path": "{{navigation.paths.services}}", "priority": 0.9 },
+      { "path": "{{navigation.paths.products}}", "priority": 0.9 },
+      { "path": "{{navigation.paths.caseStudies}}", "priority": 0.8 },
+      { "path": "{{navigation.paths.pricing}}", "priority": 0.8 },
+      { "path": "{{navigation.paths.about}}", "priority": 0.7 },
+      { "path": "{{navigation.paths.book}}", "priority": 0.7 },
+      { "path": "{{navigation.paths.contact}}", "priority": 0.7 },
+      { "path": "{{navigation.paths.privacy}}", "priority": 0.2 },
+      { "path": "{{navigation.paths.terms}}", "priority": 0.2 }
+    ]
+  }
+}

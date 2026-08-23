@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
-import { products, type Product, type ProductStatus } from "@/lib/data";
+import { content, type Product } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { SpotlightCard } from "../ui/SpotlightCard";
 import { Reveal } from "../ui/Reveal";
@@ -8,19 +8,22 @@ import { Icon } from "../ui/Icon";
 import { Button } from "../ui/Button";
 import { cn } from "@/lib/utils";
 
-const statusStyles: Record<ProductStatus, string> = {
+const { section, showcase, items } = content.products;
+
+/** Badge colours for the `status` values allowed in content/products.json. */
+const statusStyles: Record<string, string> = {
   Live: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
   Beta: "border-ember-500/30 bg-ember-500/10 text-ember-400",
   Alpha: "border-flare-400/30 bg-flare-400/10 text-flare-400",
   Research: "border-volt-500/30 bg-volt-500/10 text-volt-400",
 };
 
-export function StatusBadge({ status }: { status: ProductStatus }) {
+export function StatusBadge({ status }: { status: string }) {
   return (
     <span
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[10.5px] uppercase tracking-[0.14em]",
-        statusStyles[status],
+        statusStyles[status] ?? statusStyles.Research,
       )}
     >
       <span className="size-1.5 rounded-full bg-current" />
@@ -44,7 +47,7 @@ function ProductVisual({ product }: { product: Product }) {
           <span className="size-2 rounded-full bg-white/15" />
         </div>
         <span className="ml-1 font-mono text-[10.5px] text-white/30">
-          {product.name.toLowerCase()}.wrathlabs.in
+          {showcase.domainTemplate.replace("{name}", product.name.toLowerCase())}
         </span>
       </div>
 
@@ -138,53 +141,52 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 }
 
 export function Products() {
+  const { pitchCard } = section;
+
   return (
     <Section id="products" className="relative">
       <div className="shell">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
-          <SectionHeading
-            eyebrow="From the lab"
-            title={
-              <>
-                Software we own,{" "}
-                <span className="text-white/40">run, and get paged for.</span>
-              </>
-            }
-            description="Five products in the market. They fund our research, sharpen our engineering, and occasionally end up inside client stacks."
-          />
+          <SectionHeading {...section.heading} />
           <Reveal delay={0.2}>
-            <Button href="/products" variant="secondary" withArrow>
-              All products
+            <Button href={section.button.href} variant="secondary" withArrow>
+              {section.button.label}
             </Button>
           </Reveal>
         </div>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, i) => (
+          {items.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} />
           ))}
 
           {/* Pitch tile fills the sixth slot */}
-          <Reveal delay={0.16} className="h-full">
-            <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-ember-500/20 bg-gradient-to-br from-ember-600/[0.12] via-void to-void p-7">
-              <div className="absolute -right-12 -top-12 size-40 rounded-full bg-ember-500/20 blur-[60px]" />
-              <div className="relative">
-                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ember-400">
-                  Next up
-                </span>
-                <h3 className="mt-5 font-display text-2xl font-semibold leading-snug tracking-tight text-white">
-                  We&apos;re always building the next one.
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/55">
-                  Two more products are in private research. Join the list and
-                  you&apos;ll see them before anyone else does.
-                </p>
+          {pitchCard.show && (
+            <Reveal delay={0.16} className="h-full">
+              <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-ember-500/20 bg-gradient-to-br from-ember-600/[0.12] via-void to-void p-7">
+                <div className="absolute -right-12 -top-12 size-40 rounded-full bg-ember-500/20 blur-[60px]" />
+                <div className="relative">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ember-400">
+                    {pitchCard.eyebrow}
+                  </span>
+                  <h3 className="mt-5 font-display text-2xl font-semibold leading-snug tracking-tight text-white">
+                    {pitchCard.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-white/55">
+                    {pitchCard.description}
+                  </p>
+                </div>
+                <Button
+                  href={pitchCard.button.href}
+                  size="sm"
+                  className="relative mt-8 self-start"
+                  withArrow
+                >
+                  {pitchCard.button.label}
+                </Button>
               </div>
-              <Button href="/contact" size="sm" className="relative mt-8 self-start" withArrow>
-                Get early access
-              </Button>
-            </div>
-          </Reveal>
+            </Reveal>
+          )}
         </div>
       </div>
     </Section>
@@ -195,7 +197,7 @@ export function Products() {
 export function ProductShowcase() {
   return (
     <div className="flex flex-col">
-      {products.map((product, i) => (
+      {items.map((product, i) => (
         <section
           key={product.id}
           id={product.id}
@@ -246,11 +248,11 @@ export function ProductShowcase() {
                   </ul>
 
                   <div className="mt-9 flex flex-wrap items-center gap-4">
-                    <Button href="/contact" withArrow magnetic>
-                      {product.status === "Live" ? "Start free" : "Request access"}
+                    <Button href={product.cta.href} withArrow magnetic>
+                      {product.cta.label}
                     </Button>
-                    <Button href="/book" variant="ghost">
-                      Book a walkthrough
+                    <Button href={showcase.secondaryButton.href} variant="ghost">
+                      {showcase.secondaryButton.label}
                     </Button>
                   </div>
                 </div>

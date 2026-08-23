@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, Check, ChevronDown, Clock, Loader2, Mail, MapPin, Phone } from "lucide-react";
-import { services, site, socials } from "@/lib/data";
+import { content } from "@/content";
 import { openMailDraft } from "@/lib/mailto";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Button } from "../ui/Button";
@@ -11,13 +11,14 @@ import { Reveal } from "../ui/Reveal";
 import { BrandIcon } from "../ui/BrandIcon";
 import { cn } from "@/lib/utils";
 
-const budgets = [
-  "Under $25k",
-  "$25k – $75k",
-  "$75k – $150k",
-  "$150k – $500k",
-  "$500k+",
-  "Not sure yet",
+const { brand } = content;
+const { section, form: copy } = content.contact;
+const { details } = section;
+
+/** The dropdown offers every service, then whatever extras the content adds. */
+const interestOptions = [
+  ...content.services.items.map((s) => s.title),
+  ...copy.interestExtras,
 ];
 
 const inputClass =
@@ -48,25 +49,25 @@ export function Contact() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!valid) {
-      setError("Add your name, a valid email, and a line or two about the work.");
+      setError(copy.validationError);
       return;
     }
     setError(null);
     setStatus("sending");
 
     try {
-      openMailDraft(`New enquiry — ${form.name.trim()}`, {
-        Name: form.name,
-        Email: form.email,
-        Company: form.company,
-        Budget: form.budget,
-        Interest: form.interest,
-        Message: form.message,
+      openMailDraft(`${copy.emailSubject} — ${form.name.trim()}`, {
+        [copy.fieldLabels.name]: form.name,
+        [copy.fieldLabels.email]: form.email,
+        [copy.fieldLabels.company]: form.company,
+        [copy.fieldLabels.budget]: form.budget,
+        [copy.fieldLabels.interest]: form.interest,
+        [copy.fieldLabels.message]: form.message,
       });
       setStatus("done");
     } catch {
       setStatus("error");
-      setError("Couldn't open your mail app. Email us directly and we'll pick it up.");
+      setError(copy.mailAppError);
     }
   }
 
@@ -81,14 +82,7 @@ export function Contact() {
           {/* left column */}
           <div>
             <SectionHeading
-              eyebrow="Contact"
-              title={
-                <>
-                  Tell us what you&apos;re{" "}
-                  <span className="text-white/40">building.</span>
-                </>
-              }
-              description="One form, straight to the founders' inbox. If there's a fit we'll suggest a call; if there isn't, we'll say so and point you somewhere better."
+              {...section.heading}
               titleClassName="md:text-[2.75rem]"
             />
 
@@ -96,30 +90,34 @@ export function Contact() {
               <div className="mt-10 flex flex-col divide-y divide-white/[0.07] border-y border-white/[0.07]">
                 <ContactRow
                   icon={Mail}
-                  label="Email"
-                  value={site.email}
-                  href={`mailto:${site.email}`}
+                  label={details.emailLabel}
+                  value={brand.email}
+                  href={`mailto:${brand.email}`}
                 />
                 <ContactRow
                   icon={Phone}
-                  label="Phone"
-                  value={site.phone}
-                  href={`tel:${site.phone.replace(/\s/g, "")}`}
+                  label={details.phoneLabel}
+                  value={brand.phone}
+                  href={`tel:${brand.phone.replace(/\s/g, "")}`}
                 />
-                <ContactRow icon={MapPin} label="Studios" value={site.address} />
+                <ContactRow
+                  icon={MapPin}
+                  label={details.addressLabel}
+                  value={brand.address}
+                />
                 <ContactRow
                   icon={Clock}
-                  label="Response time"
-                  value="Within one business day"
+                  label={details.responseLabel}
+                  value={details.responseValue}
                 />
               </div>
             </Reveal>
 
             <Reveal delay={0.28}>
               <div className="mt-8">
-                <p className={labelClass}>Elsewhere</p>
+                <p className={labelClass}>{section.socialsLabel}</p>
                 <div className="mt-3.5 flex flex-wrap gap-2">
-                  {socials.map((s) => (
+                  {brand.socials.map((s) => (
                     <a
                       key={s.label}
                       href={s.href}
@@ -127,7 +125,7 @@ export function Contact() {
                       rel="noreferrer noopener"
                       className="group inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.02] px-3.5 py-2 text-[13px] text-white/55 transition-all duration-300 hover:-translate-y-0.5 hover:border-ember-500/40 hover:text-white"
                     >
-                      <BrandIcon brand={s.brand} className="size-3.5" />
+                      <BrandIcon brand={s.icon} className="size-3.5" />
                       {s.label}
                     </a>
                   ))}
@@ -149,12 +147,13 @@ export function Contact() {
                     <Check className="size-6" strokeWidth={2.5} />
                   </span>
                   <h3 className="mt-6 font-display text-2xl font-semibold text-white">
-                    Nearly there.
+                    {copy.success.title}
                   </h3>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/55">
-                    Thanks {form.name.split(" ")[0]} — we&apos;ve opened a
-                    prefilled draft to {site.email} in your mail app. Hit send
-                    and a founder will reply within one business day.
+                    {copy.success.description.replace(
+                      "{firstName}",
+                      form.name.trim().split(" ")[0],
+                    )}
                   </p>
                   <Button
                     variant="secondary"
@@ -172,7 +171,7 @@ export function Contact() {
                       });
                     }}
                   >
-                    Send another
+                    {copy.success.resetLabel}
                   </Button>
                 </motion.div>
               ) : (
@@ -180,7 +179,10 @@ export function Contact() {
                   <div className="grid gap-5 sm:grid-cols-2">
                     <label className="flex flex-col gap-2">
                       <span className={labelClass}>
-                        Full name<span className="ml-1 text-ember-500">*</span>
+                        {copy.nameLabel}
+                        <span className="ml-1 text-ember-500">
+                          {copy.requiredMark}
+                        </span>
                       </span>
                       <input
                         className={inputClass}
@@ -188,13 +190,16 @@ export function Contact() {
                         onChange={(e) =>
                           setForm({ ...form, name: e.target.value })
                         }
-                        placeholder="Ada Lovelace"
+                        placeholder={copy.namePlaceholder}
                         autoComplete="name"
                       />
                     </label>
                     <label className="flex flex-col gap-2">
                       <span className={labelClass}>
-                        Work email<span className="ml-1 text-ember-500">*</span>
+                        {copy.emailLabel}
+                        <span className="ml-1 text-ember-500">
+                          {copy.requiredMark}
+                        </span>
                       </span>
                       <input
                         type="email"
@@ -203,47 +208,46 @@ export function Contact() {
                         onChange={(e) =>
                           setForm({ ...form, email: e.target.value })
                         }
-                        placeholder="ada@company.com"
+                        placeholder={copy.emailPlaceholder}
                         autoComplete="email"
                       />
                     </label>
                   </div>
 
                   <label className="flex flex-col gap-2">
-                    <span className={labelClass}>Company</span>
+                    <span className={labelClass}>{copy.companyLabel}</span>
                     <input
                       className={inputClass}
                       value={form.company}
                       onChange={(e) =>
                         setForm({ ...form, company: e.target.value })
                       }
-                      placeholder="Analytical Engines Ltd"
+                      placeholder={copy.companyPlaceholder}
                       autoComplete="organization"
                     />
                   </label>
 
                   <div className="grid gap-5 sm:grid-cols-2">
                     <Select
-                      label="What do you need?"
+                      label={copy.interestLabel}
                       value={form.interest}
                       onChange={(v) => setForm({ ...form, interest: v })}
-                      options={[
-                        ...services.map((s) => s.title),
-                        "A lab product",
-                        "Something else",
-                      ]}
+                      options={interestOptions}
                     />
                     <Select
-                      label="Budget range"
+                      label={copy.budgetLabel}
                       value={form.budget}
                       onChange={(v) => setForm({ ...form, budget: v })}
-                      options={budgets}
+                      options={copy.budgets}
                     />
                   </div>
 
                   <label className="flex flex-col gap-2">
                     <span className={labelClass}>
-                      The project<span className="ml-1 text-ember-500">*</span>
+                      {copy.messageLabel}
+                      <span className="ml-1 text-ember-500">
+                        {copy.requiredMark}
+                      </span>
                     </span>
                     <textarea
                       rows={5}
@@ -252,7 +256,7 @@ export function Contact() {
                       onChange={(e) =>
                         setForm({ ...form, message: e.target.value })
                       }
-                      placeholder="What are you building, what's in the way, and when does it need to be live?"
+                      placeholder={copy.messagePlaceholder}
                     />
                   </label>
 
@@ -262,7 +266,7 @@ export function Contact() {
 
                   <div className="flex flex-wrap items-center justify-between gap-4 pt-1">
                     <p className="max-w-[16rem] text-[11px] leading-relaxed text-white/30">
-                      We&apos;ll only use this to reply. No lists, no sequences.
+                      {copy.privacyNote}
                     </p>
                     <Button
                       type="submit"
@@ -273,10 +277,10 @@ export function Contact() {
                       {status === "sending" ? (
                         <>
                           <Loader2 className="size-4 animate-spin" />
-                          Sending
+                          {copy.submittingLabel}
                         </>
                       ) : (
-                        "Send message"
+                        copy.submitLabel
                       )}
                     </Button>
                   </div>
@@ -301,7 +305,7 @@ function ContactRow({
   value: string;
   href?: string;
 }) {
-  const content = (
+  const row = (
     <>
       <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-white/[0.08] bg-white/[0.02] text-ember-400">
         <IconCmp className="size-4" strokeWidth={1.5} />
@@ -321,11 +325,11 @@ function ContactRow({
   if (href) {
     return (
       <a href={href} className="group flex items-center gap-3.5 py-4">
-        {content}
+        {row}
       </a>
     );
   }
-  return <div className="flex items-center gap-3.5 py-4">{content}</div>;
+  return <div className="flex items-center gap-3.5 py-4">{row}</div>;
 }
 
 function Select({
@@ -337,7 +341,7 @@ function Select({
   label: string;
   value: string;
   onChange: (v: string) => void;
-  options: string[];
+  options: readonly string[];
 }) {
   return (
     <label className="flex flex-col gap-2">
@@ -353,7 +357,7 @@ function Select({
           )}
         >
           <option value="" className="bg-ink-900">
-            Select…
+            {copy.selectPlaceholder}
           </option>
           {options.map((o) => (
             <option key={o} value={o} className="bg-ink-900 text-white">

@@ -2,62 +2,17 @@
 
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import {
-  ArrowLeft,
-  CalendarDays,
-  Check,
-  Clock,
-  Globe,
-  Loader2,
-  Users,
-  Video,
-} from "lucide-react";
+import { ArrowLeft, Check, Clock, Globe, Loader2 } from "lucide-react";
 import { useIsClient } from "@/lib/hooks";
 import { openMailDraft } from "@/lib/mailto";
-import { site } from "@/lib/data";
+import { content } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Button } from "../ui/Button";
 import { Reveal } from "../ui/Reveal";
+import { Icon } from "../ui/Icon";
 import { cn } from "@/lib/utils";
 
-const meetingTypes = [
-  {
-    id: "intro",
-    label: "Intro call",
-    duration: "30 min",
-    icon: Video,
-    blurb: "Tell us what you're building. We'll tell you if we're the right fit.",
-  },
-  {
-    id: "technical",
-    label: "Technical deep dive",
-    duration: "45 min",
-    icon: Users,
-    blurb: "Architecture, constraints, tradeoffs. Bring your hardest question.",
-  },
-  {
-    id: "demo",
-    label: "Product walkthrough",
-    duration: "60 min",
-    icon: CalendarDays,
-    blurb: "A live tour of Sentinel, Forge, Nexus, or Prism against your use case.",
-  },
-] as const;
-
-const slots = [
-  "09:00",
-  "09:30",
-  "10:00",
-  "11:00",
-  "11:30",
-  "13:00",
-  "13:30",
-  "14:00",
-  "15:00",
-  "15:30",
-  "16:00",
-  "16:30",
-];
+const { section, meetingTypes, slots, picker, form: copy } = content.booking;
 
 type Day = { iso: string; weekday: string; day: string; month: string };
 
@@ -110,15 +65,15 @@ export function BookMeet() {
   const date = pickedDate ?? days[0]?.iso ?? null;
 
   const tz = useMemo(() => {
-    if (!isClient) return "your local time";
+    if (!isClient) return section.localTimeFallback;
     try {
       return Intl.DateTimeFormat().resolvedOptions().timeZone;
     } catch {
-      return "your local time";
+      return section.localTimeFallback;
     }
   }, [isClient]);
 
-  const selectedType = meetingTypes.find((t) => t.id === type)!;
+  const selectedType = meetingTypes.find((t) => t.id === type) ?? meetingTypes[0];
   const selectedDay = days.find((d) => d.iso === date);
 
   const canContinue = useMemo(() => {
@@ -130,14 +85,14 @@ export function BookMeet() {
   async function submit() {
     setStatus("sending");
     try {
-      openMailDraft(`Meeting request — ${form.name.trim()}`, {
-        Name: form.name,
-        Email: form.email,
-        Company: form.company,
-        Meeting: `${selectedType.label} (${selectedType.duration})`,
-        Date: date,
-        Time: slot ? `${slot} ${tz}` : null,
-        Notes: form.notes,
+      openMailDraft(`${copy.emailSubject} — ${form.name.trim()}`, {
+        [copy.fieldLabels.name]: form.name,
+        [copy.fieldLabels.email]: form.email,
+        [copy.fieldLabels.company]: form.company,
+        [copy.fieldLabels.meeting]: `${selectedType.label} (${selectedType.duration})`,
+        [copy.fieldLabels.date]: date,
+        [copy.fieldLabels.time]: slot ? `${slot} ${tz}` : null,
+        [copy.fieldLabels.notes]: form.notes,
       });
       setStatus("done");
     } catch {
@@ -153,15 +108,8 @@ export function BookMeet() {
 
       <div className="shell relative">
         <SectionHeading
+          {...section.heading}
           align="center"
-          eyebrow="Book a meeting"
-          title={
-            <>
-              Talk to an engineer,{" "}
-              <span className="text-white/40">not a salesperson.</span>
-            </>
-          }
-          description="Pick a slot that suits you. You'll get a calendar invite and a short agenda within the hour."
           className="mx-auto items-center"
         />
 
@@ -170,7 +118,7 @@ export function BookMeet() {
             {/* header / stepper */}
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.07] px-6 py-4">
               <div className="flex items-center gap-2.5">
-                {["Format", "Time", "Details"].map((label, i) => (
+                {section.steps.map((label, i) => (
                   <div key={label} className="flex items-center gap-2.5">
                     <span
                       className={cn(
@@ -189,7 +137,7 @@ export function BookMeet() {
                       )}
                       {label}
                     </span>
-                    {i < 2 && (
+                    {i < section.steps.length - 1 && (
                       <span
                         className={cn(
                           "h-px w-4 transition-colors duration-300",
@@ -220,17 +168,20 @@ export function BookMeet() {
                       <Check className="size-6" strokeWidth={2.5} />
                     </span>
                     <h3 className="mt-6 font-display text-2xl font-semibold text-white">
-                      Almost booked in.
+                      {copy.success.title}
                     </h3>
                     <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/55">
-                      {selectedType.label} · {selectedType.duration} on{" "}
-                      <span className="text-white">
-                        {selectedDay?.weekday} {selectedDay?.day}{" "}
-                        {selectedDay?.month}
-                      </span>{" "}
-                      at <span className="text-white">{slot}</span> ({tz}).
-                      Send the draft we just opened to {site.email} and the
-                      calendar invite follows within the hour.
+                      {copy.success.description
+                        .replace("{meeting}", selectedType.label)
+                        .replace("{duration}", selectedType.duration)
+                        .replace(
+                          "{date}",
+                          selectedDay
+                            ? `${selectedDay.weekday} ${selectedDay.day} ${selectedDay.month}`
+                            : "",
+                        )
+                        .replace("{time}", slot ?? "")
+                        .replace("{timezone}", tz)}
                     </p>
                     <Button
                       variant="secondary"
@@ -244,7 +195,7 @@ export function BookMeet() {
                         setForm({ name: "", email: "", company: "", notes: "" });
                       }}
                     >
-                      Book another
+                      {copy.success.resetLabel}
                     </Button>
                   </motion.div>
                 ) : (
@@ -278,7 +229,7 @@ export function BookMeet() {
                                   : "border-white/[0.08] bg-white/[0.03] text-white/50",
                               )}
                             >
-                              <mt.icon className="size-4.5" strokeWidth={1.5} />
+                              <Icon name={mt.icon} className="size-4.5" />
                             </span>
                             <span className="flex-1">
                               <span className="flex items-center gap-2.5">
@@ -316,7 +267,7 @@ export function BookMeet() {
                       <div className="flex flex-col gap-7">
                         <div>
                           <h4 className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-white/35">
-                            Pick a day
+                            {picker.dayLabel}
                           </h4>
                           <div className="mt-3.5 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:thin]">
                             {days.length === 0
@@ -364,7 +315,7 @@ export function BookMeet() {
 
                         <div>
                           <h4 className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-white/35">
-                            Available slots
+                            {picker.slotLabel}
                           </h4>
                           <div className="mt-3.5 grid grid-cols-3 gap-2 sm:grid-cols-4">
                             {slots.map((s) => {
@@ -414,45 +365,38 @@ export function BookMeet() {
 
                         <div className="grid gap-4 sm:grid-cols-2">
                           <Field
-                            label="Full name"
+                            label={copy.nameLabel}
                             value={form.name}
                             onChange={(v) => setForm({ ...form, name: v })}
-                            placeholder="Ada Lovelace"
+                            placeholder={copy.namePlaceholder}
                             required
                           />
                           <Field
-                            label="Work email"
+                            label={copy.emailLabel}
                             type="email"
                             value={form.email}
                             onChange={(v) => setForm({ ...form, email: v })}
-                            placeholder="ada@company.com"
+                            placeholder={copy.emailPlaceholder}
                             required
                           />
                         </div>
                         <Field
-                          label="Company"
+                          label={copy.companyLabel}
                           value={form.company}
                           onChange={(v) => setForm({ ...form, company: v })}
-                          placeholder="Analytical Engines Ltd"
+                          placeholder={copy.companyPlaceholder}
                         />
                         <Field
-                          label="What should we prepare?"
+                          label={copy.notesLabel}
                           value={form.notes}
                           onChange={(v) => setForm({ ...form, notes: v })}
-                          placeholder="A sentence or two on the problem, stack, and timeline."
+                          placeholder={copy.notesPlaceholder}
                           textarea
                         />
 
                         {status === "error" && (
                           <p className="text-[13px] text-ember-400">
-                            Something went wrong sending that. Email{" "}
-                            <a
-                              className="underline"
-                              href="mailto:hello@wrathlabs.in"
-                            >
-                              hello@wrathlabs.in
-                            </a>{" "}
-                            and we&apos;ll sort it.
+                            {copy.error}
                           </p>
                         )}
                       </div>
@@ -472,7 +416,7 @@ export function BookMeet() {
                   className="inline-flex items-center gap-1.5 text-[13px] text-white/45 transition-colors hover:text-white disabled:pointer-events-none disabled:opacity-0"
                 >
                   <ArrowLeft className="size-3.5" />
-                  Back
+                  {copy.backLabel}
                 </button>
 
                 {step < 2 ? (
@@ -482,7 +426,7 @@ export function BookMeet() {
                     onClick={() => setStep((s) => s + 1)}
                     withArrow
                   >
-                    Continue
+                    {copy.continueLabel}
                   </Button>
                 ) : (
                   <Button
@@ -493,10 +437,10 @@ export function BookMeet() {
                     {status === "sending" ? (
                       <>
                         <Loader2 className="size-4 animate-spin" />
-                        Confirming
+                        {copy.confirmingLabel}
                       </>
                     ) : (
-                      "Confirm booking"
+                      copy.confirmLabel
                     )}
                   </Button>
                 )}
@@ -533,7 +477,9 @@ function Field({
     <label className="flex flex-col gap-2">
       <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-white/35">
         {label}
-        {required && <span className="ml-1 text-ember-500">*</span>}
+        {required && (
+          <span className="ml-1 text-ember-500">{copy.requiredMark}</span>
+        )}
       </span>
       {textarea ? (
         <textarea

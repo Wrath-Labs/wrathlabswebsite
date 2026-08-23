@@ -1,0 +1,71 @@
+{
+  "_note": [
+    "WHAT CLIENTS SAY — the quote wall and the big featured quote.",
+    "",
+    "The first entry is the one shown large and on its own; the rest scroll",
+    "past underneath in two rows.",
+    "",
+    "Where an entry is from someone who also appears in case-studies.json, the",
+    "name, role and company are pulled from there with {{...}} so you only",
+    "rename a client once. To break that link, just type the real text over",
+    "the {{...}} part.",
+    "",
+    "`initials` is the two letters in the round avatar — set by hand so titles",
+    "like \"Dr.\" don't end up in it."
+  ],
+
+  "section": {
+    "heading": {
+      "eyebrow": "Client words",
+      "title": "They kept us",
+      "titleMuted": "after the first project.",
+      "description": "{{stats.items.2.value}}% of the teams we've worked with came back for a second engagement. Here's why, in their words."
+    },
+    "ratingLabel": "5 out of 5"
+  },
+
+  "items": [
+    {
+      "quote": "We'd been burned by two agencies before {{brand.name}}. The difference was obvious in week one — they pushed back on half our requirements and were right about most of it.",
+      "author": "{{case-studies.items.0.quote.author}}",
+      "role": "{{case-studies.items.0.quote.role}}",
+      "company": "{{case-studies.items.0.client}}",
+      "initials": "PR"
+    },
+    {
+      "quote": "They shipped a working slice in eleven days. Our previous vendor spent eleven weeks on documents that described a slice.",
+      "author": "{{case-studies.items.2.quote.author}}",
+      "role": "{{case-studies.items.2.quote.role}}",
+      "company": "{{case-studies.items.2.client}}",
+      "initials": "MD"
+    },
+    {
+      "quote": "The handover was the most professional I've seen in fifteen years. Recorded walkthroughs, architecture decision records, an on-call runbook. My team was productive the same week.",
+      "author": "Elena Kovač",
+      "role": "Director of Platform",
+      "company": "Halberd Systems",
+      "initials": "EK"
+    },
+    {
+      "quote": "What sold us was that they build their own products. They argue about our tradeoffs like people who'll have to live with them.",
+      "author": "{{case-studies.items.1.quote.author}}",
+      "role": "CMIO",
+      "company": "{{case-studies.items.1.client}}",
+      "initials": "AW"
+    },
+    {
+      "quote": "We hit our payback target in a quarter instead of a year. I've stopped describing them as a vendor — they're just part of how we build.",
+      "author": "{{case-studies.items.3.quote.author}}",
+      "role": "{{case-studies.items.3.quote.role}}",
+      "company": "{{case-studies.items.3.client}}",
+      "initials": "SM"
+    },
+    {
+      "quote": "Our AI prototype had been stuck at 'impressive demo' for eight months. They got it into production in ten weeks with evals we actually trust.",
+      "author": "Tobias Lund",
+      "role": "Founder",
+      "company": "Cadence AI",
+      "initials": "TL"
+    }
+  ]
+}

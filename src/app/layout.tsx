@@ -4,7 +4,9 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CursorGlow, Grain, ScrollProgress } from "@/components/fx/Atmosphere";
-import { site } from "@/lib/data";
+import { content } from "@/content";
+
+const { brand, seo, shared } = content;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,52 +27,59 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(brand.url),
   title: {
-    default: `${site.name} — Product studio & engineering lab`,
-    template: `%s · ${site.name}`,
+    default: seo.titleDefault,
+    template: seo.titleTemplate,
   },
-  description: site.description,
-  keywords: [
-    "product studio",
-    "software agency",
-    "AI engineering",
-    "Next.js development",
-    "platform engineering",
-    "Wrath Labs",
-  ],
-  authors: [{ name: site.name, url: site.url }],
-  creator: site.name,
+  description: seo.description,
+  keywords: seo.keywords,
+  authors: [{ name: brand.name, url: brand.url }],
+  creator: brand.name,
   openGraph: {
     type: "website",
-    url: site.url,
-    siteName: site.name,
-    title: `${site.name} — Product studio & engineering lab`,
-    description: site.description,
-    locale: "en_GB",
+    url: brand.url,
+    siteName: brand.name,
+    title: seo.titleDefault,
+    description: seo.description,
+    locale: seo.locale,
+    images: [
+      {
+        url: brand.images.socialPreview,
+        width: brand.images.socialPreviewWidth,
+        height: brand.images.socialPreviewHeight,
+        alt: brand.images.socialPreviewAlt,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@wrathlabs",
-    creator: "@wrathlabs",
-    title: `${site.name} — Product studio & engineering lab`,
-    description: site.description,
+    site: seo.twitter.site,
+    creator: seo.twitter.creator,
+    title: seo.titleDefault,
+    description: seo.description,
+    images: [brand.images.socialPreview],
+  },
+  icons: {
+    icon: brand.images.browserTabIcon,
+    apple: brand.images.phoneHomeScreenIcon,
   },
   robots: {
-    index: true,
-    follow: true,
+    index: seo.indexing.allowIndexing,
+    follow: seo.indexing.allowFollowingLinks,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#030305",
-  colorScheme: "dark",
+  themeColor: seo.theme.colour,
+  // Content files are plain JSON, so the union type is asserted here.
+  colorScheme: seo.theme.colourScheme as Viewport["colorScheme"],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang={seo.language}
       className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} h-full antialiased`}
       suppressHydrationWarning
     >
@@ -84,7 +93,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-ember-500 focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-white"
         >
-          Skip to content
+          {shared.labels.skipToContent}
         </a>
 
         <Navbar />

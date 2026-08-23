@@ -1,0 +1,51 @@
+{
+  "_note": [
+    "FREQUENTLY ASKED QUESTIONS — shown on the home, Services, Pricing,",
+    "Contact and Book pages.",
+    "",
+    "`question` is the line you click, `answer` is what unfolds underneath.",
+    "The first question is open when the page loads."
+  ],
+
+  "section": {
+    "heading": {
+      "eyebrow": "Questions",
+      "title": "The things",
+      "titleMuted": "everyone asks."
+    },
+    "sideCard": {
+      "_note": "The small box beside the questions.",
+      "icon": "MessagesSquare",
+      "title": "Something not covered?",
+      "description": "Ask a founder directly. Replies usually land the same day.",
+      "button": { "label": "Ask us anything", "href": "{{navigation.paths.contact}}" }
+    }
+  },
+
+  "items": [
+    {
+      "question": "Are you an agency or a product company?",
+      "answer": "Both, deliberately. Roughly 60% of the team works on client engagements and 40% on our own products. The lab work is why our client work is good — we hit the same problems in production and bring the answers with us."
+    },
+    {
+      "question": "How quickly can you start?",
+      "answer": "Scoping calls usually happen within 48 hours. A Sprint can typically start within two weeks; a full Retainer squad takes three to four weeks to assemble. If you're on fire, tell us — we hold a small amount of capacity for exactly that."
+    },
+    {
+      "question": "Who owns the code and IP?",
+      "answer": "You do, entirely, from the first commit. We work in your repository under your license. Anything we build for you is yours; anything we bring in is either open source or licensed to you perpetually at no cost."
+    },
+    {
+      "question": "Do you work with early-stage startups?",
+      "answer": "Yes, and often at a discount for pre-seed teams solving something we find genuinely interesting. We occasionally take part of the fee in equity, but only when we'd have wanted to invest anyway."
+    },
+    {
+      "question": "What happens when the engagement ends?",
+      "answer": "You get recorded architecture walkthroughs, decision records, an on-call runbook, and two weeks of overlap with your team at no charge. We plan the handover from the first sprint, not the last."
+    },
+    {
+      "question": "Can we hire your engineers directly?",
+      "answer": "If someone on the team wants to join you full time, we won't stand in the way — no poaching fee, no drama. It's happened four times and we still work with all four companies."
+    }
+  ]
+}

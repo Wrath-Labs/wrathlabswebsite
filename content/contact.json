@@ -1,0 +1,100 @@
+{
+  "_note": [
+    "THE CONTACT PAGE AND ITS FORM — every label, hint and message.",
+    "",
+    "The site is a static site with no server, so the form opens the visitor's",
+    "own email app with everything they typed already filled in, addressed to",
+    "{{brand.email}}. Change that address in brand.json.",
+    "",
+    "`placeholder` is the grey example text inside an empty box."
+  ],
+
+  "page": {
+    "seo": {
+      "title": "Contact",
+      "description": "Get in touch with {{brand.name}}. One form, straight to the founders — replies within {{brand.words.responseTime}}."
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Straight to the founders.",
+      "description": "No gatekeeping, no qualification call before the qualification call. Write once and you'll hear back from someone who can actually answer.",
+      "breadcrumb": [{ "label": "Contact", "href": "{{navigation.paths.contact}}" }]
+    }
+  },
+
+  "section": {
+    "heading": {
+      "eyebrow": "Contact",
+      "title": "Tell us what you're",
+      "titleMuted": "building.",
+      "description": "One form, straight to the founders' inbox. If there's a fit we'll suggest a call; if there isn't, we'll say so and point you somewhere better."
+    },
+    "details": {
+      "_note": [
+        "The four rows of contact details. The values come from brand.json so",
+        "they match the footer and the rest of the site."
+      ],
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "addressLabel": "Studios",
+      "responseLabel": "Response time",
+      "responseValue": "Within {{brand.words.responseTime}}"
+    },
+    "socialsLabel": "Elsewhere"
+  },
+
+  "form": {
+    "_note": [
+      "`interestExtras` are added to the end of the What do you need? dropdown,",
+      "after the six services from services.json."
+    ],
+    "nameLabel": "Full name",
+    "namePlaceholder": "Ada Lovelace",
+    "emailLabel": "Work email",
+    "emailPlaceholder": "ada@company.com",
+    "companyLabel": "Company",
+    "companyPlaceholder": "Analytical Engines Ltd",
+    "interestLabel": "What do you need?",
+    "interestExtras": ["A lab product", "Something else"],
+    "budgetLabel": "Budget range",
+    "budgets": [
+      "Under $25k",
+      "$25k – $75k",
+      "$75k – $150k",
+      "$150k – $500k",
+      "$500k+",
+      "Not sure yet"
+    ],
+    "messageLabel": "The project",
+    "messagePlaceholder": "What are you building, what's in the way, and when does it need to be live?",
+    "selectPlaceholder": "Select…",
+    "requiredMark": "*",
+    "privacyNote": "We'll only use this to reply. No lists, no sequences.",
+    "submitLabel": "Send message",
+    "submittingLabel": "Sending",
+    "emailSubject": "New enquiry",
+    "validationError": "Add your name, a valid email, and a line or two about the work.",
+    "mailAppError": "Couldn't open your mail app. Email us directly and we'll pick it up.",
+    "success": {
+      "_note": [
+        "Shown once the email draft has been opened. {firstName} is replaced",
+        "with whatever they typed in the name box."
+      ],
+      "title": "Nearly there.",
+      "description": "Thanks {firstName} — we've opened a prefilled draft to {{brand.email}} in your mail app. Hit send and a founder will reply within {{brand.words.responseTime}}.",
+      "resetLabel": "Send another"
+    },
+    "fieldLabels": {
+      "_note": [
+        "The headings used inside the email that gets drafted. Only the person",
+        "receiving the enquiry sees these."
+      ],
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "budget": "Budget",
+      "interest": "Interest",
+      "message": "Message"
+    }
+  }
+}

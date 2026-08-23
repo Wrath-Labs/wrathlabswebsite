@@ -1,0 +1,136 @@
+{
+  "_note": [
+    "THE BOOKING PAGE AND ITS THREE-STEP WIDGET.",
+    "",
+    "Like the contact form, this has no server behind it — confirming a slot",
+    "opens the visitor's email app with the details filled in, addressed to",
+    "{{brand.email}}.",
+    "",
+    "The calendar shows the next twelve weekdays automatically, so there are no",
+    "dates to keep up to date here. `slots` are the times offered each day."
+  ],
+
+  "page": {
+    "seo": {
+      "title": "Book a Meeting",
+      "description": "Book a 30, 45, or 60-minute call with a {{brand.name}} engineer. Calendar invite and agenda within the hour."
+    },
+    "hero": {
+      "eyebrow": "Book a meeting",
+      "title": "Thirty minutes, no deck.",
+      "description": "Pick a format and a slot below. If nothing suits, email {{brand.email}} and we'll work around you.",
+      "breadcrumb": [{ "label": "Book a Meeting", "href": "{{navigation.paths.book}}" }]
+    },
+    "expectations": [
+      {
+        "_note": "The three columns under the page heading.",
+        "step": "Before",
+        "detail": "You get a calendar invite with a short agenda and the name of whoever you'll be speaking to."
+      },
+      {
+        "step": "During",
+        "detail": "A senior engineer, not a salesperson. Bring the architecture question you've been arguing about internally."
+      },
+      {
+        "step": "After",
+        "detail": "A written summary within 24 hours: what we heard, what we'd do, and roughly what it would cost."
+      }
+    ]
+  },
+
+  "section": {
+    "heading": {
+      "eyebrow": "Book a meeting",
+      "title": "Talk to an engineer,",
+      "titleMuted": "not a salesperson.",
+      "description": "Pick a slot that suits you. You'll get a calendar invite and a short agenda within the hour."
+    },
+    "steps": ["Format", "Time", "Details"],
+    "localTimeFallback": "your local time"
+  },
+
+  "meetingTypes": [
+    {
+      "_note": [
+        "The formats offered in step one. `icon` picks the symbol — see the",
+        "icon list at the bottom of content/README.md."
+      ],
+      "id": "intro",
+      "label": "Intro call",
+      "duration": "30 min",
+      "icon": "Video",
+      "blurb": "Tell us what you're building. We'll tell you if we're the right fit."
+    },
+    {
+      "id": "technical",
+      "label": "Technical deep dive",
+      "duration": "45 min",
+      "icon": "Users",
+      "blurb": "Architecture, constraints, tradeoffs. Bring your hardest question."
+    },
+    {
+      "id": "demo",
+      "label": "Product walkthrough",
+      "duration": "60 min",
+      "icon": "CalendarDays",
+      "blurb": "A live tour of {{products.items.0.name}}, {{products.items.1.name}}, {{products.items.2.name}}, or {{products.items.3.name}} against your use case."
+    }
+  ],
+
+  "slots": [
+    "09:00",
+    "09:30",
+    "10:00",
+    "11:00",
+    "11:30",
+    "13:00",
+    "13:30",
+    "14:00",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30"
+  ],
+
+  "picker": {
+    "dayLabel": "Pick a day",
+    "slotLabel": "Available slots"
+  },
+
+  "form": {
+    "nameLabel": "Full name",
+    "namePlaceholder": "Ada Lovelace",
+    "emailLabel": "Work email",
+    "emailPlaceholder": "ada@company.com",
+    "companyLabel": "Company",
+    "companyPlaceholder": "Analytical Engines Ltd",
+    "notesLabel": "What should we prepare?",
+    "notesPlaceholder": "A sentence or two on the problem, stack, and timeline.",
+    "requiredMark": "*",
+    "backLabel": "Back",
+    "continueLabel": "Continue",
+    "confirmLabel": "Confirm booking",
+    "confirmingLabel": "Confirming",
+    "emailSubject": "Meeting request",
+    "error": "Something went wrong sending that. Email {{brand.email}} and we'll sort it.",
+    "success": {
+      "_note": [
+        "Shown after confirming. {meeting}, {duration}, {date}, {time} and",
+        "{timezone} are filled in from what the visitor chose."
+      ],
+      "title": "Almost booked in.",
+      "description": "{meeting} · {duration} on {date} at {time} ({timezone}). Send the draft we just opened to {{brand.email}} and the calendar invite follows within the hour.",
+      "resetLabel": "Book another"
+    },
+    "fieldLabels": {
+      "_note": "Headings used inside the drafted email.",
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "meeting": "Meeting",
+      "date": "Date",
+      "time": "Time",
+      "notes": "Notes"
+    }
+  }
+}

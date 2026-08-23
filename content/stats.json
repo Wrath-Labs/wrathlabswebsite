@@ -1,0 +1,21 @@
+{
+  "_note": [
+    "THE FOUR BIG NUMBERS — the band that appears on the home, About, Services",
+    "and Case Studies pages.",
+    "",
+    "`value` must be a plain number (no commas) because it counts up as the",
+    "band scrolls into view. Put any symbol in `suffix` instead — %, +, k, and",
+    "so on. Leave `suffix` as \"\" for none.",
+    "",
+    "These numbers are quoted in sentences elsewhere on the site using",
+    "{{stats.items.2.value}} and the like, so editing one here keeps the prose",
+    "honest. Counting starts at the first entry: items.0 is Products shipped."
+  ],
+
+  "items": [
+    { "value": 74, "suffix": "+", "label": "Products shipped" },
+    { "value": 5, "suffix": "", "label": "In-house lab products" },
+    { "value": 98, "suffix": "%", "label": "Client retention" },
+    { "value": 19, "suffix": "", "label": "Countries served" }
+  ]
+}

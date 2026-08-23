@@ -1,0 +1,19 @@
+{
+  "_note": [
+    "THE 'PAGE NOT FOUND' PAGE — shown when somebody follows a broken or",
+    "mistyped link.",
+    "",
+    "The list of links at the bottom is the same menu as the top navigation",
+    "bar, so it comes from navigation.json."
+  ],
+
+  "eyebrow": "Error 404",
+  "code": "404",
+  "title": "This page didn't make it past code review.",
+  "description": "The URL you followed doesn't exist — or it did, and we shipped something better in its place.",
+  "primaryButton": { "label": "Back to home", "href": "{{navigation.paths.home}}" },
+  "secondaryButton": {
+    "label": "Report a broken link",
+    "href": "{{navigation.paths.contact}}"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "_note": [
+    "BANDS THAT APPEAR ON SEVERAL PAGES.",
+    "",
+    "Each block below is one horizontal band of the site. Editing it changes",
+    "every page that band appears on.",
+    "",
+    "  whoWeAre     — the Lab / Studio pair of panels (home + About)",
+    "  techMarquee  — the scrolling list of technologies (home + About)",
+    "  socials      — the Follow Along grid (home, About, Products, Contact)",
+    "  callToAction — the big closing invitation at the foot of most pages"
+  ],
+
+  "whoWeAre": {
+    "heading": {
+      "eyebrow": "Who we are",
+      "title": "A lab and an agency,",
+      "titleMuted": "on purpose.",
+      "description": "Most studios only ship other people's software. We do both, and the two halves make each other sharper — our products keep us honest about maintenance, and client work keeps us honest about deadlines."
+    },
+    "panels": [
+      {
+        "_note": [
+          "Two panels side by side. `colour` tints the icon, the bullets and the",
+          "glow that follows your mouse — either \"ember\" (red) or \"volt\" (blue).",
+          "`kicker` is the small grey text in the top-right corner."
+        ],
+        "id": "lab",
+        "kicker": "40% of our time",
+        "title": "The Lab",
+        "icon": "Beaker",
+        "colour": "ember",
+        "blurb": "Five products of our own in the market. We fund them, run them, and get paged when they break — which is exactly why our engineering opinions are worth something.",
+        "points": [
+          "Observability, dev tools, AI infrastructure",
+          "Real users, real uptime commitments",
+          "Everything we learn goes back into client work"
+        ],
+        "link": { "label": "Explore the products", "href": "{{navigation.paths.products}}" }
+      },
+      {
+        "id": "studio",
+        "kicker": "60% of our time",
+        "title": "The Studio",
+        "icon": "Users",
+        "colour": "volt",
+        "blurb": "Senior squads embedded with your team. We take the same standards we hold our own products to and point them at your roadmap.",
+        "points": [
+          "Zero-to-one builds and rescue missions",
+          "Two-week sprints, demo every Friday",
+          "Your repo, your infra, your IP from commit one"
+        ],
+        "link": { "label": "See how we work", "href": "{{navigation.paths.services}}" }
+      }
+    ]
+  },
+
+  "techMarquee": {
+    "_note": [
+      "The two rows of technology names that scroll in opposite directions.",
+      "They are split into two rows automatically, so just keep one flat list."
+    ],
+    "label": "The stack we reach for by default",
+    "items": [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Go",
+      "Rust",
+      "Python",
+      "PostgreSQL",
+      "ClickHouse",
+      "Kubernetes",
+      "Terraform",
+      "AWS",
+      "Cloudflare",
+      "Kafka",
+      "Redis",
+      "GraphQL",
+      "Claude",
+      "PyTorch",
+      "dbt",
+      "Grafana",
+      "Playwright"
+    ]
+  },
+
+  "socials": {
+    "_note": [
+      "Only the heading lives here. The channels themselves — names, links and",
+      "one-line descriptions — are in brand.json under `socials`."
+    ],
+    "heading": {
+      "eyebrow": "Follow along",
+      "title": "We build",
+      "titleMuted": "in the open.",
+      "description": "Most of what we learn gets written down or recorded. Pick whichever channel you actually read."
+    }
+  },
+
+  "callToAction": {
+    "_note": [
+      "The closing invitation band. This is the wording used wherever a page",
+      "does not set its own — the Services, Products, Pricing, About and Case",
+      "Studies pages each override the first three lines in their own file."
+    ],
+    "eyebrow": "Next step",
+    "title": "Got something worth building?",
+    "description": "Two slots left this quarter. Book a 30-minute call with an engineer — no deck, no discovery theatre, just a straight answer on whether we can help.",
+    "primary": {
+      "label": "{{shared.buttons.bookMeeting.label}}",
+      "href": "{{shared.buttons.bookMeeting.href}}"
+    },
+    "secondary": {
+      "label": "{{shared.buttons.sendMessage.label}}",
+      "href": "{{shared.buttons.sendMessage.href}}"
+    },
+    "footnote": "{{brand.email}} · Replies within {{brand.words.responseTime}}"
+  }
+}

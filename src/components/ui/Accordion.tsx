@@ -9,7 +9,7 @@ export function Accordion({
   items,
   className,
 }: {
-  items: readonly { q: string; a: string }[];
+  items: readonly { question: string; answer: string }[];
   className?: string;
 }) {
   const [open, setOpen] = useState<number | null>(0);
@@ -19,7 +19,7 @@ export function Accordion({
       {items.map((item, i) => {
         const isOpen = open === i;
         return (
-          <div key={item.q} className="group">
+          <div key={item.question} className="group">
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
@@ -32,7 +32,7 @@ export function Accordion({
                   isOpen ? "text-white" : "text-white/75 group-hover:text-white",
                 )}
               >
-                {item.q}
+                {item.question}
               </span>
               <span
                 className={cn(
@@ -60,7 +60,7 @@ export function Accordion({
                   className="overflow-hidden"
                 >
                   <p className="max-w-3xl pb-7 pr-14 text-[15px] leading-relaxed text-white/55">
-                    {item.a}
+                    {item.answer}
                   </p>
                 </motion.div>
               )}

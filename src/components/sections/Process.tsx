@@ -2,9 +2,11 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
-import { process } from "@/lib/data";
+import { content } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
+
+const { section, items } = content.process;
 
 export function Process() {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,16 +22,7 @@ export function Process() {
   return (
     <Section id="process" className="relative overflow-hidden">
       <div className="shell">
-        <SectionHeading
-          eyebrow="How it goes"
-          title={
-            <>
-              Five stages.{" "}
-              <span className="text-white/40">No black boxes.</span>
-            </>
-          }
-          description="You see working software in week three and every Friday after that. Nothing about our process requires you to take our word for it."
-        />
+        <SectionHeading {...section.heading} />
 
         <div ref={ref} className="relative mt-16 pl-10 md:pl-0">
           {/* rail */}
@@ -41,7 +34,7 @@ export function Process() {
           </div>
 
           <div className="flex flex-col gap-12 md:gap-4">
-            {process.map((stage, i) => (
+            {items.map((stage, i) => (
               <div
                 key={stage.step}
                 className="relative md:grid md:grid-cols-2 md:gap-16"
