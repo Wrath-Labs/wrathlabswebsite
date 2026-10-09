@@ -11,11 +11,26 @@
     "{{stats.items.2.value}} and the like, so editing one here keeps the prose",
     "honest. Counting starts at the first entry: items.0 is Products shipped."
   ],
-
   "items": [
-    { "value": 74, "suffix": "+", "label": "Products shipped" },
-    { "value": 5, "suffix": "", "label": "In-house lab products" },
-    { "value": 98, "suffix": "%", "label": "Client retention" },
-    { "value": 19, "suffix": "", "label": "Countries served" }
+    {
+      "value": 9,
+      "suffix": "",
+      "label": "Core services"
+    },
+    {
+      "value": 3,
+      "suffix": "",
+      "label": "Build tiers, in ₹ and $"
+    },
+    {
+      "value": 3,
+      "suffix": "",
+      "label": "Free calls included"
+    },
+    {
+      "value": 100,
+      "suffix": "%",
+      "label": "Commitment to your vision"
+    }
   ]
 }

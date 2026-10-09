@@ -16,6 +16,7 @@ const statusStyles: Record<string, string> = {
   Beta: "border-ember-500/30 bg-ember-500/10 text-ember-400",
   Alpha: "border-flare-400/30 bg-flare-400/10 text-flare-400",
   Research: "border-volt-500/30 bg-volt-500/10 text-volt-400",
+  "In development": "border-flare-400/30 bg-flare-400/10 text-flare-400",
 };
 
 export function StatusBadge({ status }: { status: string }) {
@@ -47,7 +48,10 @@ function ProductVisual({ product }: { product: Product }) {
           <span className="size-2 rounded-full bg-white/15" />
         </div>
         <span className="ml-1 font-mono text-[10.5px] text-white/30">
-          {showcase.domainTemplate.replace("{name}", product.name.toLowerCase())}
+          {showcase.domainTemplate.replace(
+            "{name}",
+            product.name.toLowerCase(),
+          )}
         </span>
       </div>
 
@@ -99,42 +103,46 @@ function ProductVisual({ product }: { product: Product }) {
 
 /** Compact card for the home grid. */
 function ProductCard({ product, index }: { product: Product; index: number }) {
+  const body = (
+    <>
+      <div className="flex items-start justify-between gap-3">
+        <span className="grid size-11 place-items-center rounded-xl border border-white/[0.08] bg-gradient-to-br from-white/[0.06] to-transparent text-ember-400 transition-transform duration-500 group-hover:scale-105">
+          <Icon name={product.icon} className="size-5" />
+        </span>
+        {product.status && <StatusBadge status={product.status} />}
+      </div>
+
+      <div className="mt-6 flex items-baseline gap-2.5">
+        <h3 className="font-display text-xl font-semibold tracking-tight text-white">
+          {product.name}
+        </h3>
+        <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-white/30">
+          {product.category}
+        </span>
+      </div>
+
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-white/50">
+        {product.tagline}
+      </p>
+
+      {product.href && (
+        <div className="mt-6 flex justify-end border-t border-white/[0.07] pt-5">
+          <ArrowUpRight className="size-4 text-white/25 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ember-400" />
+        </div>
+      )}
+    </>
+  );
+
   return (
     <Reveal delay={(index % 3) * 0.08} className="h-full">
       <SpotlightCard className="h-full">
-        <Link href={product.href} className="flex h-full flex-col p-7">
-          <div className="flex items-start justify-between gap-3">
-            <span className="grid size-11 place-items-center rounded-xl border border-white/[0.08] bg-gradient-to-br from-white/[0.06] to-transparent text-ember-400 transition-transform duration-500 group-hover:scale-105">
-              <Icon name={product.icon} className="size-5" />
-            </span>
-            <StatusBadge status={product.status} />
-          </div>
-
-          <div className="mt-6 flex items-baseline gap-2.5">
-            <h3 className="font-display text-xl font-semibold tracking-tight text-white">
-              {product.name}
-            </h3>
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-white/30">
-              {product.category}
-            </span>
-          </div>
-
-          <p className="mt-3 flex-1 text-sm leading-relaxed text-white/50">
-            {product.tagline}
-          </p>
-
-          <div className="mt-6 flex items-end justify-between border-t border-white/[0.07] pt-5">
-            <div>
-              <div className="font-display text-2xl font-semibold text-gradient-ember">
-                {product.metric.value}
-              </div>
-              <div className="mt-0.5 font-mono text-[10.5px] uppercase tracking-[0.14em] text-white/30">
-                {product.metric.label}
-              </div>
-            </div>
-            <ArrowUpRight className="size-4 text-white/25 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ember-400" />
-          </div>
-        </Link>
+        {product.href ? (
+          <Link href={product.href} className="flex h-full flex-col p-7">
+            {body}
+          </Link>
+        ) : (
+          <div className="flex h-full flex-col p-7">{body}</div>
+        )}
       </SpotlightCard>
     </Reveal>
   );
@@ -251,7 +259,10 @@ export function ProductShowcase() {
                     <Button href={product.cta.href} withArrow magnetic>
                       {product.cta.label}
                     </Button>
-                    <Button href={showcase.secondaryButton.href} variant="ghost">
+                    <Button
+                      href={showcase.secondaryButton.href}
+                      variant="ghost"
+                    >
                       {showcase.secondaryButton.label}
                     </Button>
                   </div>

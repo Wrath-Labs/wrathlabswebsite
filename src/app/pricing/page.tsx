@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
-import { Check, X } from "lucide-react";
+// import { Check, X } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { Pricing } from "@/components/sections/Pricing";
-import { FAQ } from "@/components/sections/FAQ";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { CTA } from "@/components/sections/CTA";
-import { Section, SectionHeading } from "@/components/ui/SectionHeading";
-import { Reveal } from "@/components/ui/Reveal";
+import {
+  AddOns,
+  CallPolicy,
+  ChoosePlan,
+  ComparePlans,
+  PaymentOptions,
+  PricingFAQ,
+} from "@/components/sections/PricingDetails";
+// import { Testimonials } from "@/components/sections/Testimonials";
+// import { CTA } from "@/components/sections/CTA";
+// import { Section, SectionHeading } from "@/components/ui/SectionHeading";
+// import { Reveal } from "@/components/ui/Reveal";
 import { content } from "@/content";
 
-const { hero, closing, seo } = content.pricing.page;
-const { finePrint } = content.pricing;
+const { hero, seo } = content.pricing.page;
+// const { finePrint } = content.pricing;
 
 export const metadata: Metadata = seo;
 
@@ -21,6 +28,7 @@ export default function PricingPage() {
 
       <Pricing showHeading={false} />
 
+      {/*
       <Section className="border-t border-white/[0.06]">
         <div className="shell">
           <SectionHeading {...finePrint.heading} />
@@ -70,10 +78,16 @@ export default function PricingPage() {
           </div>
         </div>
       </Section>
+      */}
 
-      <Testimonials />
-      <FAQ />
-      <CTA {...closing} />
+      {/* <Testimonials /> */}
+      <CallPolicy />
+      <ComparePlans />
+      <ChoosePlan />
+      <AddOns />
+      <PaymentOptions />
+      <PricingFAQ />
+      {/* <CTA {...closing} /> */}
     </>
   );
 }

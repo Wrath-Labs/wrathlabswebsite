@@ -13,59 +13,36 @@
     "`initials` is the two letters in the round avatar — set by hand so titles",
     "like \"Dr.\" don't end up in it."
   ],
-
   "section": {
     "heading": {
       "eyebrow": "Client words",
       "title": "They kept us",
       "titleMuted": "after the first project.",
-      "description": "{{stats.items.2.value}}% of the teams we've worked with came back for a second engagement. Here's why, in their words."
+      "description": "Founders, engineers and partners who have worked with us, in their own words."
     },
     "ratingLabel": "5 out of 5"
   },
-
   "items": [
     {
-      "quote": "We'd been burned by two agencies before {{brand.name}}. The difference was obvious in week one — they pushed back on half our requirements and were right about most of it.",
-      "author": "{{case-studies.items.0.quote.author}}",
-      "role": "{{case-studies.items.0.quote.role}}",
-      "company": "{{case-studies.items.0.client}}",
-      "initials": "PR"
+      "quote": "Cooketh Company delivered a fantastic website for our business. Great communication, efficient process, and excellent results. Highly recommended!",
+      "author": "Piyush Gupta",
+      "role": "Strategic Corporate Partnership Manager",
+      "company": "Bhoomika",
+      "initials": "PG"
     },
     {
-      "quote": "They shipped a working slice in eleven days. Our previous vendor spent eleven weeks on documents that described a slice.",
-      "author": "{{case-studies.items.2.quote.author}}",
-      "role": "{{case-studies.items.2.quote.role}}",
-      "company": "{{case-studies.items.2.client}}",
-      "initials": "MD"
+      "quote": "Cooketh delivers top-tier technical solutions with impressive speed and precision. Their team combines deep expertise with a transparent approach, making them a highly reliable partner for any complex project. We truly value the trust and quality they bring to the table.",
+      "author": "Utkarsh Kumar",
+      "role": "SDE",
+      "company": "Optimally Me",
+      "initials": "UK"
     },
     {
-      "quote": "The handover was the most professional I've seen in fifteen years. Recorded walkthroughs, architecture decision records, an on-call runbook. My team was productive the same week.",
-      "author": "Elena Kovač",
-      "role": "Director of Platform",
-      "company": "Halberd Systems",
-      "initials": "EK"
-    },
-    {
-      "quote": "What sold us was that they build their own products. They argue about our tradeoffs like people who'll have to live with them.",
-      "author": "{{case-studies.items.1.quote.author}}",
-      "role": "CMIO",
-      "company": "{{case-studies.items.1.client}}",
-      "initials": "AW"
-    },
-    {
-      "quote": "We hit our payback target in a quarter instead of a year. I've stopped describing them as a vendor — they're just part of how we build.",
-      "author": "{{case-studies.items.3.quote.author}}",
-      "role": "{{case-studies.items.3.quote.role}}",
-      "company": "{{case-studies.items.3.client}}",
-      "initials": "SM"
-    },
-    {
-      "quote": "Our AI prototype had been stuck at 'impressive demo' for eight months. They got it into production in ten weeks with evals we actually trust.",
-      "author": "Tobias Lund",
-      "role": "Founder",
-      "company": "Cadence AI",
-      "initials": "TL"
+      "quote": "Cooketh provides exceptional technical expertise at a price point that makes high-end development accessible. They strike the perfect balance between cost-efficiency and premium quality, ensuring you get maximum value without compromising on performance.",
+      "author": "Hamdaan Ali Qatil",
+      "role": "Associate SDE",
+      "company": "314e",
+      "initials": "HA"
     }
   ]
 }

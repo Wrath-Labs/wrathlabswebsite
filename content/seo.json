@@ -61,11 +61,8 @@
     "pages": [
       { "path": "{{navigation.paths.home}}", "priority": 1 },
       { "path": "{{navigation.paths.services}}", "priority": 0.9 },
-      { "path": "{{navigation.paths.products}}", "priority": 0.9 },
-      { "path": "{{navigation.paths.caseStudies}}", "priority": 0.8 },
       { "path": "{{navigation.paths.pricing}}", "priority": 0.8 },
       { "path": "{{navigation.paths.about}}", "priority": 0.7 },
-      { "path": "{{navigation.paths.book}}", "priority": 0.7 },
       { "path": "{{navigation.paths.contact}}", "priority": 0.7 },
       { "path": "{{navigation.paths.privacy}}", "priority": 0.2 },
       { "path": "{{navigation.paths.terms}}", "priority": 0.2 }

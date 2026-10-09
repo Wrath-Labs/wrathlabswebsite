@@ -14,12 +14,12 @@
     "_note": "Page addresses. Changing one here updates every link to it.",
     "home": "/",
     "services": "/services",
-    "products": "/products",
-    "caseStudies": "/case-studies",
+    "products": "/",
+    "caseStudies": "/services",
     "pricing": "/pricing",
     "about": "/about",
     "contact": "/contact",
-    "book": "/book",
+    "book": "{{navigation.paths.contact}}",
     "privacy": "/legal/privacy",
     "terms": "/legal/terms"
   },
@@ -31,10 +31,12 @@
     ],
     "links": [
       { "label": "Services", "href": "{{navigation.paths.services}}" },
-      { "label": "Products", "href": "{{navigation.paths.products}}" },
-      { "label": "Work", "href": "{{navigation.paths.caseStudies}}" },
+      { "label": "Why us", "href": "{{navigation.paths.home}}#why-us" },
+      { "label": "Projects", "href": "{{navigation.paths.home}}#products" },
       { "label": "Pricing", "href": "{{navigation.paths.pricing}}" },
-      { "label": "About", "href": "{{navigation.paths.about}}" }
+      { "label": "FAQ", "href": "{{navigation.paths.home}}#faq" },
+      { "label": "About", "href": "{{navigation.paths.about}}" },
+      { "label": "Contact", "href": "{{navigation.paths.contact}}" }
     ],
     "availability": {
       "_note": [
@@ -69,9 +71,7 @@
         "title": "Company",
         "links": [
           { "label": "About", "href": "{{navigation.paths.about}}" },
-          { "label": "Case Studies", "href": "{{navigation.paths.caseStudies}}" },
-          { "label": "Contact", "href": "{{navigation.paths.contact}}" },
-          { "label": "Book a Meeting", "href": "{{navigation.paths.book}}" }
+          { "label": "Contact", "href": "{{navigation.paths.contact}}" }
         ]
       },
       {
@@ -88,19 +88,18 @@
           "These four pull their names straight from products.json, so renaming",
           "a product renames it here too."
         ],
-        "title": "Lab",
+        "title": "Projects",
         "links": [
-          { "label": "{{products.items.0.name}}", "href": "{{products.items.0.href}}" },
-          { "label": "{{products.items.1.name}}", "href": "{{products.items.1.href}}" },
-          { "label": "{{products.items.2.name}}", "href": "{{products.items.2.href}}" },
-          { "label": "{{products.items.3.name}}", "href": "{{products.items.3.href}}" }
+          { "label": "{{products.items.0.name}}", "href": "{{navigation.paths.home}}#products" },
+          { "label": "{{products.items.1.name}}", "href": "{{navigation.paths.home}}#products" },
+          { "label": "{{products.items.2.name}}", "href": "{{navigation.paths.home}}#products" },
+          { "label": "{{products.items.3.name}}", "href": "{{navigation.paths.home}}#products" }
         ]
       },
       {
         "title": "Resources",
         "links": [
           { "label": "Pricing", "href": "{{navigation.paths.pricing}}" },
-          { "label": "Changelog", "href": "{{navigation.paths.products}}" },
           { "label": "Privacy", "href": "{{navigation.paths.privacy}}" },
           { "label": "Terms", "href": "{{navigation.paths.terms}}" }
         ]

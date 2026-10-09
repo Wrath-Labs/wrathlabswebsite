@@ -6,17 +6,16 @@
     "sections.json, services.json, products.json, process.json,",
     "case-studies.json, testimonials.json, pricing.json and faq.json."
   ],
-
   "hero": {
     "badge": {
       "_note": [
         "The pill above the headline. `tag` is the bright gradient label on the",
         "left. Set `show` to false to hide the whole pill."
       ],
-      "show": true,
-      "tag": "New",
-      "text": "Nexus agent runtime is in open beta",
-      "href": "{{products.items.2.href}}"
+      "show": false,
+      "tag": "Free",
+      "text": "Your first call is free",
+      "href": "{{navigation.paths.contact}}"
     },
     "headline": {
       "_note": [
@@ -27,7 +26,7 @@
       "lineOne": "{{brand.tagline.lineOne}}",
       "lineTwo": "{{brand.tagline.lineTwo}}"
     },
-    "description": "{{brand.name}} is a product studio and engineering lab. We ship our own software — then bring everything we learned to the teams we build with.",
+    "description": "We help founders turn ideas into something real they can test in weeks, then build the full product with precision and quality. We also build our own startups, so we know what it takes.",
     "primaryButton": {
       "label": "{{shared.buttons.bookMeeting.label}}",
       "href": "{{shared.buttons.bookMeeting.href}}"
@@ -36,9 +35,8 @@
       "label": "{{shared.buttons.seeTheWork.label}}",
       "href": "{{shared.buttons.seeTheWork.href}}"
     },
-    "footnote": "No sales deck · A senior engineer on the first call"
+    "footnote": "Free first call · Plan, pricing and timeline in 2–3 business days · Zero hidden charges"
   },
-
   "telemetry": {
     "_note": [
       "The dark panel under the headline, styled like a live dashboard.",
@@ -51,26 +49,59 @@
       "Set `show` to false to remove the panel entirely."
     ],
     "show": true,
-    "address": "wrathlabs://lab/telemetry",
+    "address": "wrathlabs://studio/overview",
     "liveLabel": "live",
     "metrics": [
       {
-        "label": "Agent runs / mo",
-        "value": 6.1,
-        "suffix": "M",
-        "trend": [8, 14, 11, 19, 16, 24, 22, 31, 28, 36]
-      },
-      {
-        "label": "Deploys / week",
-        "value": 412,
+        "label": "Core services",
+        "value": 9,
         "suffix": "",
-        "trend": [20, 18, 26, 22, 30, 27, 34, 31, 38, 41]
+        "trend": [
+          8,
+          12,
+          11,
+          16,
+          15,
+          20,
+          19,
+          25,
+          27,
+          31
+        ]
       },
       {
-        "label": "Platform uptime",
-        "value": 99.98,
+        "label": "Free calls included",
+        "value": 3,
+        "suffix": "",
+        "trend": [
+          10,
+          12,
+          12,
+          18,
+          17,
+          22,
+          24,
+          24,
+          30,
+          33
+        ]
+      },
+      {
+        "label": "Commitment to your vision",
+        "value": 100,
         "suffix": "%",
-        "trend": [34, 36, 35, 37, 36, 38, 37, 38, 39, 39]
+        "trend": [
+          34,
+          36,
+          35,
+          37,
+          36,
+          38,
+          37,
+          38,
+          39,
+          39
+        ]
       }
     ]
   }

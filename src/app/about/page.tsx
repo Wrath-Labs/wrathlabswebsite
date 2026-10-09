@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/PageHero";
-import { DualNature } from "@/components/sections/DualNature";
+// import { DualNature } from "@/components/sections/DualNature";
 import { Manifesto, Timeline, Values } from "@/components/sections/About";
-import { Stats } from "@/components/sections/Stats";
-import { TechMarquee } from "@/components/sections/TechMarquee";
-import { Socials } from "@/components/sections/Socials";
-import { CTA } from "@/components/sections/CTA";
+// import { Stats } from "@/components/sections/Stats";
+// import { TechMarquee } from "@/components/sections/TechMarquee";
+// import { Socials } from "@/components/sections/Socials";
+// import { CTA } from "@/components/sections/CTA";
 import { Button } from "@/components/ui/Button";
 import { content } from "@/content";
 
-const { hero, buttons, closing, seo } = content.about.page;
+const { hero, buttons, seo } = content.about.page;
 
 export const metadata: Metadata = seo;
 
@@ -27,14 +27,14 @@ export default function AboutPage() {
         </div>
       </PageHero>
 
-      <Stats />
+      {/* <Stats /> */}
       <Manifesto />
-      <DualNature />
+      {/* <DualNature /> */}
       <Values />
       <Timeline />
-      <TechMarquee />
-      <Socials />
-      <CTA {...closing} />
+      {/* <TechMarquee /> */}
+      {/* <Socials /> */}
+      {/* <CTA {...closing} /> */}
     </>
   );
 }

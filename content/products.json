@@ -8,7 +8,6 @@
     "`status` must be one of: Live, Beta, Alpha, Research. It controls the",
     "colour of the little badge (green, red, orange, blue) as well as the word."
   ],
-
   "page": {
     "seo": {
       "title": "Products",
@@ -19,7 +18,10 @@
       "title": "Five products. All of them ours.",
       "description": "We fund these ourselves, run them in production, and answer the pager when they misbehave. Everything we learn doing that ends up in the client work.",
       "breadcrumb": [
-        { "label": "Products", "href": "{{navigation.paths.products}}" }
+        {
+          "label": "Products",
+          "href": "{{navigation.paths.products}}"
+        }
       ]
     },
     "button": {
@@ -33,16 +35,18 @@
       "description": "We open private betas to a small group first. Tell us what you're running and we'll get you in if it's a fit."
     }
   },
-
   "section": {
     "_note": "The heading above the product cards on the home page.",
     "heading": {
-      "eyebrow": "From the lab",
-      "title": "Software we own,",
-      "titleMuted": "run, and get paged for.",
-      "description": "Five products in the market. They fund our research, sharpen our engineering, and occasionally end up inside client stacks."
+      "eyebrow": "Featured projects",
+      "title": "Things we've built,",
+      "titleMuted": "for clients and for ourselves.",
+      "description": "A selection of the projects we've built and the startups we're building."
     },
-    "button": { "label": "All products", "href": "{{navigation.paths.products}}" },
+    "button": {
+      "label": "Start your project",
+      "href": "{{navigation.paths.contact}}"
+    },
     "pitchCard": {
       "_note": [
         "The red tile that fills the last slot in the product grid. Set `show`",
@@ -50,12 +54,14 @@
       ],
       "show": true,
       "eyebrow": "Next up",
-      "title": "We're always building the next one.",
-      "description": "Two more products are in private research. Join the list and you'll see them before anyone else does.",
-      "button": { "label": "Get early access", "href": "{{navigation.paths.contact}}" }
+      "title": "Yours could be next.",
+      "description": "Tell us your idea and we'll help you turn it into something real you can test.",
+      "button": {
+        "label": "Start your project",
+        "href": "{{navigation.paths.contact}}"
+      }
     }
   },
-
   "showcase": {
     "_note": [
       "The long alternating rows on the Products page.",
@@ -69,101 +75,102 @@
       "href": "{{shared.buttons.bookWalkthrough.href}}"
     }
   },
-
   "items": [
     {
-      "_note": [
-        "`metric` is the big number on the card. `features` are the ticked",
-        "lines on the Products page. `cta` is this product's own button."
-      ],
-      "id": "sentinel",
-      "name": "Sentinel",
-      "category": "Observability",
-      "status": "Live",
-      "icon": "Radar",
-      "tagline": "Anomaly detection that reads your system like an engineer.",
-      "description": "Sentinel ingests traces, logs, and metrics, then surfaces the three things that actually matter right now — with a plain-language explanation of why.",
-      "features": [
-        "Correlated root-cause timelines",
-        "Noise-cancelling alert routing",
-        "Natural-language incident recaps",
-        "OpenTelemetry native"
-      ],
-      "metric": { "value": "91%", "label": "less alert noise" },
-      "href": "{{navigation.paths.products}}#sentinel",
-      "cta": { "label": "Start free", "href": "{{navigation.paths.contact}}" }
+      "id": "vakil-saab-agra",
+      "name": "Vakil Saab Agra",
+      "category": "Legal directory",
+      "status": "",
+      "icon": "FileText",
+      "tagline": "A lawyer listing and microsite platform.",
+      "description": "Vakil Saab Agra lists lawyers and gives each one a microsite, so legal professionals can be found online and clients can find the right lawyer.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      },
+      "_note": "`href` is where the card links to. Leave it empty for no link. `status` is the small badge; leave empty to hide it. Allowed: Live, Beta, Alpha, Research, In development."
     },
     {
-      "id": "forge",
-      "name": "Forge",
-      "category": "Developer Tools",
-      "status": "Beta",
-      "icon": "Hammer",
-      "tagline": "Internal tools in an afternoon, not a quarter.",
-      "description": "Describe the workflow, connect a datasource, and Forge generates a typed, permissioned internal app you can extend with real code.",
-      "features": [
-        "Schema-aware app generation",
-        "Row-level permissions",
-        "Escape hatch to TypeScript",
-        "Self-host or cloud"
-      ],
-      "metric": { "value": "40×", "label": "faster to first tool" },
-      "href": "{{navigation.paths.products}}#forge",
-      "cta": { "label": "Request access", "href": "{{navigation.paths.contact}}" }
+      "id": "sankul",
+      "name": "Sankul",
+      "category": "School management",
+      "status": "In development",
+      "icon": "BrainCircuit",
+      "tagline": "Smart, AI-based school management software.",
+      "description": "Sankul is an AI-powered school management platform. It is currently under development.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      }
     },
     {
-      "id": "nexus",
-      "name": "Nexus",
-      "category": "AI Infrastructure",
-      "status": "Beta",
+      "id": "naamya-gems",
+      "name": "Naamya Gems",
+      "category": "E-commerce",
+      "status": "",
+      "icon": "Sparkles",
+      "tagline": "An online store for gems and stones.",
+      "description": "Naamya Gems is an e-commerce website for buying gems and stones.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      }
+    },
+    {
+      "id": "annapurna",
+      "name": "Annapurna",
+      "category": "Social media",
+      "status": "",
+      "icon": "Users",
+      "tagline": "A social media platform for food.",
+      "description": "Annapurna is a social media platform built around food.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      }
+    },
+    {
+      "id": "karma-kart",
+      "name": "Karma Kart",
+      "category": "Marketplace",
+      "status": "",
       "icon": "Network",
-      "tagline": "A runtime for agents that need to be trusted.",
-      "description": "Durable execution, replayable state, and hard budget ceilings for multi-agent systems. Every decision an agent makes is inspectable after the fact.",
-      "features": [
-        "Durable, resumable runs",
-        "Per-run cost & token ceilings",
-        "Full decision replay",
-        "Model-agnostic routing"
-      ],
-      "metric": { "value": "6.1M", "label": "agent runs / month" },
-      "href": "{{navigation.paths.products}}#nexus",
-      "cta": { "label": "Request access", "href": "{{navigation.paths.contact}}" }
-    },
-    {
-      "id": "prism",
-      "name": "Prism",
-      "category": "Analytics",
-      "status": "Live",
-      "icon": "ChartNoAxesCombined",
-      "tagline": "Product analytics that never phones home with PII.",
-      "description": "Cookieless, in-region event analytics with funnels and retention built in. Ships with a warehouse sync so your data stays yours.",
-      "features": [
-        "Cookieless by design",
-        "EU / US / IN data residency",
-        "Funnels, cohorts, retention",
-        "One-click warehouse sync"
-      ],
-      "metric": { "value": "<8kb", "label": "client bundle" },
-      "href": "{{navigation.paths.products}}#prism",
-      "cta": { "label": "Start free", "href": "{{navigation.paths.contact}}" }
-    },
-    {
-      "id": "cipher",
-      "name": "Cipher",
-      "category": "Security",
-      "status": "Alpha",
-      "icon": "LockKeyhole",
-      "tagline": "Continuous posture checks for teams without a security hire.",
-      "description": "Cipher watches your cloud, repos, and dependencies for drift against a policy baseline, then opens the pull request that fixes it.",
-      "features": [
-        "Cloud & repo drift detection",
-        "Auto-remediation PRs",
-        "Evidence export for audits",
-        "Policy as code"
-      ],
-      "metric": { "value": "24h", "label": "to audit-ready" },
-      "href": "{{navigation.paths.products}}#cipher",
-      "cta": { "label": "Request access", "href": "{{navigation.paths.contact}}" }
+      "tagline": "A barter-based platform for exchanging services.",
+      "description": "Karma Kart is a barter-based platform where people exchange services with each other.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      }
     }
   ]
 }

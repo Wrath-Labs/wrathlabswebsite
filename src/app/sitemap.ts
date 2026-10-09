@@ -9,7 +9,7 @@ type ChangeFrequency = NonNullable<
 >;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const { brand, seo, caseStudies } = content;
+  const { brand, seo } = content;
   const { sitemap: config } = seo;
   const now = new Date();
 
@@ -20,11 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: config.changeFrequency as ChangeFrequency,
       priority: route.priority,
     })),
-    ...caseStudies.items.map((study) => ({
-      url: `${brand.url}${content.navigation.paths.caseStudies}/${study.slug}`,
-      lastModified: now,
-      changeFrequency: config.caseStudyChangeFrequency as ChangeFrequency,
-      priority: config.caseStudyPriority,
-    })),
+    // Case studies are disabled (see src/app/_disabled).
+    // ...caseStudies.items.map((study) => ({
+    //   url: `${brand.url}${content.navigation.paths.caseStudies}/${study.slug}`,
+    //   lastModified: now,
+    //   changeFrequency: config.caseStudyChangeFrequency as ChangeFrequency,
+    //   priority: config.caseStudyPriority,
+    // })),
   ];
 }

@@ -8,7 +8,6 @@
     "Reuse any of it elsewhere by writing {{shared.buttons.bookMeeting.label}}",
     "and so on."
   ],
-
   "buttons": {
     "_note": [
       "Each button has the words on it (`label`) and where it goes (`href`).",
@@ -31,7 +30,7 @@
       "href": "{{navigation.paths.book}}"
     },
     "seeTheWork": {
-      "label": "See the work",
+      "label": "Explore our services",
       "href": "{{navigation.paths.caseStudies}}"
     },
     "sendMessage": {
@@ -39,7 +38,6 @@
       "href": "{{navigation.paths.contact}}"
     }
   },
-
   "labels": {
     "_note": "Small pieces of wording that show up on every page.",
     "breadcrumbHome": "Home",

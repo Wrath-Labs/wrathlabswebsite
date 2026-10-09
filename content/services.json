@@ -1,6 +1,6 @@
 {
   "_note": [
-    "WHAT YOU DO FOR CLIENTS — the six service cards, plus the Services page.",
+    "WHAT YOU DO FOR CLIENTS — the service cards, plus the Services page.",
     "",
     "Add or remove an entry in `items` and it updates the home page grid, the",
     "Services page, the footer menu and the dropdown on the contact form, all",
@@ -9,18 +9,20 @@
     "`id` is the short name used in web addresses (lower case, dashes instead",
     "of spaces). Changing it changes the link to that service."
   ],
-
   "page": {
     "seo": {
       "title": "Services",
-      "description": "Product engineering, AI engineering, cloud and DevOps, design systems, data platforms, and security engineering — delivered by senior squads in two-week sprints."
+      "description": "Branding and design, web and app engineering, AI, startup MVPs, interactive experiences, and ongoing support."
     },
     "hero": {
       "eyebrow": "Services",
-      "title": "Senior squads, embedded in your roadmap.",
-      "description": "We staff a cross-functional team from six disciplines and work in your repo, on your infra, at your cadence. No junior bench, no handoff to a delivery manager you've never met.",
+      "title": "Everything you need to ship, under one roof.",
+      "description": "From a quick, testable first version to a full product built with precision and quality, one small team handles design, engineering, launch and support.",
       "breadcrumb": [
-        { "label": "Services", "href": "{{navigation.paths.services}}" }
+        {
+          "label": "Services",
+          "href": "{{navigation.paths.services}}"
+        }
       ]
     },
     "buttons": {
@@ -28,7 +30,10 @@
         "label": "{{shared.buttons.bookScopingCall.label}}",
         "href": "{{shared.buttons.bookScopingCall.href}}"
       },
-      "secondary": { "label": "See pricing", "href": "{{navigation.paths.pricing}}" }
+      "secondary": {
+        "label": "See pricing",
+        "href": "{{navigation.paths.pricing}}"
+      }
     },
     "closing": {
       "_note": "The big invitation band at the bottom of the Services page.",
@@ -37,105 +42,180 @@
       "description": "Bring the problem, the constraints, and the deadline. We'll come back with an architecture, a plan, and a fixed price."
     }
   },
-
   "section": {
     "_note": [
-      "The heading above the six cards on the home page. `titleMuted` is the",
+      "The heading above the cards on the home page. `titleMuted` is the",
       "greyed-out second half of the sentence."
     ],
     "heading": {
       "eyebrow": "What we do",
-      "title": "Six disciplines,",
-      "titleMuted": "one delivery team.",
-      "description": "We staff a squad from these, not a department per line item. Most engagements pull from three or four at once."
+      "title": "Nine services,",
+      "titleMuted": "one small team.",
+      "description": "Start with a fast MVP to test your idea, then build the full product with us. Most projects combine a few of these."
     },
-    "button": { "label": "All services", "href": "{{navigation.paths.services}}" }
+    "button": {
+      "label": "All services",
+      "href": "{{navigation.paths.services}}"
+    }
   },
-
   "items": [
     {
-      "_note": [
-        "`icon` picks the small symbol on the card. See the list of allowed",
-        "icon names at the bottom of content/README.md.",
-        "`deliverables` only appear on the Services page, not the home page.",
-        "`stack` are the little tags along the bottom of the card."
-      ],
-      "id": "product-engineering",
-      "title": "Product Engineering",
-      "icon": "Boxes",
-      "blurb": "Zero-to-one builds and rescue missions. We own the whole surface — architecture, API, interface, release — and hand you a codebase your team will actually enjoy inheriting.",
-      "deliverables": [
-        "Web & mobile applications",
-        "API and backend architecture",
-        "Legacy migration & rescue",
-        "Test and CI foundations"
-      ],
-      "stack": ["Next.js", "React Native", "TypeScript", "Go", "PostgreSQL"]
-    },
-    {
-      "id": "ai-engineering",
-      "title": "AI Engineering",
-      "icon": "BrainCircuit",
-      "blurb": "Applied AI that survives production. Retrieval pipelines, agentic workflows, evals, guardrails — built with the same rigour we give payment systems.",
-      "deliverables": [
-        "RAG & knowledge systems",
-        "Multi-agent workflows",
-        "Eval harnesses & observability",
-        "Fine-tuning & model routing"
-      ],
-      "stack": ["Claude", "LangGraph", "pgvector", "Python", "Modal"]
-    },
-    {
-      "id": "cloud-devops",
-      "title": "Cloud & DevOps",
-      "icon": "Cloud",
-      "blurb": "Infrastructure as a product. Reproducible environments, sane pipelines, and observability that tells you what broke before your users do.",
-      "deliverables": [
-        "Terraform & IaC",
-        "Kubernetes platforms",
-        "CI/CD & release automation",
-        "Cost & performance tuning"
-      ],
-      "stack": ["AWS", "Kubernetes", "Terraform", "GitHub Actions", "Grafana"]
-    },
-    {
-      "id": "design-systems",
-      "title": "Design & Systems",
+      "id": "branding-creative-design",
+      "title": "Branding & Creative Design",
       "icon": "Palette",
-      "blurb": "Interfaces with intent. We design in code, ship tokenised component libraries, and leave you a system instead of a pile of screens.",
+      "blurb": "Visual identity, UI/UX design and pitch decks that give your brand a soul.",
       "deliverables": [
-        "Product & UX design",
-        "Design tokens & theming",
-        "Component libraries",
-        "Brand & motion language"
+        "Visual Identity — Logo design, style guides, and custom illustrations that give your brand a soul.",
+        "UI/UX Design — Crafting high-fidelity prototypes and design systems that make users say 'heck yeah'.",
+        "Pitch Decks — Investor-ready decks that tell your story and help you secure that bag."
       ],
-      "stack": ["Figma", "Tailwind", "Radix", "Motion", "Storybook"]
+      "stack": [
+        "Figma",
+        "Blender",
+        "Spline",
+        "Framer",
+        "Subframe"
+      ]
     },
     {
-      "id": "data-platforms",
-      "title": "Data Platforms",
-      "icon": "Database",
-      "blurb": "From event to insight. Warehouses, streams, and contracts that keep analytics trustworthy as your product multiplies.",
+      "id": "web-app-engineering",
+      "title": "Web & App Engineering",
+      "icon": "Globe",
+      "blurb": "Websites, cross-platform mobile apps and e-commerce, built to stay smooth on any screen.",
       "deliverables": [
-        "Event pipelines & CDC",
-        "Warehouse modelling",
-        "Streaming architecture",
-        "BI & self-serve analytics"
+        "Website Dev — From high-converting landing pages to complex corporate sites using Next.js and React.",
+        "App Development — Native-feel cross-platform mobile apps for iOS and Android that stay smooth on any screen.",
+        "E-Commerce — Custom shopping experiences with secure checkouts and seamless inventory management."
       ],
-      "stack": ["Kafka", "dbt", "ClickHouse", "Snowflake", "Airflow"]
+      "stack": [
+        "Next.js",
+        "React",
+        "Flutter",
+        "Tailwind",
+        "Firebase"
+      ]
+    },
+    {
+      "id": "ai-future-tech",
+      "title": "AI & Future Tech",
+      "icon": "BrainCircuit",
+      "blurb": "AI and ML features, autonomous agents and data dashboards that put your data to work.",
+      "deliverables": [
+        "AI / ML Integration — Bringing smart features to your product, from recommendation engines to data analysis.",
+        "Autonomous Agents — Custom AI agents that automate your workflows while you sleep.",
+        "Data Dashboards — Turning messy data into beautiful, interactive KPIs and visual stories."
+      ],
+      "stack": [
+        "Django",
+        "Flask",
+        "PostgreSQL",
+        "MongoDB"
+      ]
+    },
+    {
+      "id": "startup-launchpad",
+      "title": "Startup Launchpad",
+      "icon": "Rocket",
+      "blurb": "MVPs, product strategy and scalability audits to get your idea to market fast.",
+      "deliverables": [
+        "MVP for Startups — We build the core version of your idea in weeks, not months, to get you to market fast.",
+        "Product Strategy — Market research and user journey mapping to ensure your idea actually solves a problem.",
+        "Scalability Audit — Preparing your small-scale app for the big leagues with smart cloud infrastructure."
+      ],
+      "stack": [
+        "FlutterFlow",
+        "Lovable",
+        "Firebase",
+        "Supabase"
+      ]
+    },
+    {
+      "id": "full-cycle-development",
+      "title": "Full-Cycle Development",
+      "icon": "Boxes",
+      "blurb": "The complete product for founders, from first idea to a launched, supported platform, built with precision and quality.",
+      "deliverables": [
+        "Product strategy — Market research and user journey mapping so the product solves a real problem.",
+        "Design to deployment — UI/UX, frontend, backend, database and cloud under one team.",
+        "Launch and beyond — Testing, deployment and post-launch support to keep things running."
+      ],
+      "stack": [
+        "Figma",
+        "Next.js",
+        "Flutter",
+        "Node.js",
+        "PostgreSQL",
+        "AWS"
+      ]
+    },
+    {
+      "id": "custom-solutions",
+      "title": "Custom Solutions",
+      "icon": "Hammer",
+      "blurb": "Software shaped around your needs when an off-the-shelf tool doesn't fit.",
+      "deliverables": [
+        "Custom platforms — Dashboards, admin panels and role-based apps built for your workflow.",
+        "Integrations and APIs — Connecting your product to the third-party services you rely on.",
+        "Automation — Custom tooling and AI agents that remove repetitive work."
+      ],
+      "stack": [
+        "React",
+        "Django",
+        "Flask",
+        "Firebase",
+        "Supabase"
+      ]
+    },
+    {
+      "id": "interactive-experiences",
+      "title": "Interactive Experiences",
+      "icon": "Sparkles",
+      "blurb": "Web-based games, 3D and immersive elements, and gamification that keeps users hooked.",
+      "deliverables": [
+        "Game Development — Web-based indie games and interactive gamified experiences for brand engagement.",
+        "3D & Immersive — Integrating 3D elements using Spline or Three.js to make your site feel 4D.",
+        "Gamification — Adding badges, levels, and reward loops to boring apps to keep users hooked."
+      ],
+      "stack": [
+        "Spline",
+        "Three.js",
+        "Blender",
+        "Flame"
+      ]
+    },
+    {
+      "id": "support-maintenance",
+      "title": "Support & Maintenance",
+      "icon": "Cloud",
+      "blurb": "Post-launch support, managed cloud hosting, and SEO and performance work.",
+      "deliverables": [
+        "Post-Launch Support — We don't ghost you. We provide monthly updates and bug fixes to keep things spicy.",
+        "Cloud Hosting — Managed hosting on AWS or Google Cloud so you never worry about downtime.",
+        "SEO & Performance — Speed optimization and SEO audits to make sure you're actually found on Google."
+      ],
+      "stack": [
+        "AWS",
+        "Google Cloud",
+        "Heroku",
+        "Digital Ocean"
+      ]
     },
     {
       "id": "security-engineering",
-      "title": "Security Engineering",
+      "title": "Security & Reliability",
       "icon": "ShieldCheck",
-      "blurb": "Threat modelling, hardening, and audit prep. We break it on purpose so nobody else gets the chance, then leave the controls documented.",
+      "blurb": "Production-grade security and testing so your product and your users' data stay protected.",
       "deliverables": [
-        "Threat models & reviews",
-        "Pen-test remediation",
-        "SOC 2 / ISO readiness",
-        "Secrets & access hygiene"
+        "Secure authentication — Email and OTP sign-in, password reset, social login and role-based permissions.",
+        "Security reviews — Audits of your app, APIs and dependencies with a clear list of fixes.",
+        "Testing and QA — Advanced testing and quality checks before every launch."
       ],
-      "stack": ["OWASP", "Vault", "Snyk", "Cloudflare", "Auth0"]
+      "stack": [
+        "Firebase",
+        "Supabase",
+        "AWS",
+        "Google Cloud"
+      ]
     }
   ]
 }

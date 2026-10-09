@@ -42,7 +42,7 @@ function TestimonialCard({ item }: { item: Testimonial }) {
 }
 
 export function Testimonials() {
-  const rows = [items.slice(0, 3), items.slice(3)];
+  const rows = [items.slice(0, 3), items.slice(3)].filter((r) => r.length > 0);
   const featured = items[0];
 
   return (

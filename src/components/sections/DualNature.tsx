@@ -27,7 +27,7 @@ type Colour = keyof typeof palette;
 
 export function DualNature() {
   return (
-    <Section id="about" className="overflow-hidden">
+    <Section id="why-us" className="overflow-hidden">
       <AmbientOrbs variant="soft" />
 
       <div className="shell relative">

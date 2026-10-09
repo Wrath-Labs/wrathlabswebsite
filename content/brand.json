@@ -10,9 +10,7 @@
     "booking confirmation and the privacy policy. Edit the email below and all",
     "four change together."
   ],
-
   "name": "Wrath Labs",
-
   "nameParts": {
     "_note": [
       "The logo writes the name in two halves — the first is bright white, the",
@@ -21,38 +19,32 @@
     "first": "Wrath",
     "second": "Labs"
   },
-
   "legalName": "{{brand.name}} Ltd",
-
   "tagline": {
     "_note": [
       "The big headline on the home page, split across two lines. The second",
       "line is the one painted in the orange/red gradient."
     ],
-    "lineOne": "We build the products.",
-    "lineTwo": "We build yours too.",
+    "lineOne": "Idea to live, fast.",
+    "lineTwo": "Then built to last.",
     "full": "{{brand.tagline.lineOne}} {{brand.tagline.lineTwo}}"
   },
-
-  "description": "{{brand.name}} is a product studio and engineering lab. We ship our own software products and partner with teams to design, build, and scale theirs.",
-
+  "description": "{{brand.name}} helps founders turn ideas into something real they can test in weeks, then builds the full product with precision and quality. We also build our own startups.",
   "url": "https://wrathlabs.in",
-  "email": "hello@wrathlabs.in",
-  "phone": "+44 20 7946 0812",
-  "address": "Remote-first · London · Bengaluru",
+  "email": "subroto.2003@gmail.com",
+  "phone": "+91 8954402360",
+  "address": "Remote first, Agra, India",
   "founded": 2019,
-
   "words": {
     "_note": [
       "Short phrases that appear in several different sentences across the site.",
       "Written lower-case so they can sit in the middle of a sentence."
     ],
     "responseTime": "one business day",
-    "availability": "2 slots · Q3",
+    "availability": "First call is free",
     "productCount": "five",
     "countriesServed": "19"
   },
-
   "images": {
     "_note": [
       "Image files live in the `public` folder. A path of /brand/og.png means",
@@ -72,12 +64,10 @@
     "browserTabIcon": "/brand/mark-512.png",
     "phoneHomeScreenIcon": "/brand/mark-180.png"
   },
-
   "logo": {
     "_note": "Screen-reader description of the logo in the top-left corner.",
     "ariaLabel": "{{brand.name}} — home"
   },
-
   "socials": [
     {
       "_note": [

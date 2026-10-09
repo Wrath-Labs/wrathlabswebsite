@@ -42,7 +42,12 @@ function TierCard({ tier, index }: { tier: PricingTier; index: number }) {
       </h3>
 
       <div className="mt-4 flex items-baseline gap-1.5">
-        <span className="font-display text-4xl font-semibold tracking-tight text-white">
+        <span
+          className={cn(
+            "font-display font-semibold tracking-tight text-white",
+            tier.price.length > 12 ? "text-2xl xl:text-[1.65rem]" : "text-4xl",
+          )}
+        >
           {tier.price}
         </span>
         <span className="font-mono text-[11px] text-white/35">{tier.unit}</span>

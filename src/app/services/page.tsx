@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/PageHero";
 import { Services } from "@/components/sections/Services";
-import { Process } from "@/components/sections/Process";
-import { Stats } from "@/components/sections/Stats";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { FAQ } from "@/components/sections/FAQ";
-import { CTA } from "@/components/sections/CTA";
+// import { Process } from "@/components/sections/Process";
+// import { Stats } from "@/components/sections/Stats";
+// import { Testimonials } from "@/components/sections/Testimonials";
+// import { FAQ } from "@/components/sections/FAQ";
+// import { CTA } from "@/components/sections/CTA";
+import { TechMarquee } from "@/components/sections/TechMarquee";
 import { Button } from "@/components/ui/Button";
 import { content } from "@/content";
 
-const { hero, buttons, closing, seo } = content.services.page;
+const { hero, buttons, seo } = content.services.page;
 
 export const metadata: Metadata = seo;
 
@@ -28,11 +29,12 @@ export default function ServicesPage() {
       </PageHero>
 
       <Services detailed showHeading={false} />
-      <Process />
-      <Stats />
-      <Testimonials />
-      <FAQ />
-      <CTA {...closing} />
+      <TechMarquee />
+      {/* <Process /> */}
+      {/* <Stats /> */}
+      {/* <Testimonials /> */}
+      {/* <FAQ /> */}
+      {/* <CTA {...closing} /> */}
     </>
   );
 }

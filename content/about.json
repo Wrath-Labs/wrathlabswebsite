@@ -1,25 +1,28 @@
 {
   "_note": [
-    "THE ABOUT PAGE — your story, your principles, and the manifesto quote.",
-    "",
-    "The About page also shows the numbers band (stats.json), the Lab/Studio",
-    "panels and the technology marquee (sections.json), so if something on that",
-    "page isn't here, try those."
+    "THE ABOUT PAGE — your story, your principles, and the manifesto quote."
   ],
-
   "page": {
     "seo": {
       "title": "About",
-      "description": "{{brand.name}} is a product studio and engineering lab founded in {{brand.founded}} — {{brand.words.productCount}} products of our own, and senior squads embedded with client teams across {{brand.words.countriesServed}} countries."
+      "description": "{{brand.name}} is a small, agile studio that helps founders turn ideas into something real they can test, then builds the full product with precision and quality."
     },
     "hero": {
       "eyebrow": "About",
-      "title": "A studio that has to live with its own code.",
-      "description": "Founded in {{brand.founded}} by two engineers who were tired of shipping software they'd never maintain. Today we run {{brand.words.productCount}} products of our own and build with teams across {{brand.words.countriesServed}} countries.",
-      "breadcrumb": [{ "label": "About", "href": "{{navigation.paths.about}}" }]
+      "title": "A small team with big, bold ideas.",
+      "description": "{{brand.name}} is a small, agile studio of designers and developers. We help founders take an idea to something real they can test, then build the full product with precision and quality.",
+      "breadcrumb": [
+        {
+          "label": "About",
+          "href": "{{navigation.paths.about}}"
+        }
+      ]
     },
     "buttons": {
-      "primary": { "label": "Meet the team", "href": "{{navigation.paths.book}}" },
+      "primary": {
+        "label": "Start a project",
+        "href": "{{navigation.paths.contact}}"
+      },
       "secondary": {
         "label": "{{shared.buttons.seeTheWork.label}}",
         "href": "{{shared.buttons.seeTheWork.href}}"
@@ -27,82 +30,74 @@
     },
     "closing": {
       "eyebrow": "Work with us",
-      "title": "We're picky about projects, not about people.",
-      "description": "If you're building something that has to hold up under real load, we'd like to hear about it."
+      "title": "Got an idea? Let's make it real.",
+      "description": "Reach out and book a free first call. Tell us your vision and we'll come back with a plan, pricing and timeline."
     }
   },
-
   "manifesto": {
     "_note": [
       "The single large paragraph near the top. `emphasis` is the closing part",
       "of the sentence, painted in the orange/red gradient — it is joined onto",
       "the end of `text`, so leave a space at the end of `text`."
     ],
-    "text": "Software is only finished when someone has to keep it running at 3am. That's the standard we hold our own products to, and it's the standard we bring to yours — ",
-    "emphasis": "build it like you'll be the one carrying the pager.",
-    "attribution": "The founders, {{brand.name}}"
+    "text": "We're a small team with a big appetite for bold, user-focused design and clean code. We move fast so you can test early, and we build carefully so what you launch holds up — ",
+    "emphasis": "from the first idea to long after launch.",
+    "attribution": "The team, {{brand.name}}"
   },
-
   "values": {
     "_note": "The four principle cards. Add a fifth and the grid re-flows.",
     "heading": {
       "eyebrow": "How we operate",
-      "title": "Four rules we don't",
-      "titleMuted": "bend on.",
-      "description": "Everything else is negotiable. These four are why clients come back and why our own products stay maintainable."
+      "title": "Four things we don't",
+      "titleMuted": "compromise on.",
+      "description": "Everything else is flexible. These four are why clients recommend us."
     },
     "items": [
       {
-        "title": "Senior only",
-        "icon": "Award",
-        "blurb": "No junior bench, no bait-and-switch. The people on your scoping call are the people writing the code."
+        "title": "Creative, user-focused design",
+        "icon": "Palette",
+        "blurb": "Every screen is designed around the people using it, from the first sketch to the final Figma prototype."
       },
       {
-        "title": "Written by default",
+        "title": "Fast, not sloppy",
+        "icon": "Zap",
+        "blurb": "We get a testable version in front of users quickly, then build, test and refine until every detail matches your vision."
+      },
+      {
+        "title": "Transparent pricing",
         "icon": "FileText",
-        "blurb": "Decisions live in documents, not in someone's memory. You can audit why anything is the way it is."
+        "blurb": "Clear tiers in rupees or dollars, milestone-based payments and zero hidden charges."
       },
       {
-        "title": "Ship weekly",
-        "icon": "Rocket",
-        "blurb": "Something demoable every Friday from week one. Progress you can click beats progress you're told about."
-      },
-      {
-        "title": "Own the outcome",
-        "icon": "Target",
-        "blurb": "We measure ourselves on what your product does in production, not on hours logged against a spec."
+        "title": "We don't ghost you",
+        "icon": "Users",
+        "blurb": "Post-launch support, updates and bug fixes, so your product keeps working long after launch day."
       }
     ]
   },
-
   "timeline": {
     "_note": "The company story, oldest first.",
     "heading": {
       "eyebrow": "The story",
-      "title": "Six years,",
-      "titleMuted": "two disciplines.",
-      "description": "We started as contractors, got tired of shipping software we'd never have to maintain, and built a company where we do both."
+      "title": "A new studio,",
+      "titleMuted": "built for founders.",
+      "description": "We're starting fresh, with one clear job: help founders move from idea to a product people can use."
     },
     "items": [
       {
-        "year": "2019",
-        "title": "Two engineers, one contract",
-        "blurb": "Founded in London after a decade of building payments and infrastructure inside other people's companies."
+        "year": "Why we exist",
+        "title": "Ideas die waiting",
+        "blurb": "Too many good ideas stall before anyone tests them. We exist to get them in front of real users fast."
       },
       {
-        "year": "2021",
-        "title": "The lab opens",
-        "blurb": "Carved out 40% of engineering time for our own products. {{products.items.0.name}} started as an internal tool we refused to stop using."
+        "year": "What we do",
+        "title": "Test first, then build",
+        "blurb": "We ship a testable MVP quickly, then build the full product with precision, quality and transparent pricing."
       },
       {
-        "year": "2023",
-        "title": "Bengaluru studio",
-        "blurb": "A second timezone, and with it round-the-clock on-call for the platforms we run."
-      },
-      {
-        "year": "2025",
-        "title": "Five products, {{stats.items.0.value}} launches",
-        "blurb": "{{products.items.0.name}} and {{products.items.3.name}} went GA, {{products.items.2.name}} entered beta, and client work crossed {{brand.words.countriesServed}} countries."
+        "year": "What's next",
+        "title": "Building our own startups",
+        "blurb": "We also build our own startups, so we keep learning what it takes to take a product to market."
       }
     ]
   }

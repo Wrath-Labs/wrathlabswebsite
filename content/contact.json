@@ -36,7 +36,7 @@
       ],
       "emailLabel": "Email",
       "phoneLabel": "Phone",
-      "addressLabel": "Studios",
+      "addressLabel": "Location",
       "responseLabel": "Response time",
       "responseValue": "Within {{brand.words.responseTime}}"
     },
@@ -46,7 +46,7 @@
   "form": {
     "_note": [
       "`interestExtras` are added to the end of the What do you need? dropdown,",
-      "after the six services from services.json."
+      "after the services from services.json."
     ],
     "nameLabel": "Full name",
     "namePlaceholder": "Ada Lovelace",

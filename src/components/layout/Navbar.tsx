@@ -59,7 +59,7 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "relative rounded-full px-4 py-2 text-sm transition-colors duration-300",
+                        "relative rounded-full px-3 py-2 text-sm transition-colors duration-300 xl:px-4",
                         active
                           ? "text-white"
                           : "text-white/55 hover:text-white",
