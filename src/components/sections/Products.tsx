@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { content, type Product } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
@@ -17,6 +16,8 @@ const statusStyles: Record<string, string> = {
   Alpha: "border-flare-400/30 bg-flare-400/10 text-flare-400",
   Research: "border-volt-500/30 bg-volt-500/10 text-volt-400",
   "In development": "border-flare-400/30 bg-flare-400/10 text-flare-400",
+  "Client work": "border-volt-500/30 bg-volt-500/10 text-volt-400",
+  "Our startup": "border-ember-500/30 bg-ember-500/10 text-ember-400",
 };
 
 export function StatusBadge({ status }: { status: string }) {
@@ -137,9 +138,14 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
     <Reveal delay={(index % 3) * 0.08} className="h-full">
       <SpotlightCard className="h-full" tilt>
         {product.href ? (
-          <Link href={product.href} className="flex h-full flex-col p-7">
+          <a
+            href={product.href}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="flex h-full flex-col p-7"
+          >
             {body}
-          </Link>
+          </a>
         ) : (
           <div className="flex h-full flex-col p-7">{body}</div>
         )}

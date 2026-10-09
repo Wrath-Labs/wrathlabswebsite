@@ -2,7 +2,16 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight, Check, ChevronDown, Clock, Loader2, Mail, MapPin, Phone } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  ChevronDown,
+  Clock,
+  Loader2,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 import { content } from "@/content";
 import { openMailDraft } from "@/lib/mailto";
 import { Section, SectionHeading } from "../ui/SectionHeading";
@@ -13,6 +22,7 @@ import { cn } from "@/lib/utils";
 
 const { brand } = content;
 const { section, form: copy } = content.contact;
+const { delivery } = copy;
 const { details } = section;
 
 /** The dropdown offers every service, then whatever extras the content adds. */
@@ -40,6 +50,7 @@ export function Contact() {
     "idle",
   );
   const [error, setError] = useState<string | null>(null);
+  const [sentDirect, setSentDirect] = useState(false);
 
   const valid =
     form.name.trim().length > 1 &&
@@ -56,6 +67,35 @@ export function Contact() {
     setStatus("sending");
 
     try {
+      // With a form-service key the message goes straight to the inbox;
+      // without one we fall back to the visitor's own mail app.
+      if (delivery.accessKey) {
+        const res = await fetch(delivery.endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: delivery.accessKey,
+            subject: `${copy.emailSubject} — ${form.name.trim()}`,
+            from_name: form.name.trim(),
+            name: form.name.trim(),
+            email: form.email.trim(),
+            [copy.fieldLabels.company]: form.company,
+            [copy.fieldLabels.budget]: form.budget,
+            [copy.fieldLabels.interest]: form.interest,
+            message: form.message,
+            botcheck: "",
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.success) throw new Error("send failed");
+        setSentDirect(true);
+        setStatus("done");
+        return;
+      }
+      setSentDirect(false);
       openMailDraft(`${copy.emailSubject} — ${form.name.trim()}`, {
         [copy.fieldLabels.name]: form.name,
         [copy.fieldLabels.email]: form.email,
@@ -67,7 +107,7 @@ export function Contact() {
       setStatus("done");
     } catch {
       setStatus("error");
-      setError(copy.mailAppError);
+      setError(delivery.accessKey ? copy.sendError : copy.mailAppError);
     }
   }
 
@@ -150,10 +190,12 @@ export function Contact() {
                     {copy.success.title}
                   </h3>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/55">
-                    {copy.success.description.replace(
-                      "{firstName}",
-                      form.name.trim().split(" ")[0],
-                    )}
+                    {(sentDirect
+                      ? copy.success.sentDescription
+                      : copy.success.description
+                    )
+                      .replace("{firstName}", form.name.trim().split(" ")[0])
+                      .replace("{email}", form.email.trim())}
                   </p>
                   <Button
                     variant="secondary"
@@ -175,7 +217,11 @@ export function Contact() {
                   </Button>
                 </motion.div>
               ) : (
-                <form onSubmit={onSubmit} className="flex flex-col gap-5" noValidate>
+                <form
+                  onSubmit={onSubmit}
+                  className="flex flex-col gap-5"
+                  noValidate
+                >
                   <div className="grid gap-5 sm:grid-cols-2">
                     <label className="flex flex-col gap-2">
                       <span className={labelClass}>

@@ -13,28 +13,27 @@
     "priority between 0 and 1 saying how important it is relative to the",
     "others. Case study pages are added automatically."
   ],
-
-  "titleDefault": "{{brand.name}} — Product studio & engineering lab",
+  "titleDefault": "{{brand.name}} — Websites, apps & MVPs for founders",
   "titleTemplate": "%s · {{brand.name}}",
   "description": "{{brand.description}}",
-  "locale": "en_GB",
+  "locale": "en_IN",
   "language": "en",
-
   "keywords": [
-    "product studio",
-    "software agency",
-    "AI engineering",
-    "Next.js development",
-    "platform engineering",
+    "web development agency",
+    "app development",
+    "MVP development",
+    "startup MVP",
+    "UI/UX design",
+    "AI integration",
+    "software agency India",
+    "Agra",
     "{{brand.name}}"
   ],
-
   "twitter": {
     "_note": "The X / Twitter account credited when someone shares a link.",
-    "site": "@wrathlabs",
-    "creator": "@wrathlabs"
+    "site": "@wrath_labs",
+    "creator": "@wrath_labs"
   },
-
   "theme": {
     "_note": [
       "The colour mobile browsers paint around the page. Should match the site",
@@ -43,7 +42,6 @@
     "colour": "#030305",
     "colourScheme": "dark"
   },
-
   "indexing": {
     "_note": [
       "Whether search engines may list the site. Set both to false while the",
@@ -51,21 +49,43 @@
     ],
     "allowIndexing": true,
     "allowFollowingLinks": true,
-    "disallowPaths": ["/api/"]
+    "disallowPaths": [
+      "/api/"
+    ]
   },
-
   "sitemap": {
     "changeFrequency": "monthly",
     "caseStudyChangeFrequency": "yearly",
     "caseStudyPriority": 0.6,
     "pages": [
-      { "path": "{{navigation.paths.home}}", "priority": 1 },
-      { "path": "{{navigation.paths.services}}", "priority": 0.9 },
-      { "path": "{{navigation.paths.pricing}}", "priority": 0.8 },
-      { "path": "{{navigation.paths.about}}", "priority": 0.7 },
-      { "path": "{{navigation.paths.contact}}", "priority": 0.7 },
-      { "path": "{{navigation.paths.privacy}}", "priority": 0.2 },
-      { "path": "{{navigation.paths.terms}}", "priority": 0.2 }
+      {
+        "path": "{{navigation.paths.home}}",
+        "priority": 1
+      },
+      {
+        "path": "{{navigation.paths.services}}",
+        "priority": 0.9
+      },
+      {
+        "path": "{{navigation.paths.pricing}}",
+        "priority": 0.8
+      },
+      {
+        "path": "{{navigation.paths.about}}",
+        "priority": 0.7
+      },
+      {
+        "path": "{{navigation.paths.contact}}",
+        "priority": 0.7
+      },
+      {
+        "path": "{{navigation.paths.privacy}}",
+        "priority": 0.2
+      },
+      {
+        "path": "{{navigation.paths.terms}}",
+        "priority": 0.2
+      }
     ]
   }
 }

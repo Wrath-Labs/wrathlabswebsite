@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Quote, Star } from "lucide-react";
 import { content, type Testimonial } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
@@ -5,6 +6,24 @@ import { Marquee } from "../ui/Marquee";
 import { Reveal, TextReveal } from "../ui/Reveal";
 
 const { section, items } = content.testimonials;
+
+function Avatar({ item }: { item: Testimonial }) {
+  return (
+    <span className="relative grid size-10 shrink-0 place-items-center overflow-hidden rounded-full border border-ember-500/25 bg-gradient-to-br from-ember-600/25 to-flare-500/10 font-mono text-xs font-medium text-ember-200">
+      {item.image ? (
+        <Image
+          src={item.image}
+          alt={item.author}
+          fill
+          sizes="40px"
+          className="object-cover object-top"
+        />
+      ) : (
+        item.initials
+      )}
+    </span>
+  );
+}
 
 function TestimonialCard({ item }: { item: Testimonial }) {
   return (
@@ -25,9 +44,7 @@ function TestimonialCard({ item }: { item: Testimonial }) {
       </div>
 
       <figcaption className="mt-7 flex items-center gap-3 border-t border-white/[0.07] pt-5">
-        <span className="grid size-10 shrink-0 place-items-center rounded-full border border-ember-500/25 bg-gradient-to-br from-ember-600/25 to-flare-500/10 font-mono text-xs font-medium text-ember-200">
-          {item.initials}
-        </span>
+        <Avatar item={item} />
         <div className="min-w-0">
           <div className="truncate text-sm font-medium text-white">
             {item.author}
@@ -42,7 +59,10 @@ function TestimonialCard({ item }: { item: Testimonial }) {
 }
 
 export function Testimonials() {
-  const rows = [items.slice(0, 3), items.slice(3)].filter((r) => r.length > 0);
+  // A handful of quotes reads best on one scrolling row; split in two once there are many.
+  const half = Math.ceil(items.length / 2);
+  const rows =
+    items.length > 6 ? [items.slice(0, half), items.slice(half)] : [items];
   const featured = items[0];
 
   return (
@@ -75,9 +95,7 @@ export function Testimonials() {
               &rdquo;
             </blockquote>
             <figcaption className="mt-7 flex items-center justify-center gap-3">
-              <span className="grid size-10 place-items-center rounded-full border border-ember-500/25 bg-gradient-to-br from-ember-600/25 to-flare-500/10 font-mono text-xs text-ember-200">
-                {featured.initials}
-              </span>
+              <Avatar item={featured} />
               <span className="text-left">
                 <span className="block text-sm font-medium text-white">
                   {featured.author}

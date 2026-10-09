@@ -8,7 +8,6 @@
     "",
     "`placeholder` is the grey example text inside an empty box."
   ],
-
   "page": {
     "seo": {
       "title": "Contact",
@@ -18,10 +17,14 @@
       "eyebrow": "Contact",
       "title": "Straight to the founders.",
       "description": "No gatekeeping, no qualification call before the qualification call. Write once and you'll hear back from someone who can actually answer.",
-      "breadcrumb": [{ "label": "Contact", "href": "{{navigation.paths.contact}}" }]
+      "breadcrumb": [
+        {
+          "label": "Contact",
+          "href": "{{navigation.paths.contact}}"
+        }
+      ]
     }
   },
-
   "section": {
     "heading": {
       "eyebrow": "Contact",
@@ -42,7 +45,6 @@
     },
     "socialsLabel": "Elsewhere"
   },
-
   "form": {
     "_note": [
       "`interestExtras` are added to the end of the What do you need? dropdown,",
@@ -55,14 +57,15 @@
     "companyLabel": "Company",
     "companyPlaceholder": "Analytical Engines Ltd",
     "interestLabel": "What do you need?",
-    "interestExtras": ["A lab product", "Something else"],
+    "interestExtras": [
+      "Something else"
+    ],
     "budgetLabel": "Budget range",
     "budgets": [
-      "Under $25k",
-      "$25k – $75k",
-      "$75k – $150k",
-      "$150k – $500k",
-      "$500k+",
+      "Under ₹20,000 / $2,000",
+      "₹20,000 – ₹50,000 / $2,000 – $4,000",
+      "₹50,000 – ₹1,00,000 / $4,000 – $8,000",
+      "₹1,00,000+ / $8,000+",
       "Not sure yet"
     ],
     "messageLabel": "The project",
@@ -82,7 +85,8 @@
       ],
       "title": "Nearly there.",
       "description": "Thanks {firstName} — we've opened a prefilled draft to {{brand.email}} in your mail app. Hit send and a founder will reply within {{brand.words.responseTime}}.",
-      "resetLabel": "Send another"
+      "resetLabel": "Send another",
+      "sentDescription": "Thanks {firstName} — your message is in. We'll reply to {email} within {{brand.words.responseTime}}."
     },
     "fieldLabels": {
       "_note": [
@@ -95,6 +99,18 @@
       "budget": "Budget",
       "interest": "Interest",
       "message": "Message"
-    }
+    },
+    "delivery": {
+      "_note": [
+        "HOW THE FORM REACHES YOU.",
+        "Paste a free Web3Forms access key in `accessKey` and enquiries are delivered straight to",
+        "your inbox with no mail app involved. Get a key at https://web3forms.com (enter your email,",
+        "the key is emailed to you in seconds). The key is meant to be public, it is safe in the page.",
+        "Leave `accessKey` empty and the form falls back to opening the visitor's email app."
+      ],
+      "endpoint": "https://api.web3forms.com/submit",
+      "accessKey": ""
+    },
+    "sendError": "That didn't go through. Please try again, or email us directly."
   }
 }

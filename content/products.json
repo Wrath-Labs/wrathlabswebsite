@@ -52,7 +52,7 @@
         "The red tile that fills the last slot in the product grid. Set `show`",
         "to false to drop it and leave the grid with just the products."
       ],
-      "show": true,
+      "show": false,
       "eyebrow": "Next up",
       "title": "Yours could be next.",
       "description": "Tell us your idea and we'll help you turn it into something real you can test.",
@@ -80,7 +80,7 @@
       "id": "vakil-saab-agra",
       "name": "Vakil Saab Agra",
       "category": "Legal directory",
-      "status": "",
+      "status": "Our startup",
       "icon": "FileText",
       "tagline": "A lawyer listing and microsite platform.",
       "description": "Vakil Saab Agra lists lawyers and gives each one a microsite, so legal professionals can be found online and clients can find the right lawyer.",
@@ -89,12 +89,12 @@
         "value": "",
         "label": ""
       },
-      "href": "",
+      "href": "https://vakilsaabagra.in",
       "cta": {
         "label": "Start a project like this",
         "href": "{{navigation.paths.contact}}"
       },
-      "_note": "`href` is where the card links to. Leave it empty for no link. `status` is the small badge; leave empty to hide it. Allowed: Live, Beta, Alpha, Research, In development."
+      "_note": "`href` is where the card links to (opens in a new tab); leave empty for no link. `status` is the small badge: Client work, Our startup, In development, Live, Beta, Alpha or Research."
     },
     {
       "id": "sankul",
@@ -119,10 +119,29 @@
       "id": "naamya-gems",
       "name": "Naamya Gems",
       "category": "E-commerce",
-      "status": "",
+      "status": "Client work",
       "icon": "Sparkles",
       "tagline": "An online store for gems and stones.",
       "description": "Naamya Gems is an e-commerce website for buying gems and stones.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "https://naamyagems.com",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      }
+    },
+    {
+      "id": "sarovar-marketing-hub",
+      "name": "Sarovar Marketing Hub",
+      "category": "Marketing agency website",
+      "status": "Client work",
+      "icon": "ChartNoAxesCombined",
+      "tagline": "The official website for a marketing agency.",
+      "description": "The official website of Sarovar Marketing Hub, a marketing agency.",
       "features": [],
       "metric": {
         "value": "",
@@ -138,7 +157,7 @@
       "id": "annapurna",
       "name": "Annapurna",
       "category": "Social media",
-      "status": "",
+      "status": "Our startup",
       "icon": "Users",
       "tagline": "A social media platform for food.",
       "description": "Annapurna is a social media platform built around food.",
@@ -157,7 +176,7 @@
       "id": "karma-kart",
       "name": "Karma Kart",
       "category": "Marketplace",
-      "status": "",
+      "status": "Our startup",
       "icon": "Network",
       "tagline": "A barter-based platform for exchanging services.",
       "description": "Karma Kart is a barter-based platform where people exchange services with each other.",
