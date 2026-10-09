@@ -135,7 +135,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 
   return (
     <Reveal delay={(index % 3) * 0.08} className="h-full">
-      <SpotlightCard className="h-full">
+      <SpotlightCard className="h-full" tilt>
         {product.href ? (
           <Link href={product.href} className="flex h-full flex-col p-7">
             {body}

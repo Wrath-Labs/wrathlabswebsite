@@ -4,6 +4,7 @@ import { content } from "@/content";
 import { Logo } from "./Logo";
 import { BrandIcon } from "../ui/BrandIcon";
 import { Reveal } from "../ui/Reveal";
+import { FooterWordmark } from "./FooterWordmark";
 
 const { brand } = content;
 const { footer } = content.navigation;
@@ -16,11 +17,7 @@ export function Footer() {
 
       <div className="shell relative">
         {/* Oversized wordmark */}
-        <div className="pointer-events-none select-none pt-20 md:pt-28">
-          <h2 className="font-display text-[15vw] font-bold uppercase leading-[0.82] tracking-[-0.05em] text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.09)] md:text-[13vw]">
-            {brand.name}
-          </h2>
-        </div>
+        <FooterWordmark text={brand.name} />
 
         <div className="grid gap-14 py-16 lg:grid-cols-[1.4fr_2.4fr]">
           <div className="flex flex-col gap-6">

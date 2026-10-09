@@ -104,5 +104,14 @@
         ]
       }
     ]
+  },
+  "factory": {
+    "_note": [
+      "THE HERO PICTURE — the animated product factory under the headline.",
+      "It has no words in it. `ariaLabel` is the description read aloud to screen-reader users.",
+      "Set `show` to false to bring back the dashboard panel (`telemetry`, below) instead."
+    ],
+    "show": true,
+    "ariaLabel": "An animated product factory. Ideas ride a conveyor belt, become apps, launch as rockets, and the money they earn drops into a vault."
   }
 }

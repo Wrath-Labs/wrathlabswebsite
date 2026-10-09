@@ -7,6 +7,7 @@ import { content, type PricingTier } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Button } from "../ui/Button";
 import { Reveal } from "../ui/Reveal";
+import { PriceTicker } from "../ui/PriceTicker";
 import { cn } from "@/lib/utils";
 
 const { section, tabs } = content.pricing;
@@ -30,7 +31,7 @@ function TierCard({ tier, index }: { tier: PricingTier; index: number }) {
     >
       {tier.featured && (
         <>
-          <div className="pointer-events-none absolute -inset-px -z-10 rounded-2xl bg-gradient-to-b from-ember-500/25 to-transparent blur-md" />
+          <div className="pointer-events-none absolute -inset-px -z-10 animate-[pulse-glow_5s_ease-in-out_infinite] rounded-2xl bg-gradient-to-b from-ember-500/25 to-transparent blur-md" />
           <span className="absolute -top-3 left-7 rounded-full bg-gradient-to-r from-ember-500 to-flare-500 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white shadow-[0_4px_20px_-4px_rgba(255,45,85,0.7)]">
             {section.featuredBadge}
           </span>
@@ -48,7 +49,7 @@ function TierCard({ tier, index }: { tier: PricingTier; index: number }) {
             tier.price.length > 12 ? "text-2xl xl:text-[1.65rem]" : "text-4xl",
           )}
         >
-          {tier.price}
+          <PriceTicker value={tier.price} />
         </span>
         <span className="font-mono text-[11px] text-white/35">{tier.unit}</span>
       </div>
@@ -58,8 +59,17 @@ function TierCard({ tier, index }: { tier: PricingTier; index: number }) {
       </p>
 
       <ul className="mt-6 flex flex-1 flex-col gap-3 border-t border-white/[0.07] pt-6">
-        {tier.features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-[13px] text-white/65">
+        {tier.features.map((f, fi) => (
+          <motion.li
+            key={f}
+            initial={{ opacity: 0, x: -8 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.4,
+              delay: 0.25 + index * 0.07 + fi * 0.045,
+            }}
+            className="flex items-start gap-2.5 text-[13px] text-white/65"
+          >
             <span
               className={cn(
                 "mt-px grid size-4 shrink-0 place-items-center rounded-full",
@@ -71,7 +81,7 @@ function TierCard({ tier, index }: { tier: PricingTier; index: number }) {
               <Check className="size-2.5" strokeWidth={3} />
             </span>
             {f}
-          </li>
+          </motion.li>
         ))}
       </ul>
 

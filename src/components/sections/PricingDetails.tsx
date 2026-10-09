@@ -4,6 +4,7 @@ import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Accordion } from "../ui/Accordion";
 import { SpotlightCard } from "../ui/SpotlightCard";
 import { Reveal } from "../ui/Reveal";
+import { AnimatedCheck } from "../ui/AnimatedCheck";
 import { Button } from "../ui/Button";
 import { Icon } from "../ui/Icon";
 import { cn } from "@/lib/utils";
@@ -55,7 +56,7 @@ export function ComparePlans() {
                   {group.rows.map((row) => (
                     <tr
                       key={row.label}
-                      className="border-t border-white/[0.05]"
+                      className="border-t border-white/[0.05] transition-colors duration-300 hover:bg-white/[0.03]"
                     >
                       <th className="p-5 text-[13px] font-normal text-white/60">
                         {row.label}
@@ -69,10 +70,10 @@ export function ComparePlans() {
                           )}
                         >
                           {value === true ? (
-                            <Check
+                            <AnimatedCheck
                               className="size-4 text-emerald-400"
-                              strokeWidth={2.5}
-                              aria-label="Included"
+                              delay={i * 0.08}
+                              label="Included"
                             />
                           ) : value === false ? (
                             <Minus
@@ -170,9 +171,9 @@ export function AddOns() {
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {addOns.items.map((item, i) => (
             <Reveal key={item.name} delay={(i % 3) * 0.08} className="h-full">
-              <div className="flex h-full flex-col rounded-2xl border border-white/[0.07] bg-white/[0.015] p-6 transition-colors duration-500 hover:border-white/[0.14]">
+              <div className="group flex h-full flex-col rounded-2xl border border-white/[0.07] bg-white/[0.015] p-6 transition-colors duration-500 hover:border-ember-500/30">
                 <div className="flex items-start justify-between gap-3">
-                  <span className="grid size-10 place-items-center rounded-xl border border-white/[0.08] text-ember-400">
+                  <span className="grid size-10 transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110 place-items-center rounded-xl border border-white/[0.08] text-ember-400">
                     <Icon name={item.icon} className="size-[18px]" />
                   </span>
                   <span className="rounded-full bg-white/[0.05] px-3 py-1 font-mono text-[10.5px] uppercase tracking-[0.12em] text-white/60">
@@ -189,12 +190,12 @@ export function AddOns() {
                   <span className="text-white/50">For example: </span>
                   {item.examples}
                 </p>
-                <dl className="mt-auto grid grid-cols-2 gap-3 border-t border-white/[0.07] pt-5">
+                <dl className="mt-auto grid grid-cols-2 gap-3 border-t border-white/[0.07] pt-5 transition-transform duration-500 group-hover:-translate-y-0.5">
                   <div>
                     <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/30">
                       India
                     </dt>
-                    <dd className="mt-1 text-[13px] font-medium text-white">
+                    <dd className="mt-1 text-[13px] font-medium text-white transition-colors duration-300 group-hover:text-ember-300">
                       {item.priceIndia}
                     </dd>
                   </div>
@@ -202,7 +203,7 @@ export function AddOns() {
                     <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/30">
                       Global
                     </dt>
-                    <dd className="mt-1 text-[13px] font-medium text-white">
+                    <dd className="mt-1 text-[13px] font-medium text-white transition-colors duration-300 group-hover:text-ember-300">
                       {item.priceGlobal}
                     </dd>
                   </div>

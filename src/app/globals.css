@@ -195,6 +195,22 @@
   color: transparent;
 }
 
+@utility text-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-ember-500) 0%,
+    var(--color-flare-500) 38%,
+    #ffffff 50%,
+    var(--color-flare-500) 62%,
+    var(--color-ember-500) 100%
+  );
+  background-size: 250% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 8s linear 2.5s infinite;
+}
+
 @utility text-gradient-ember {
   background-image: linear-gradient(
     100deg,
@@ -288,5 +304,214 @@
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Hero factory scene (components/fx/FactoryScene.tsx)
+ * ------------------------------------------------------------------ */
+.fy-spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: fy-spin 9s linear infinite;
+}
+.fy-spin.fy-fast {
+  animation-duration: 3.5s;
+}
+.fy-dash {
+  animation: fy-dash 0.7s linear infinite;
+}
+.fy-flick {
+  animation: fy-flick 1.6s ease-in-out infinite;
+}
+.fy-twinkle {
+  animation: fy-twinkle 3s ease-in-out infinite;
+}
+.fy-wire * {
+  fill: none !important;
+  stroke: #ff2d55 !important;
+  stroke-width: 1.4px !important;
+  stroke-dasharray: 4 4 !important;
+}
+@keyframes fy-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fy-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+@keyframes fy-flick {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  45% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.55;
+  }
+}
+@keyframes fy-twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Service art (components/ui/ServiceArt.tsx)
+ * ------------------------------------------------------------------ */
+.sa-float {
+  animation: sa-float 5s ease-in-out infinite;
+}
+.sa-bob {
+  animation: sa-float 3s ease-in-out infinite;
+}
+.sa-draw {
+  animation: sa-draw 4.5s ease-in-out infinite;
+}
+.sa-grow {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: sa-grow 4s ease-in-out infinite;
+}
+.sa-flow {
+  animation: sa-flow 1.4s linear infinite;
+}
+.sa-flick {
+  animation: fy-flick 0.9s ease-in-out infinite;
+}
+.sa-twinkle {
+  animation: fy-twinkle 3s ease-in-out infinite;
+}
+.sa-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sa-pulse 2.4s ease-in-out infinite;
+}
+.sa-spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: fy-spin 14s linear infinite;
+}
+.sa-orbit {
+  animation: fy-spin 9s linear infinite;
+}
+.sa-orbit.sa-rev {
+  animation-direction: reverse;
+  animation-duration: 12s;
+}
+.sa-travel {
+  offset-rotate: 0deg;
+  animation: sa-travel 2.8s ease-in-out infinite;
+}
+.sa-slide {
+  animation: sa-slide 4s ease-in-out infinite;
+}
+.sa-sweep {
+  animation: sa-sweep 3s ease-in-out infinite;
+}
+.sa-beat {
+  animation: sa-beat 2.6s linear infinite;
+}
+@keyframes sa-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+@keyframes sa-draw {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  55%,
+  85% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1;
+  }
+}
+@keyframes sa-grow {
+  0% {
+    transform: scaleX(0.05);
+  }
+  70%,
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes sa-flow {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+@keyframes sa-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+}
+@keyframes sa-travel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+@keyframes sa-slide {
+  0% {
+    transform: translateX(70px);
+    opacity: 0;
+  }
+  40%,
+  85% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+@keyframes sa-sweep {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(70px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+@keyframes sa-beat {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
   }
 }

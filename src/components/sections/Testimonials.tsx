@@ -2,7 +2,7 @@ import { Quote, Star } from "lucide-react";
 import { content, type Testimonial } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Marquee } from "../ui/Marquee";
-import { Reveal } from "../ui/Reveal";
+import { Reveal, TextReveal } from "../ui/Reveal";
 
 const { section, items } = content.testimonials;
 
@@ -65,7 +65,14 @@ export function Testimonials() {
               strokeWidth={1.5}
             />
             <blockquote className="relative mt-6 font-display text-xl font-medium leading-snug tracking-tight text-white/90 md:text-[1.75rem]">
-              &ldquo;{featured.quote}&rdquo;
+              &ldquo;
+              <TextReveal
+                text={featured.quote}
+                inView
+                stagger={0.018}
+                delay={0.15}
+              />
+              &rdquo;
             </blockquote>
             <figcaption className="mt-7 flex items-center justify-center gap-3">
               <span className="grid size-10 place-items-center rounded-full border border-ember-500/25 bg-gradient-to-br from-ember-600/25 to-flare-500/10 font-mono text-xs text-ember-200">

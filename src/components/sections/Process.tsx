@@ -1,12 +1,50 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import {
+  motion,
+  useInView,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "motion/react";
 import { content } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
 
 const { section, items } = content.process;
+
+/** Lights up the first time the centre of the screen passes it. */
+function Node() {
+  const ref = useRef<HTMLSpanElement>(null);
+  const lit = useInView(ref, { margin: "-48% 0px -48% 0px" });
+  const reduce = useReducedMotion();
+  const on = lit || reduce;
+
+  return (
+    <span
+      ref={ref}
+      className="absolute -left-10 top-1.5 grid size-6 place-items-center md:left-1/2 md:-translate-x-1/2"
+    >
+      <motion.span
+        className="absolute size-6 rounded-full bg-ember-500/15"
+        animate={{ scale: on ? 1.5 : 1, opacity: on ? 1 : 0.5 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      />
+      <motion.span
+        className="size-2 rounded-full bg-ember-500"
+        animate={{
+          scale: on ? 1.4 : 0.8,
+          boxShadow: on
+            ? "0 0 18px 4px rgba(255,45,85,0.7)"
+            : "0 0 0px 0px rgba(255,45,85,0)",
+        }}
+        transition={{ duration: 0.5 }}
+      />
+    </span>
+  );
+}
 
 export function Process() {
   const ref = useRef<HTMLDivElement>(null);
@@ -40,10 +78,7 @@ export function Process() {
                 className="relative md:grid md:grid-cols-2 md:gap-16"
               >
                 {/* node */}
-                <span className="absolute -left-10 top-1.5 grid size-6 place-items-center md:left-1/2 md:-translate-x-1/2">
-                  <span className="absolute size-6 rounded-full bg-ember-500/15" />
-                  <span className="size-2 rounded-full bg-ember-500 shadow-[0_0_12px_2px_rgba(255,45,85,0.5)]" />
-                </span>
+                <Node />
 
                 <Reveal
                   direction={i % 2 === 0 ? "right" : "left"}

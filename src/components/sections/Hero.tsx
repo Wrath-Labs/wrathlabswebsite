@@ -9,8 +9,9 @@ import { AmbientOrbs } from "../fx/Atmosphere";
 import { Button } from "../ui/Button";
 import { TextReveal } from "../ui/Reveal";
 import { Counter } from "../ui/Counter";
+import { FactoryScene } from "../fx/FactoryScene";
 
-const { hero, telemetry } = content.home;
+const { hero, telemetry, factory } = content.home;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 22, filter: "blur(6px)" },
@@ -19,6 +20,8 @@ const fadeUp = {
 
 export function Hero() {
   const reduce = useReducedMotion();
+  // With the factory picture the hero is split: text left, picture right.
+  const split = factory.show;
 
   return (
     <section className="relative flex min-h-[92svh] flex-col justify-center overflow-hidden pb-20 pt-36 md:pt-40">
@@ -35,82 +38,130 @@ export function Hero() {
       </div>
 
       <div className="shell relative">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          transition={{ staggerChildren: 0.09, delayChildren: 0.15 }}
-          className="flex flex-col items-center text-center"
+        <div
+          className={
+            split
+              ? "grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-8"
+              : undefined
+          }
         >
-          {/* announcement */}
-          {hero.badge.show && (
+          <motion.div
+            initial="hidden"
+            animate="show"
+            transition={{ staggerChildren: 0.09, delayChildren: 0.15 }}
+            className={
+              split
+                ? "flex flex-col items-start text-left"
+                : "flex flex-col items-center text-center"
+            }
+          >
+            {/* announcement */}
+            {hero.badge.show && (
+              <motion.div
+                variants={fadeUp}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <Link
+                  href={hero.badge.href}
+                  className="group inline-flex items-center gap-2.5 rounded-full border border-white/[0.09] bg-white/[0.03] py-1.5 pl-2 pr-4 text-[13px] text-white/65 backdrop-blur-md transition-colors duration-300 hover:border-ember-500/35 hover:text-white"
+                >
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-ember-500 to-flare-500 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-white">
+                    <Sparkles className="size-3" strokeWidth={2} />
+                    {hero.badge.tag}
+                  </span>
+                  {hero.badge.text}
+                  <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </Link>
+              </motion.div>
+            )}
+
+            {/* headline */}
+            <h1
+              className={`mt-8 max-w-5xl font-display font-semibold leading-[0.95] tracking-[-0.045em] text-white ${
+                split
+                  ? "text-[12vw] sm:text-6xl lg:text-[3.6rem] xl:text-[4.4rem]"
+                  : "text-[13vw] sm:text-6xl md:text-7xl lg:text-[5.5rem]"
+              }`}
+            >
+              <span className="block">
+                <TextReveal text={hero.headline.lineOne} delay={0.3} />
+              </span>
+              <span className="mt-1 block">
+                <TextReveal
+                  text={hero.headline.lineTwo}
+                  delay={0.62}
+                  wordClassName="text-shimmer"
+                />
+              </span>
+            </h1>
+
+            <motion.p
+              variants={fadeUp}
+              transition={{
+                duration: 0.8,
+                delay: 0.95,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="mt-7 max-w-xl text-[15px] leading-relaxed text-white/55 md:text-lg"
+            >
+              {hero.description}
+            </motion.p>
+
             <motion.div
               variants={fadeUp}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 1.05,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className={`mt-10 flex flex-col gap-3 sm:flex-row ${split ? "items-start" : "items-center"}`}
             >
-              <Link
-                href={hero.badge.href}
-                className="group inline-flex items-center gap-2.5 rounded-full border border-white/[0.09] bg-white/[0.03] py-1.5 pl-2 pr-4 text-[13px] text-white/65 backdrop-blur-md transition-colors duration-300 hover:border-ember-500/35 hover:text-white"
+              <Button
+                href={hero.primaryButton.href}
+                size="lg"
+                withArrow
+                magnetic
               >
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-ember-500 to-flare-500 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-white">
-                  <Sparkles className="size-3" strokeWidth={2} />
-                  {hero.badge.tag}
-                </span>
-                {hero.badge.text}
-                <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </Link>
+                {hero.primaryButton.label}
+              </Button>
+              <Button
+                href={hero.secondaryButton.href}
+                size="lg"
+                variant="secondary"
+              >
+                {hero.secondaryButton.label}
+              </Button>
             </motion.div>
-          )}
 
-          {/* headline */}
-          <h1 className="mt-8 max-w-5xl font-display text-[13vw] font-semibold leading-[0.95] tracking-[-0.045em] text-white sm:text-6xl md:text-7xl lg:text-[5.5rem]">
-            <span className="block">
-              <TextReveal text={hero.headline.lineOne} delay={0.3} />
-            </span>
-            <span className="mt-1 block">
-              <TextReveal
-                text={hero.headline.lineTwo}
-                delay={0.62}
-                wordClassName="text-gradient-ember"
-              />
-            </span>
-          </h1>
-
-          <motion.p
-            variants={fadeUp}
-            transition={{ duration: 0.8, delay: 0.95, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-7 max-w-xl text-[15px] leading-relaxed text-white/55 md:text-lg"
-          >
-            {hero.description}
-          </motion.p>
-
-          <motion.div
-            variants={fadeUp}
-            transition={{ duration: 0.8, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 flex flex-col items-center gap-3 sm:flex-row"
-          >
-            <Button href={hero.primaryButton.href} size="lg" withArrow magnetic>
-              {hero.primaryButton.label}
-            </Button>
-            <Button
-              href={hero.secondaryButton.href}
-              size="lg"
-              variant="secondary"
+            <motion.p
+              variants={fadeUp}
+              transition={{ duration: 0.8, delay: 1.15 }}
+              className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/30"
             >
-              {hero.secondaryButton.label}
-            </Button>
+              {hero.footnote}
+            </motion.p>
           </motion.div>
 
-          <motion.p
-            variants={fadeUp}
-            transition={{ duration: 0.8, delay: 1.15 }}
-            className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/30"
-          >
-            {hero.footnote}
-          </motion.p>
-        </motion.div>
+          {/* the product factory: sits to the right of the text */}
+          {factory.show && (
+            <motion.div
+              initial={{ opacity: 0, x: 40, filter: "blur(10px)" }}
+              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full 2xl:-mr-10 2xl:w-[calc(100%+2.5rem)]"
+            >
+              <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] shadow-[0_30px_80px_-30px_rgba(255,45,85,0.35)]">
+                <FactoryScene
+                  ariaLabel={factory.ariaLabel}
+                  viewBox="0 50 900 370"
+                />
+              </div>
+            </motion.div>
+          )}
+        </div>
 
         {/* live telemetry panel */}
-        {telemetry.show && (
+        {!factory.show && telemetry.show && (
           <motion.div
             initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -129,7 +180,10 @@ export function Hero() {
                   {telemetry.address}
                 </span>
                 <span className="ml-auto inline-flex items-center gap-1.5 font-mono text-[11px] text-emerald-400/80">
-                  <span className="size-1.5 rounded-full bg-emerald-400" />
+                  <span className="relative flex size-1.5">
+                    <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
+                  </span>
                   {telemetry.liveLabel}
                 </span>
               </div>
@@ -199,7 +253,14 @@ function Metric({
             <stop offset="100%" stopColor="#ff2d55" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <polyline
+        <motion.polygon
+          points={`${points} 100,48 0,48`}
+          fill={`url(#${gradientId})`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.9, delay: 2.1 }}
+        />
+        <motion.polyline
           points={points}
           fill="none"
           stroke="#ff5c79"
@@ -207,8 +268,12 @@ function Metric({
           strokeLinecap="round"
           strokeLinejoin="round"
           vectorEffect="non-scaling-stroke"
+          pathLength={1}
+          strokeDasharray={1}
+          initial={{ strokeDashoffset: 1 }}
+          animate={{ strokeDashoffset: 0 }}
+          transition={{ duration: 1.4, delay: 1.6, ease: "easeOut" }}
         />
-        <polygon points={`${points} 100,48 0,48`} fill={`url(#${gradientId})`} />
       </svg>
     </div>
   );
