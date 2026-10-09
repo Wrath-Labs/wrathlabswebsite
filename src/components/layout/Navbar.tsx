@@ -5,11 +5,14 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { navLinks, socials } from "@/lib/data";
+import { content } from "@/content";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 import { Button } from "../ui/Button";
 import { BrandIcon } from "../ui/BrandIcon";
+
+const { navbar } = content.navigation;
+const { socials } = content.brand;
 
 export function Navbar() {
   const pathname = usePathname();
@@ -48,7 +51,7 @@ export function Navbar() {
 
             {/* Desktop links */}
             <ul className="hidden items-center gap-1 lg:flex">
-              {navLinks.map((link) => {
+              {navbar.links.map((link) => {
                 const active =
                   pathname === link.href || pathname.startsWith(`${link.href}/`);
                 return (
@@ -56,7 +59,7 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "relative rounded-full px-4 py-2 text-sm transition-colors duration-300",
+                        "relative rounded-full px-3 py-2 text-sm transition-colors duration-300 xl:px-4",
                         active
                           ? "text-white"
                           : "text-white/55 hover:text-white",
@@ -81,28 +84,30 @@ export function Navbar() {
             </ul>
 
             <div className="flex items-center gap-3">
-              <span className="hidden shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 font-mono text-[11px] text-white/50 xl:inline-flex">
-                <span className="relative flex size-1.5">
-                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
+              {navbar.availability.show && (
+                <span className="hidden shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 font-mono text-[11px] text-white/50 xl:inline-flex">
+                  <span className="relative flex size-1.5">
+                    <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
+                  </span>
+                  {navbar.availability.text}
                 </span>
-                2 slots · Q3
-              </span>
+              )}
 
               <Button
-                href="/book"
+                href={navbar.cta.href}
                 size="sm"
                 className="hidden sm:inline-flex"
                 withArrow
                 magnetic
               >
-                Book a call
+                {navbar.cta.label}
               </Button>
 
               <button
                 type="button"
                 onClick={() => setOpen((v) => !v)}
-                aria-label={open ? "Close menu" : "Open menu"}
+                aria-label={open ? navbar.closeMenuLabel : navbar.openMenuLabel}
                 aria-expanded={open}
                 className="grid size-10 place-items-center rounded-full border border-white/10 text-white/80 transition-colors hover:border-white/25 hover:text-white lg:hidden"
               >
@@ -130,7 +135,7 @@ export function Navbar() {
             <div className="bg-grid absolute inset-0 opacity-40" />
             <div className="shell relative flex h-full flex-col justify-between pb-12 pt-28">
               <ul className="flex flex-col gap-1">
-                {navLinks.map((link, i) => (
+                {navbar.links.map((link, i) => (
                   <motion.li
                     key={link.href}
                     initial={{ opacity: 0, x: -24 }}
@@ -147,7 +152,7 @@ export function Navbar() {
                       className="flex items-baseline gap-4 border-b border-white/[0.06] py-5 font-display text-3xl font-medium tracking-tight text-white/85 transition-colors hover:text-ember-400"
                     >
                       <span className="font-mono text-xs text-ember-500/70">
-                        0{i + 1}
+                        {String(i + 1).padStart(2, "0")}
                       </span>
                       {link.label}
                     </Link>
@@ -162,13 +167,13 @@ export function Navbar() {
                 className="flex flex-col gap-6"
               >
                 <Button
-                  href="/book"
+                  href={navbar.mobileCta.href}
                   size="lg"
                   withArrow
                   className="w-full"
                   onClick={() => setOpen(false)}
                 >
-                  Book a meeting
+                  {navbar.mobileCta.label}
                 </Button>
                 <div className="flex items-center gap-3">
                   {socials.map((s) => (
@@ -180,7 +185,7 @@ export function Navbar() {
                       aria-label={s.label}
                       className="grid size-10 place-items-center rounded-full border border-white/10 text-white/60 transition-colors hover:border-ember-500/40 hover:text-ember-400"
                     >
-                      <BrandIcon brand={s.brand} className="size-4" />
+                      <BrandIcon brand={s.icon} className="size-4" />
                     </a>
                   ))}
                 </div>

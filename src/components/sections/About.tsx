@@ -1,26 +1,21 @@
-import { timeline, values } from "@/lib/data";
+import Image from "next/image";
+import { content } from "@/content";
+import { BrandIcon } from "../ui/BrandIcon";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { SpotlightCard } from "../ui/SpotlightCard";
 import { Reveal } from "../ui/Reveal";
 import { Icon } from "../ui/Icon";
 
+const { manifesto, timeline, values, team } = content.about;
+
 export function Values() {
   return (
     <Section id="values">
       <div className="shell">
-        <SectionHeading
-          eyebrow="How we operate"
-          title={
-            <>
-              Four rules we don&apos;t{" "}
-              <span className="text-white/40">bend on.</span>
-            </>
-          }
-          description="Everything else is negotiable. These four are why clients come back and why our own products stay maintainable."
-        />
+        <SectionHeading {...values.heading} />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((value, i) => (
+          {values.items.map((value, i) => (
             <Reveal key={value.title} delay={i * 0.08} className="h-full">
               <SpotlightCard className="h-full">
                 <div className="flex h-full flex-col p-7">
@@ -50,14 +45,7 @@ export function Timeline() {
         <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading
-              eyebrow="The story"
-              title={
-                <>
-                  Six years,{" "}
-                  <span className="text-white/40">two disciplines.</span>
-                </>
-              }
-              description="We started as contractors, got tired of shipping software we'd never have to maintain, and built a company where we do both."
+              {...timeline.heading}
               titleClassName="md:text-[2.75rem]"
             />
           </div>
@@ -65,7 +53,7 @@ export function Timeline() {
           <div className="relative flex flex-col">
             <div className="absolute bottom-8 left-[7px] top-3 w-px bg-gradient-to-b from-ember-500/50 via-white/[0.09] to-transparent" />
 
-            {timeline.map((entry, i) => (
+            {timeline.items.map((entry, i) => (
               <Reveal key={entry.year} delay={i * 0.08}>
                 <div className="relative flex gap-6 pb-11 pl-9">
                   <span className="absolute left-0 top-2 grid size-4 place-items-center">
@@ -102,12 +90,8 @@ export function Manifesto() {
       <div className="shell relative max-w-4xl">
         <Reveal>
           <p className="font-display text-2xl font-medium leading-[1.4] tracking-tight text-white/85 md:text-[2rem]">
-            Software is only finished when someone has to keep it running at
-            3am. That&apos;s the standard we hold our own products to, and it&apos;s
-            the standard we bring to yours —{" "}
-            <span className="text-gradient-ember">
-              build it like you&apos;ll be the one carrying the pager.
-            </span>
+            {manifesto.text}
+            <span className="text-gradient-ember">{manifesto.emphasis}</span>
           </p>
         </Reveal>
 
@@ -115,10 +99,55 @@ export function Manifesto() {
           <div className="mt-10 flex items-center gap-4">
             <span className="h-px w-12 bg-ember-500/60" />
             <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
-              The founders, Wrath Labs
+              {manifesto.attribution}
             </span>
           </div>
         </Reveal>
+      </div>
+    </Section>
+  );
+}
+
+export function Team() {
+  return (
+    <Section id="team" className="border-t border-white/[0.06]">
+      <div className="shell">
+        <SectionHeading {...team.heading} />
+
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {team.members.map((member, i) => (
+            <Reveal key={member.name} delay={i * 0.08} className="h-full">
+              <SpotlightCard className="h-full">
+                <div className="flex h-full flex-col items-center p-7 text-center">
+                  <span className="relative size-28 overflow-hidden rounded-full border border-white/[0.1] bg-gradient-to-br from-ember-600/20 to-flare-500/10 transition-transform duration-500 group-hover:scale-105">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      sizes="112px"
+                      className="object-cover"
+                    />
+                  </span>
+                  <h3 className="mt-6 font-display text-lg font-semibold tracking-tight text-white">
+                    {member.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-white/50">{member.role}</p>
+                  {member.xLink && (
+                    <a
+                      href={member.xLink}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label={`${member.name} on X`}
+                      className="mt-5 grid size-9 place-items-center rounded-full border border-white/[0.08] text-white/50 transition-all duration-300 hover:-translate-y-0.5 hover:border-ember-500/40 hover:text-white"
+                    >
+                      <BrandIcon brand="x" className="size-3.5" />
+                    </a>
+                  )}
+                </div>
+              </SpotlightCard>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </Section>
   );

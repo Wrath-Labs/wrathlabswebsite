@@ -1,18 +1,22 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/lib/data";
+import { content } from "@/content";
 
 // Static export: pin these to build time so `next build` writes real files.
 export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
+  const { brand, seo } = content;
+
   return {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: "/api/",
+        allow: seo.indexing.allowIndexing ? "/" : [],
+        disallow: seo.indexing.allowIndexing
+          ? seo.indexing.disallowPaths
+          : "/",
       },
     ],
-    sitemap: `${site.url}/sitemap.xml`,
+    sitemap: `${brand.url}/sitemap.xml`,
   };
 }

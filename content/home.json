@@ -1,0 +1,117 @@
+{
+  "_note": [
+    "THE HOME PAGE — everything in the first screen visitors see.",
+    "",
+    "The bands further down the home page live in their own files:",
+    "sections.json, services.json, products.json, process.json,",
+    "case-studies.json, testimonials.json, pricing.json and faq.json."
+  ],
+  "hero": {
+    "badge": {
+      "_note": [
+        "The pill above the headline. `tag` is the bright gradient label on the",
+        "left. Set `show` to false to hide the whole pill."
+      ],
+      "show": false,
+      "tag": "Free",
+      "text": "Your first call is free",
+      "href": "{{navigation.paths.contact}}"
+    },
+    "headline": {
+      "_note": [
+        "Two lines. The second is the one painted in the orange/red gradient.",
+        "Both come from brand.json so the tagline stays consistent with the",
+        "business card and social previews."
+      ],
+      "lineOne": "{{brand.tagline.lineOne}}",
+      "lineTwo": "{{brand.tagline.lineTwo}}"
+    },
+    "description": "We help founders turn ideas into something real they can test in weeks, then build the full product with precision and quality. We also build our own startups, so we know what it takes.",
+    "primaryButton": {
+      "label": "{{shared.buttons.bookMeeting.label}}",
+      "href": "{{shared.buttons.bookMeeting.href}}"
+    },
+    "secondaryButton": {
+      "label": "{{shared.buttons.seeTheWork.label}}",
+      "href": "{{shared.buttons.seeTheWork.href}}"
+    },
+    "footnote": "Free first call · Plan, pricing and timeline in 2–3 business days · Zero hidden charges"
+  },
+  "telemetry": {
+    "_note": [
+      "The dark panel under the headline, styled like a live dashboard.",
+      "",
+      "`value` must be a plain number because it counts up on load — put any",
+      "symbol in `suffix`. `trend` draws the little line graph: any list of",
+      "numbers works, they are scaled to fit, so bigger last numbers make an",
+      "upward line.",
+      "",
+      "Set `show` to false to remove the panel entirely."
+    ],
+    "show": true,
+    "address": "wrathlabs://studio/overview",
+    "liveLabel": "live",
+    "metrics": [
+      {
+        "label": "Core services",
+        "value": 9,
+        "suffix": "",
+        "trend": [
+          8,
+          12,
+          11,
+          16,
+          15,
+          20,
+          19,
+          25,
+          27,
+          31
+        ]
+      },
+      {
+        "label": "Free calls included",
+        "value": 3,
+        "suffix": "",
+        "trend": [
+          10,
+          12,
+          12,
+          18,
+          17,
+          22,
+          24,
+          24,
+          30,
+          33
+        ]
+      },
+      {
+        "label": "Commitment to your vision",
+        "value": 100,
+        "suffix": "%",
+        "trend": [
+          34,
+          36,
+          35,
+          37,
+          36,
+          38,
+          37,
+          38,
+          39,
+          39
+        ]
+      }
+    ]
+  },
+  "factory": {
+    "_note": [
+      "THE HERO PICTURE — the animated product factory under the headline.",
+      "It has no words in it. `ariaLabel` is the description read aloud to screen-reader users.",
+      "Set `show` to false to bring back the dashboard panel (`telemetry`, below) instead."
+    ],
+    "show": true,
+    "ariaLabel": "An animated product factory. Ideas ride a conveyor belt, become apps, launch as rockets, and the money they earn drops into a vault."
+  }
+}

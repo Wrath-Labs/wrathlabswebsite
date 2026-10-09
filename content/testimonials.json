@@ -1,0 +1,58 @@
+{
+  "_note": [
+    "WHAT CLIENTS SAY — the quote wall and the big featured quote.",
+    "",
+    "The first entry is the one shown large and on its own; the rest scroll",
+    "past underneath in two rows.",
+    "",
+    "Where an entry is from someone who also appears in case-studies.json, the",
+    "name, role and company are pulled from there with {{...}} so you only",
+    "rename a client once. To break that link, just type the real text over",
+    "the {{...}} part.",
+    "",
+    "`initials` is the two letters in the round avatar — set by hand so titles",
+    "like \"Dr.\" don't end up in it."
+  ],
+  "section": {
+    "heading": {
+      "eyebrow": "Client words",
+      "title": "Kind words from",
+      "titleMuted": "people we've built for.",
+      "description": "Founders, engineers and partners who have worked with us, in their own words."
+    },
+    "ratingLabel": "5 out of 5"
+  },
+  "items": [
+    {
+      "quote": "Wrath Labs turned our rough idea into a polished, high-performing product, on time and without the usual back-and-forth. Their team is sharp, responsive, and genuinely invested in results, so we'd gladly work with them again.",
+      "author": "Dipanshu Sarovar",
+      "role": "Founder",
+      "company": "Sarovar Marketing Hub",
+      "initials": "DS"
+    },
+    {
+      "quote": "Wrath Labs delivered a fantastic website for our business. Great communication, efficient process, and excellent results. Highly recommended!",
+      "author": "Piyush Gupta",
+      "role": "Strategic Corporate Partnership Manager",
+      "company": "Bhoomika",
+      "initials": "PG",
+      "image": "/testimonials/piyush.png"
+    },
+    {
+      "quote": "Wrath Labs delivers top-tier technical solutions with impressive speed and precision. Their team combines deep expertise with a transparent approach, making them a highly reliable partner for any complex project. We truly value the trust and quality they bring to the table.",
+      "author": "Utkarsh Kumar",
+      "role": "SDE",
+      "company": "Optimally Me",
+      "initials": "UK",
+      "image": "/testimonials/UK.jpeg"
+    },
+    {
+      "quote": "Wrath Labs provides exceptional technical expertise at a price point that makes high-end development accessible. They strike the perfect balance between cost-efficiency and premium quality, ensuring you get maximum value without compromising on performance.",
+      "author": "Hamdaan Ali Qatil",
+      "role": "Associate SDE",
+      "company": "314e",
+      "initials": "HA",
+      "image": "/testimonials/HA.png"
+    }
+  ]
+}

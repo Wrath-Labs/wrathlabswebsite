@@ -1,0 +1,53 @@
+{
+  "_note": [
+    "FREQUENTLY ASKED QUESTIONS — shown on the Contact page (and anywhere the general FAQ is added).",
+    "The pricing questions live in pricing.json."
+  ],
+  "section": {
+    "heading": {
+      "eyebrow": "Questions",
+      "title": "The things",
+      "titleMuted": "everyone asks."
+    },
+    "sideCard": {
+      "_note": "The small box beside the questions.",
+      "icon": "MessagesSquare",
+      "title": "Something not covered?",
+      "description": "Ask a founder directly. Replies usually land the same day.",
+      "button": {
+        "label": "Ask us anything",
+        "href": "{{navigation.paths.contact}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "question": "What services do you offer?",
+      "answer": "We design and build mobile apps, web apps, landing pages and branding, plus AI features, MVPs for startups, interactive experiences and ongoing support. We use tools like Flutter, React, Next.js and Figma, from UI/UX through full-stack development, to create custom, scalable products."
+    },
+    {
+      "question": "How does your process work?",
+      "answer": "You reach out, and we schedule a free first call where you explain your vision. Within 2–3 business days we hold a second call to walk you through our full plan, pricing and timeline, and you get one chance for revision. A third free call finalises everything. Then we design, build, test and launch, with support after launch."
+    },
+    {
+      "question": "What makes you different?",
+      "answer": "We're a small, agile studio focused on getting your idea in front of real users fast, then building the full product with precision and quality. We pair creative, user-focused design with market awareness, and we build our own startups too, so we know what it takes."
+    },
+    {
+      "question": "How can I start a project with you?",
+      "answer": "Reach out through the contact page and we'll schedule your free first call, where you tell us your idea, goals and timeline."
+    },
+    {
+      "question": "How do your calls work, and are they free?",
+      "answer": "The first call, where you explain your vision, is free. The second call, 2–3 business days later, covers our full plan, pricing and timeline and includes one round of revision. The third call is a free final call to finalise everything. Any further call is ₹2,000 / $50 per call, credited against your project if you go ahead."
+    },
+    {
+      "question": "How much does a project cost?",
+      "answer": "Our builds start at ₹20,000 for Indian clients and $2,000 for international clients, with Growth and Pro tiers as your product gets bigger and a Custom tier for unique needs. These ranges are only to give you an idea; actual pricing depends on your scope. See the pricing page for details."
+    },
+    {
+      "question": "Which technologies do you work with?",
+      "answer": "Design with Figma, Blender, Spline and Framer. Frontend with Flutter, React, Next.js and Tailwind. Backend with Django, Flask, Node.js, Firebase and Supabase. Databases including PostgreSQL, MySQL, MongoDB and Redis. Cloud on AWS, Google Cloud, Heroku and Digital Ocean."
+    }
+  ]
+}

@@ -1,10 +1,13 @@
 import { ArrowUpRight, Check } from "lucide-react";
-import { services } from "@/lib/data";
+import { content } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { SpotlightCard } from "../ui/SpotlightCard";
-import { Reveal } from "../ui/Reveal";
+import { Reveal, RevealChild, RevealGroup } from "../ui/Reveal";
 import { Icon } from "../ui/Icon";
 import { Button } from "../ui/Button";
+import { ServiceArt } from "../ui/ServiceArt";
+
+const { section, items } = content.services;
 
 export function Services({
   detailed = false,
@@ -19,26 +22,17 @@ export function Services({
       <div className="shell">
         {showHeading && (
           <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
-            <SectionHeading
-              eyebrow="What we do"
-              title={
-                <>
-                  Six disciplines,{" "}
-                  <span className="text-white/40">one delivery team.</span>
-                </>
-              }
-              description="We staff a squad from these, not a department per line item. Most engagements pull from three or four at once."
-            />
+            <SectionHeading {...section.heading} />
             <Reveal delay={0.2}>
-              <Button href="/services" variant="secondary" withArrow>
-                All services
+              <Button href={section.button.href} variant="secondary" withArrow>
+                {section.button.label}
               </Button>
             </Reveal>
           </div>
         )}
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
+          {items.map((service, i) => (
             <Reveal key={service.id} delay={(i % 3) * 0.08} className="h-full">
               <SpotlightCard
                 className="h-full"
@@ -48,8 +42,9 @@ export function Services({
                   id={detailed ? service.id : undefined}
                   className="flex h-full flex-col p-7 scroll-mt-28"
                 >
+                  <ServiceArt id={service.id} />
                   <div className="flex items-center justify-between">
-                    <span className="grid size-11 place-items-center rounded-xl border border-white/[0.08] bg-gradient-to-br from-white/[0.06] to-transparent text-ember-400 transition-transform duration-500 group-hover:scale-105">
+                    <span className="grid size-11 place-items-center rounded-xl border border-white/[0.08] bg-gradient-to-br from-white/[0.06] to-transparent text-ember-400 transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110">
                       <Icon name={service.icon} className="size-5" />
                     </span>
                     <span className="font-mono text-[11px] text-white/20">
@@ -65,9 +60,12 @@ export function Services({
                   </p>
 
                   {detailed && (
-                    <ul className="mt-6 flex flex-col gap-2.5 border-t border-white/[0.07] pt-6">
+                    <RevealGroup
+                      stagger={0.09}
+                      className="mt-6 flex flex-col gap-2.5 border-t border-white/[0.07] pt-6"
+                    >
                       {service.deliverables.map((d) => (
-                        <li
+                        <RevealChild
                           key={d}
                           className="flex items-center gap-2.5 text-[13px] text-white/60"
                         >
@@ -76,21 +74,24 @@ export function Services({
                             strokeWidth={2.5}
                           />
                           {d}
-                        </li>
+                        </RevealChild>
                       ))}
-                    </ul>
+                    </RevealGroup>
                   )}
 
-                  <div className="mt-6 flex flex-wrap gap-1.5 border-t border-white/[0.07] pt-5">
+                  <RevealGroup
+                    stagger={0.06}
+                    delay={0.2}
+                    className="mt-6 flex flex-wrap gap-1.5 border-t border-white/[0.07] pt-5"
+                  >
                     {service.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-md border border-white/[0.07] bg-white/[0.02] px-2 py-1 font-mono text-[10.5px] uppercase tracking-wider text-white/40"
-                      >
-                        {tech}
-                      </span>
+                      <RevealChild key={tech}>
+                        <span className="block rounded-md border border-white/[0.07] bg-white/[0.02] px-2 py-1 font-mono text-[10.5px] uppercase tracking-wider text-white/40 transition-colors duration-300 hover:border-ember-500/40 hover:text-white/80">
+                          {tech}
+                        </span>
+                      </RevealChild>
                     ))}
-                  </div>
+                  </RevealGroup>
 
                   {!detailed && (
                     <ArrowUpRight className="mt-5 size-4 text-white/25 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ember-400" />

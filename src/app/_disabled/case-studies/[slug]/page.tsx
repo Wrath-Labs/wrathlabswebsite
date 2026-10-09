@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ArrowUpRight, Quote } from "lucide-react";
-import { caseStudies } from "@/lib/data";
+import { content } from "@/content";
 import { PageHero } from "@/components/layout/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { Eyebrow } from "@/components/ui/SectionHeading";
@@ -10,14 +10,17 @@ import { CTA } from "@/components/sections/CTA";
 
 type Params = { params: Promise<{ slug: string }> };
 
+const { items, detail, page } = content.caseStudies;
+const { paths } = content.navigation;
+
 export function generateStaticParams() {
-  return caseStudies.map((study) => ({ slug: study.slug }));
+  return items.map((study) => ({ slug: study.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
-  const study = caseStudies.find((s) => s.slug === slug);
-  if (!study) return { title: "Case study not found" };
+  const study = items.find((s) => s.slug === slug);
+  if (!study) return { title: detail.notFoundTitle };
 
   return {
     title: `${study.client} — ${study.title}`,
@@ -31,11 +34,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function CaseStudyPage({ params }: Params) {
   const { slug } = await params;
-  const study = caseStudies.find((s) => s.slug === slug);
+  const study = items.find((s) => s.slug === slug);
   if (!study) notFound();
 
-  const index = caseStudies.findIndex((s) => s.slug === slug);
-  const next = caseStudies[(index + 1) % caseStudies.length];
+  const index = items.findIndex((s) => s.slug === slug);
+  const next = items[(index + 1) % items.length];
 
   return (
     <>
@@ -44,8 +47,8 @@ export default async function CaseStudyPage({ params }: Params) {
         title={study.title}
         description={study.summary}
         breadcrumb={[
-          { label: "Case Studies", href: "/case-studies" },
-          { label: study.client, href: `/case-studies/${study.slug}` },
+          ...page.hero.breadcrumb,
+          { label: study.client, href: `${paths.caseStudies}/${study.slug}` },
         ]}
       >
         <div className="mt-10 flex flex-wrap gap-2">
@@ -90,10 +93,10 @@ export default async function CaseStudyPage({ params }: Params) {
             <aside className="lg:sticky lg:top-28 lg:self-start">
               <dl className="flex flex-col divide-y divide-white/[0.07] border-y border-white/[0.07]">
                 {[
-                  { k: "Client", v: study.client },
-                  { k: "Industry", v: study.industry },
-                  { k: "Engagement", v: study.duration },
-                  { k: "Year", v: study.year },
+                  { k: detail.metaLabels.client, v: study.client },
+                  { k: detail.metaLabels.industry, v: study.industry },
+                  { k: detail.metaLabels.engagement, v: study.duration },
+                  { k: detail.metaLabels.year, v: study.year },
                 ].map((row) => (
                   <div
                     key={row.k}
@@ -108,15 +111,15 @@ export default async function CaseStudyPage({ params }: Params) {
               </dl>
 
               <Link
-                href="/book"
+                href={detail.sideCard.href}
                 className="group mt-8 flex items-center justify-between gap-4 rounded-2xl border border-ember-500/20 bg-gradient-to-br from-ember-600/[0.12] to-transparent p-5 transition-colors duration-300 hover:border-ember-500/40"
               >
                 <span>
                   <span className="block text-sm font-medium text-white">
-                    Similar problem?
+                    {detail.sideCard.title}
                   </span>
                   <span className="mt-1 block text-[13px] text-white/50">
-                    Book 30 minutes with an engineer.
+                    {detail.sideCard.description}
                   </span>
                 </span>
                 <ArrowUpRight className="size-4 shrink-0 text-ember-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -126,7 +129,7 @@ export default async function CaseStudyPage({ params }: Params) {
             <div className="flex flex-col gap-16">
               <Reveal>
                 <div>
-                  <Eyebrow>The challenge</Eyebrow>
+                  <Eyebrow>{detail.challengeHeading}</Eyebrow>
                   <p className="mt-6 text-lg leading-relaxed text-white/65 md:text-xl">
                     {study.challenge}
                   </p>
@@ -135,7 +138,7 @@ export default async function CaseStudyPage({ params }: Params) {
 
               <Reveal>
                 <div>
-                  <Eyebrow>What we did</Eyebrow>
+                  <Eyebrow>{detail.approachHeading}</Eyebrow>
                   <ol className="mt-7 flex flex-col gap-7">
                     {study.approach.map((item, i) => (
                       <li key={i} className="flex gap-5">
@@ -153,7 +156,7 @@ export default async function CaseStudyPage({ params }: Params) {
 
               <Reveal>
                 <div>
-                  <Eyebrow>The outcome</Eyebrow>
+                  <Eyebrow>{detail.outcomeHeading}</Eyebrow>
                   <p className="mt-6 text-lg leading-relaxed text-white/65 md:text-xl">
                     {study.outcome}
                   </p>
@@ -168,7 +171,7 @@ export default async function CaseStudyPage({ params }: Params) {
                     &ldquo;{study.quote.text}&rdquo;
                   </blockquote>
                   <figcaption className="mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-white/40">
-                    {study.quote.author} · {study.quote.role}
+                    {study.quote.author} · {study.quote.role}, {study.client}
                   </figcaption>
                 </figure>
               </Reveal>
@@ -181,12 +184,12 @@ export default async function CaseStudyPage({ params }: Params) {
       <section className="border-t border-white/[0.06] py-16">
         <div className="shell">
           <Link
-            href={`/case-studies/${next.slug}`}
+            href={`${paths.caseStudies}/${next.slug}`}
             className="group flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
           >
             <div>
               <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-white/30">
-                Next case study
+                {detail.nextLabel}
               </span>
               <h2 className="mt-2.5 max-w-2xl font-display text-2xl font-semibold tracking-tight text-white transition-colors group-hover:text-ember-400 md:text-3xl">
                 {next.title}

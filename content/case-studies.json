@@ -1,0 +1,209 @@
+{
+  "_note": [
+    "CLIENT STORIES — the case studies, and the page that lists them.",
+    "",
+    "Each entry in `items` becomes both a card in the listing and its own full",
+    "page at /case-studies/<slug>. `slug` is the web address, so keep it lower",
+    "case with dashes instead of spaces.",
+    "",
+    "`services` should match titles from services.json — they are pulled in",
+    "with {{services.items.N.title}} so a renamed service updates here too.",
+    "",
+    "`accent` tints the generated cover art. Choose one of: ember (red),",
+    "flare (orange), volt (blue), duotone (red fading to blue)."
+  ],
+
+  "page": {
+    "seo": {
+      "title": "Case Studies",
+      "description": "Payments infrastructure, clinical AI, realtime logistics, and commerce replatforms — with the production numbers to go with them."
+    },
+    "hero": {
+      "eyebrow": "Selected work",
+      "title": "Four builds, and what they actually moved.",
+      "description": "Every figure below came out of production instrumentation after launch. Where a number looks too good, the case study explains how it was measured.",
+      "breadcrumb": [
+        { "label": "Case Studies", "href": "{{navigation.paths.caseStudies}}" }
+      ]
+    },
+    "closing": {
+      "eyebrow": "Your turn",
+      "title": "Want a case study with your name on it?",
+      "description": "Tell us what you're building. If we can move a number that matters to you, we'll say how — and if we can't, we'll say that too."
+    }
+  },
+
+  "section": {
+    "_note": "The heading above the two featured stories on the home page.",
+    "heading": {
+      "eyebrow": "Selected work",
+      "title": "Shipped, measured,",
+      "titleMuted": "still running.",
+      "description": "Every number here came from production instrumentation, not a pitch deck."
+    },
+    "button": { "label": "All case studies", "href": "{{navigation.paths.caseStudies}}" },
+    "cardLink": "Read the case study"
+  },
+
+  "detail": {
+    "_note": [
+      "Wording on an individual case study page. These headings sit above the",
+      "three blocks of the story."
+    ],
+    "challengeHeading": "The challenge",
+    "approachHeading": "What we did",
+    "outcomeHeading": "The outcome",
+    "metaLabels": {
+      "client": "Client",
+      "industry": "Industry",
+      "engagement": "Engagement",
+      "year": "Year"
+    },
+    "sideCard": {
+      "title": "Similar problem?",
+      "description": "Book 30 minutes with an engineer.",
+      "href": "{{navigation.paths.book}}"
+    },
+    "nextLabel": "Next case study",
+    "notFoundTitle": "Case study not found"
+  },
+
+  "items": [
+    {
+      "slug": "northwind-payments",
+      "client": "Northwind Pay",
+      "industry": "Fintech",
+      "title": "Rebuilding a payments core without a minute of downtime",
+      "summary": "A ledger buckling at 400 TPS became an event-sourced core clearing 4.2M transactions a day — migrated live, in stages, with zero customer-visible downtime.",
+      "year": "2025",
+      "duration": "7 months",
+      "services": [
+        "{{services.items.0.title}}",
+        "{{services.items.2.title}}",
+        "{{services.items.5.title}}"
+      ],
+      "results": [
+        { "value": "4.2M", "label": "daily transactions" },
+        { "value": "-68%", "label": "p99 latency" },
+        { "value": "0", "label": "minutes downtime" },
+        { "value": "-41%", "label": "infra spend" }
+      ],
+      "challenge": "Northwind's monolithic ledger was written for a product a tenth of its current size. Settlement jobs overlapped, reconciliation ran for six hours nightly, and a single slow query could stall the payment path. Regulatory audits were consuming an engineer full-time.",
+      "approach": [
+        "Modelled the domain as an append-only event log with derived read projections, so reconciliation became a replay rather than a nightly batch.",
+        "Stood up the new core beside the old one and mirrored live traffic for six weeks, comparing every computed balance before trusting a single write.",
+        "Cut over per-corridor behind feature flags, starting with the lowest-volume region and keeping a one-command rollback at every stage.",
+        "Instrumented the payment path end to end and wired audit evidence export directly into the ledger."
+      ],
+      "outcome": "The new core clears 4.2M transactions daily with p99 latency down 68%. Reconciliation finishes in under nine minutes, and audit evidence that used to take an engineer a week now exports in a click.",
+      "quote": {
+        "text": "They mirrored our entire ledger for six weeks before touching production. That single decision is why our cutover was a non-event.",
+        "author": "Priya Raghavan",
+        "role": "VP Engineering"
+      },
+      "accent": "ember"
+    },
+    {
+      "slug": "meridian-health-triage",
+      "client": "Meridian Health",
+      "industry": "Healthcare",
+      "title": "An AI triage assistant clinicians actually trust",
+      "summary": "A retrieval system grounded strictly in a hospital group's own protocols, cutting intake documentation time by 74% while keeping every answer citable.",
+      "year": "2025",
+      "duration": "5 months",
+      "services": [
+        "{{services.items.1.title}}",
+        "{{services.items.3.title}}",
+        "{{services.items.5.title}}"
+      ],
+      "results": [
+        { "value": "-74%", "label": "intake doc time" },
+        { "value": "340h", "label": "clinician hours / month" },
+        { "value": "100%", "label": "answers cited" },
+        { "value": "0", "label": "PHI leaving region" }
+      ],
+      "challenge": "Intake nurses across 14 clinics were spending more time transcribing than talking to patients. An earlier off-the-shelf chatbot had been switched off within a month — it hallucinated protocol steps, and clinicians had no way to check where an answer came from.",
+      "approach": [
+        "Built retrieval over the group's own protocol library only, with a hard refusal path when confidence or coverage was insufficient.",
+        "Made citation non-optional: every sentence renders with its source paragraph one tap away, and unsourced generations are dropped before display.",
+        "Ran a 900-case eval suite with clinical reviewers scoring each release, gating deploys on it rather than on vibes.",
+        "Kept inference and storage entirely in-region with structured audit logging for every retrieval."
+      ],
+      "outcome": "Documentation time per intake fell 74%, freeing roughly 340 clinician hours a month. Adoption crossed 90% of intake staff in the first quarter — the earlier tool never passed 20%.",
+      "quote": {
+        "text": "The refusal behaviour is what won our clinicians over. It says 'I don't have that protocol' instead of inventing one, and that built trust faster than any accuracy number.",
+        "author": "Dr. Alan Whitfield",
+        "role": "Chief Medical Information Officer"
+      },
+      "accent": "volt"
+    },
+    {
+      "slug": "atlas-freight",
+      "client": "Atlas Freight",
+      "industry": "Logistics",
+      "title": "Realtime visibility across 12,000 vehicles",
+      "summary": "Replacing a five-minute polling loop with a streaming platform that puts every vehicle on the map in under two seconds.",
+      "year": "2024",
+      "duration": "6 months",
+      "services": [
+        "{{services.items.4.title}}",
+        "{{services.items.0.title}}",
+        "{{services.items.2.title}}"
+      ],
+      "results": [
+        { "value": "1.8s", "label": "position freshness" },
+        { "value": "12k", "label": "vehicles tracked" },
+        { "value": "+22%", "label": "on-time delivery" },
+        { "value": "3.4B", "label": "events / month" }
+      ],
+      "challenge": "Dispatchers were making decisions on positions up to five minutes stale, and the polling architecture fell over during peak season. Customer service had no answer to \"where is my shipment\" beyond a guess.",
+      "approach": [
+        "Moved telemetry onto a partitioned event stream with per-vehicle ordering guarantees, sized for peak-season volume from day one.",
+        "Built a geospatial projection layer serving sub-second map queries, decoupled from ingest so a traffic spike can't stall the UI.",
+        "Shipped a dispatcher console designed alongside the people using it, with exception-first triage instead of an undifferentiated map of dots.",
+        "Exposed a customer-facing tracking API with predictive ETAs derived from historical corridor performance."
+      ],
+      "outcome": "Position freshness went from five minutes to 1.8 seconds across 12,000 vehicles. On-time delivery rose 22% within two quarters, and \"where is my shipment\" tickets dropped by more than half.",
+      "quote": {
+        "text": "Peak season used to be the week our platform fell apart. Last December we handled record volume and nobody paged anyone.",
+        "author": "Marcus Delaney",
+        "role": "CTO"
+      },
+      "accent": "flare"
+    },
+    {
+      "slug": "verity-commerce",
+      "client": "Verity",
+      "industry": "E-commerce",
+      "title": "A headless replatform that paid for itself in 90 days",
+      "summary": "Ripping out a nine-year-old monolithic storefront for an edge-rendered stack — 0.4s LCP, 37% more conversions, and a merch team that ships without engineers.",
+      "year": "2024",
+      "duration": "4 months",
+      "services": [
+        "{{services.items.0.title}}",
+        "{{services.items.3.title}}",
+        "{{services.items.4.title}}"
+      ],
+      "results": [
+        { "value": "0.4s", "label": "largest contentful paint" },
+        { "value": "+37%", "label": "conversion rate" },
+        { "value": "+61%", "label": "mobile revenue" },
+        { "value": "90d", "label": "to full payback" }
+      ],
+      "challenge": "Verity's storefront took 4.6 seconds to render on mobile, and every merchandising change required an engineering ticket and a deploy. Mobile was 70% of traffic and a third of revenue.",
+      "approach": [
+        "Rebuilt the storefront as an edge-rendered application with streaming product pages and aggressive cache invalidation keyed to inventory events.",
+        "Handed merchandising a visual composition layer over a design-token system, so campaigns ship without touching code.",
+        "Rewrote the checkout flow around a single-screen pattern validated in testing before launch.",
+        "Wired first-party analytics into the warehouse so merch decisions run on same-day data."
+      ],
+      "outcome": "LCP dropped from 4.6s to 0.4s. Conversion rose 37% overall and mobile revenue 61%. The merchandising team now ships an average of 40 campaign changes a month with no engineering involvement.",
+      "quote": {
+        "text": "We budgeted a year for payback and hit it in about three months. The bigger win is that my team stopped queuing behind engineering.",
+        "author": "Sofia Marchetti",
+        "role": "Head of Digital"
+      },
+      "accent": "duotone"
+    }
+  ]
+}

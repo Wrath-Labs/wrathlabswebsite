@@ -1,0 +1,116 @@
+{
+  "_note": [
+    "THE CONTACT PAGE AND ITS FORM — every label, hint and message.",
+    "",
+    "The site is a static site with no server, so the form opens the visitor's",
+    "own email app with everything they typed already filled in, addressed to",
+    "{{brand.email}}. Change that address in brand.json.",
+    "",
+    "`placeholder` is the grey example text inside an empty box."
+  ],
+  "page": {
+    "seo": {
+      "title": "Contact",
+      "description": "Get in touch with {{brand.name}}. One form, straight to the founders — replies within {{brand.words.responseTime}}."
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Straight to the founders.",
+      "description": "No gatekeeping, no qualification call before the qualification call. Write once and you'll hear back from someone who can actually answer.",
+      "breadcrumb": [
+        {
+          "label": "Contact",
+          "href": "{{navigation.paths.contact}}"
+        }
+      ]
+    }
+  },
+  "section": {
+    "heading": {
+      "eyebrow": "Contact",
+      "title": "Tell us what you're",
+      "titleMuted": "building.",
+      "description": "One form, straight to the founders' inbox. If there's a fit we'll suggest a call; if there isn't, we'll say so and point you somewhere better."
+    },
+    "details": {
+      "_note": [
+        "The four rows of contact details. The values come from brand.json so",
+        "they match the footer and the rest of the site."
+      ],
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "addressLabel": "Location",
+      "responseLabel": "Response time",
+      "responseValue": "Within {{brand.words.responseTime}}"
+    },
+    "socialsLabel": "Elsewhere"
+  },
+  "form": {
+    "_note": [
+      "`interestExtras` are added to the end of the What do you need? dropdown,",
+      "after the services from services.json."
+    ],
+    "nameLabel": "Full name",
+    "namePlaceholder": "Ada Lovelace",
+    "emailLabel": "Work email",
+    "emailPlaceholder": "ada@company.com",
+    "companyLabel": "Company",
+    "companyPlaceholder": "Analytical Engines Ltd",
+    "interestLabel": "What do you need?",
+    "interestExtras": [
+      "Something else"
+    ],
+    "budgetLabel": "Budget range",
+    "budgets": [
+      "Under ₹20,000 / $2,000",
+      "₹20,000 – ₹50,000 / $2,000 – $4,000",
+      "₹50,000 – ₹1,00,000 / $4,000 – $8,000",
+      "₹1,00,000+ / $8,000+",
+      "Not sure yet"
+    ],
+    "messageLabel": "The project",
+    "messagePlaceholder": "What are you building, what's in the way, and when does it need to be live?",
+    "selectPlaceholder": "Select…",
+    "requiredMark": "*",
+    "privacyNote": "We'll only use this to reply. No lists, no sequences.",
+    "submitLabel": "Send message",
+    "submittingLabel": "Sending",
+    "emailSubject": "New enquiry",
+    "validationError": "Add your name, a valid email, and a line or two about the work.",
+    "mailAppError": "Couldn't open your mail app. Email us directly and we'll pick it up.",
+    "success": {
+      "_note": [
+        "Shown once the email draft has been opened. {firstName} is replaced",
+        "with whatever they typed in the name box."
+      ],
+      "title": "Nearly there.",
+      "description": "Thanks {firstName} — we've opened a prefilled draft to {{brand.email}} in your mail app. Hit send and a founder will reply within {{brand.words.responseTime}}.",
+      "resetLabel": "Send another",
+      "sentDescription": "Thanks {firstName} — your message is in. We'll reply to {email} within {{brand.words.responseTime}}."
+    },
+    "fieldLabels": {
+      "_note": [
+        "The headings used inside the email that gets drafted. Only the person",
+        "receiving the enquiry sees these."
+      ],
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "budget": "Budget",
+      "interest": "Interest",
+      "message": "Message"
+    },
+    "delivery": {
+      "_note": [
+        "HOW THE FORM REACHES YOU.",
+        "Paste a free Web3Forms access key in `accessKey` and enquiries are delivered straight to",
+        "your inbox with no mail app involved. Get a key at https://web3forms.com (enter your email,",
+        "the key is emailed to you in seconds). The key is meant to be public, it is safe in the page.",
+        "Leave `accessKey` empty and the form falls back to opening the visitor's email app."
+      ],
+      "endpoint": "https://api.web3forms.com/submit",
+      "accessKey": ""
+    },
+    "sendError": "That didn't go through. Please try again, or email us directly."
+  }
+}

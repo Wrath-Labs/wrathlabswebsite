@@ -1,0 +1,119 @@
+{
+  "_note": [
+    "MENUS AND LINKS — the top navigation bar and the footer.",
+    "",
+    "`paths` below lists the address of every page once. Everything else on the",
+    "site points at those, so if you ever move a page you change its address in",
+    "one place only.",
+    "",
+    "To link to a section further down a page, add # and the section name, like",
+    "{{navigation.paths.services}}#ai-engineering"
+  ],
+
+  "paths": {
+    "_note": "Page addresses. Changing one here updates every link to it.",
+    "home": "/",
+    "services": "/services",
+    "products": "/",
+    "caseStudies": "/services",
+    "pricing": "/pricing",
+    "about": "/about",
+    "contact": "/contact",
+    "book": "{{navigation.paths.contact}}",
+    "privacy": "/legal/privacy",
+    "terms": "/legal/terms"
+  },
+
+  "navbar": {
+    "_note": [
+      "The bar pinned to the top of every page. `links` is the menu in the",
+      "middle — add, remove or reorder freely."
+    ],
+    "links": [
+      { "label": "Services", "href": "{{navigation.paths.services}}" },
+      { "label": "Why us", "href": "{{navigation.paths.home}}#why-us" },
+      { "label": "Projects", "href": "{{navigation.paths.home}}#products" },
+      { "label": "Pricing", "href": "{{navigation.paths.pricing}}" },
+      { "label": "FAQ", "href": "{{navigation.paths.home}}#faq" },
+      { "label": "About", "href": "{{navigation.paths.about}}" },
+      { "label": "Contact", "href": "{{navigation.paths.contact}}" }
+    ],
+    "availability": {
+      "_note": [
+        "The little pill with the pulsing green dot, showing how much capacity",
+        "you have. Set `show` to false to hide it completely."
+      ],
+      "show": true,
+      "text": "{{brand.words.availability}}"
+    },
+    "cta": {
+      "label": "{{shared.buttons.bookCall.label}}",
+      "href": "{{shared.buttons.bookCall.href}}"
+    },
+    "mobileCta": {
+      "label": "{{shared.buttons.bookMeeting.label}}",
+      "href": "{{shared.buttons.bookMeeting.href}}"
+    },
+    "openMenuLabel": "Open menu",
+    "closeMenuLabel": "Close menu"
+  },
+
+  "footer": {
+    "_note": [
+      "Everything below the bottom of every page.",
+      "In `copyright`, {year} is swapped for the current year automatically —",
+      "leave it in place."
+    ],
+    "description": "{{brand.description}}",
+    "columns": [
+      {
+        "_note": "One block of links per entry. Four fit across on a wide screen.",
+        "title": "Company",
+        "links": [
+          { "label": "About", "href": "{{navigation.paths.about}}" },
+          { "label": "Contact", "href": "{{navigation.paths.contact}}" }
+        ]
+      },
+      {
+        "title": "Services",
+        "links": [
+          { "label": "{{services.items.0.title}}", "href": "{{navigation.paths.services}}#{{services.items.0.id}}" },
+          { "label": "{{services.items.1.title}}", "href": "{{navigation.paths.services}}#{{services.items.1.id}}" },
+          { "label": "{{services.items.2.title}}", "href": "{{navigation.paths.services}}#{{services.items.2.id}}" },
+          { "label": "{{services.items.3.title}}", "href": "{{navigation.paths.services}}#{{services.items.3.id}}" }
+        ]
+      },
+      {
+        "_note": [
+          "These four pull their names straight from products.json, so renaming",
+          "a product renames it here too."
+        ],
+        "title": "Projects",
+        "links": [
+          { "label": "{{products.items.0.name}}", "href": "{{navigation.paths.home}}#products" },
+          { "label": "{{products.items.1.name}}", "href": "{{navigation.paths.home}}#products" },
+          { "label": "{{products.items.2.name}}", "href": "{{navigation.paths.home}}#products" },
+          { "label": "{{products.items.3.name}}", "href": "{{navigation.paths.home}}#products" }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          { "label": "Pricing", "href": "{{navigation.paths.pricing}}" },
+          { "label": "Privacy", "href": "{{navigation.paths.privacy}}" },
+          { "label": "Terms", "href": "{{navigation.paths.terms}}" }
+        ]
+      }
+    ],
+    "status": {
+      "_note": "The green dot and text at the very bottom. Set show to false to hide.",
+      "show": true,
+      "text": "All systems operational"
+    },
+    "copyright": "© {year} {{brand.legalName}}. All rights reserved.",
+    "legalLinks": [
+      { "label": "Privacy", "href": "{{navigation.paths.privacy}}" },
+      { "label": "Terms", "href": "{{navigation.paths.terms}}" }
+    ]
+  }
+}

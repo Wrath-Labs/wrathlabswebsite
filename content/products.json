@@ -1,0 +1,195 @@
+{
+  "_note": [
+    "YOUR OWN SOFTWARE — the products the lab builds and runs.",
+    "",
+    "Add or remove an entry in `items` and the home page grid, the Products",
+    "page and the footer's Lab menu all follow.",
+    "",
+    "`status` must be one of: Live, Beta, Alpha, Research. It controls the",
+    "colour of the little badge (green, red, orange, blue) as well as the word."
+  ],
+  "page": {
+    "seo": {
+      "title": "Products",
+      "description": "Sentinel, Forge, Nexus, Prism, and Cipher — five products built, run, and maintained by the {{brand.name}} engineering lab."
+    },
+    "hero": {
+      "eyebrow": "The lab",
+      "title": "Five products. All of them ours.",
+      "description": "We fund these ourselves, run them in production, and answer the pager when they misbehave. Everything we learn doing that ends up in the client work.",
+      "breadcrumb": [
+        {
+          "label": "Products",
+          "href": "{{navigation.paths.products}}"
+        }
+      ]
+    },
+    "button": {
+      "label": "{{shared.buttons.bookWalkthrough.label}}",
+      "href": "{{shared.buttons.bookWalkthrough.href}}"
+    },
+    "closing": {
+      "_note": "The invitation band at the bottom of the Products page.",
+      "eyebrow": "Early access",
+      "title": "Two more are still behind the curtain.",
+      "description": "We open private betas to a small group first. Tell us what you're running and we'll get you in if it's a fit."
+    }
+  },
+  "section": {
+    "_note": "The heading above the product cards on the home page.",
+    "heading": {
+      "eyebrow": "Featured projects",
+      "title": "Things we've built,",
+      "titleMuted": "for clients and for ourselves.",
+      "description": "A selection of the projects we've built and the startups we're building."
+    },
+    "button": {
+      "label": "Start your project",
+      "href": "{{navigation.paths.contact}}"
+    },
+    "pitchCard": {
+      "_note": [
+        "The red tile that fills the last slot in the product grid. Set `show`",
+        "to false to drop it and leave the grid with just the products."
+      ],
+      "show": false,
+      "eyebrow": "Next up",
+      "title": "Yours could be next.",
+      "description": "Tell us your idea and we'll help you turn it into something real you can test.",
+      "button": {
+        "label": "Start your project",
+        "href": "{{navigation.paths.contact}}"
+      }
+    }
+  },
+  "showcase": {
+    "_note": [
+      "The long alternating rows on the Products page.",
+      "`domainTemplate` is the fake web address drawn in the mock screenshot —",
+      "{name} is replaced by the product's name in lower case.",
+      "`secondaryButton` sits next to each product's own button."
+    ],
+    "domainTemplate": "{name}.wrathlabs.in",
+    "secondaryButton": {
+      "label": "{{shared.buttons.bookWalkthrough.label}}",
+      "href": "{{shared.buttons.bookWalkthrough.href}}"
+    }
+  },
+  "items": [
+    {
+      "id": "vakil-saab-agra",
+      "name": "Vakil Saab Agra",
+      "category": "Legal directory",
+      "status": "Our startup",
+      "icon": "FileText",
+      "tagline": "A lawyer listing and microsite platform.",
+      "description": "Vakil Saab Agra lists lawyers and gives each one a microsite, so legal professionals can be found online and clients can find the right lawyer.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "https://vakilsaabagra.in",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      },
+      "_note": "`href` is where the card links to (opens in a new tab); leave empty for no link. `status` is the small badge: Client work, Our startup, In development, Live, Beta, Alpha or Research."
+    },
+    {
+      "id": "sankul",
+      "name": "Sankul",
+      "category": "School management",
+      "status": "In development",
+      "icon": "BrainCircuit",
+      "tagline": "Smart, AI-based school management software.",
+      "description": "Sankul is an AI-powered school management platform. It is currently under development.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      }
+    },
+    {
+      "id": "naamya-gems",
+      "name": "Naamya Gems",
+      "category": "E-commerce",
+      "status": "Client work",
+      "icon": "Sparkles",
+      "tagline": "An online store for gems and stones.",
+      "description": "Naamya Gems is an e-commerce website for buying gems and stones.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "https://naamyagems.com",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      }
+    },
+    {
+      "id": "sarovar-marketing-hub",
+      "name": "Sarovar Marketing Hub",
+      "category": "Marketing agency website",
+      "status": "Client work",
+      "icon": "ChartNoAxesCombined",
+      "tagline": "The official website for a marketing agency.",
+      "description": "The official website of Sarovar Marketing Hub, a marketing agency.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      }
+    },
+    {
+      "id": "annapurna",
+      "name": "Annapurna",
+      "category": "Social media",
+      "status": "Our startup",
+      "icon": "Users",
+      "tagline": "A social media platform for food.",
+      "description": "Annapurna is a social media platform built around food.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      }
+    },
+    {
+      "id": "karma-kart",
+      "name": "Karma Kart",
+      "category": "Marketplace",
+      "status": "Our startup",
+      "icon": "Network",
+      "tagline": "A barter-based platform for exchanging services.",
+      "description": "Karma Kart is a barter-based platform where people exchange services with each other.",
+      "features": [],
+      "metric": {
+        "value": "",
+        "label": ""
+      },
+      "href": "",
+      "cta": {
+        "label": "Start a project like this",
+        "href": "{{navigation.paths.contact}}"
+      }
+    }
+  ]
+}

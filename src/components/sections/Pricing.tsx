@@ -3,26 +3,14 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Check, Info } from "lucide-react";
-import { agencyPricing, productPricing, type PricingTier } from "@/lib/data";
+import { content, type PricingTier } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Button } from "../ui/Button";
 import { Reveal } from "../ui/Reveal";
+import { PriceTicker } from "../ui/PriceTicker";
 import { cn } from "@/lib/utils";
 
-const tabs = [
-  {
-    key: "agency",
-    label: "Agency engagements",
-    tiers: agencyPricing,
-    note: "All engagements include a named product lead, your own Slack channel, and full IP transfer. Prices exclude VAT.",
-  },
-  {
-    key: "products",
-    label: "Lab products",
-    tiers: productPricing,
-    note: "Pricing shown for Prism. Sentinel, Forge, and Nexus follow the same tiers with volume measured per product.",
-  },
-] as const;
+const { section, tabs } = content.pricing;
 
 function TierCard({ tier, index }: { tier: PricingTier; index: number }) {
   return (
@@ -43,9 +31,9 @@ function TierCard({ tier, index }: { tier: PricingTier; index: number }) {
     >
       {tier.featured && (
         <>
-          <div className="pointer-events-none absolute -inset-px -z-10 rounded-2xl bg-gradient-to-b from-ember-500/25 to-transparent blur-md" />
+          <div className="pointer-events-none absolute -inset-px -z-10 animate-[pulse-glow_5s_ease-in-out_infinite] rounded-2xl bg-gradient-to-b from-ember-500/25 to-transparent blur-md" />
           <span className="absolute -top-3 left-7 rounded-full bg-gradient-to-r from-ember-500 to-flare-500 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white shadow-[0_4px_20px_-4px_rgba(255,45,85,0.7)]">
-            Most popular
+            {section.featuredBadge}
           </span>
         </>
       )}
@@ -55,8 +43,13 @@ function TierCard({ tier, index }: { tier: PricingTier; index: number }) {
       </h3>
 
       <div className="mt-4 flex items-baseline gap-1.5">
-        <span className="font-display text-4xl font-semibold tracking-tight text-white">
-          {tier.price}
+        <span
+          className={cn(
+            "font-display font-semibold tracking-tight text-white",
+            tier.price.length > 12 ? "text-2xl xl:text-[1.65rem]" : "text-4xl",
+          )}
+        >
+          <PriceTicker value={tier.price} />
         </span>
         <span className="font-mono text-[11px] text-white/35">{tier.unit}</span>
       </div>
@@ -66,8 +59,17 @@ function TierCard({ tier, index }: { tier: PricingTier; index: number }) {
       </p>
 
       <ul className="mt-6 flex flex-1 flex-col gap-3 border-t border-white/[0.07] pt-6">
-        {tier.features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-[13px] text-white/65">
+        {tier.features.map((f, fi) => (
+          <motion.li
+            key={f}
+            initial={{ opacity: 0, x: -8 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.4,
+              delay: 0.25 + index * 0.07 + fi * 0.045,
+            }}
+            className="flex items-start gap-2.5 text-[13px] text-white/65"
+          >
             <span
               className={cn(
                 "mt-px grid size-4 shrink-0 place-items-center rounded-full",
@@ -79,7 +81,7 @@ function TierCard({ tier, index }: { tier: PricingTier; index: number }) {
               <Check className="size-2.5" strokeWidth={3} />
             </span>
             {f}
-          </li>
+          </motion.li>
         ))}
       </ul>
 
@@ -96,23 +98,16 @@ function TierCard({ tier, index }: { tier: PricingTier; index: number }) {
 }
 
 export function Pricing({ showHeading = true }: { showHeading?: boolean }) {
-  const [active, setActive] = useState<"agency" | "products">("agency");
-  const current = tabs.find((t) => t.key === active)!;
+  const [active, setActive] = useState(tabs[0].id);
+  const current = tabs.find((t) => t.id === active) ?? tabs[0];
 
   return (
     <Section id="pricing" className="relative">
       <div className="shell">
         {showHeading && (
           <SectionHeading
+            {...section.heading}
             align="center"
-            eyebrow="Pricing"
-            title={
-              <>
-                Priced in public.{" "}
-                <span className="text-white/40">No discovery call required.</span>
-              </>
-            }
-            description="Two ways to work with us: hire the studio, or buy the software the studio built."
             className="mx-auto items-center"
           />
         )}
@@ -122,17 +117,17 @@ export function Pricing({ showHeading = true }: { showHeading?: boolean }) {
           <div className="inline-flex rounded-full border border-white/[0.08] bg-white/[0.02] p-1 backdrop-blur-md">
             {tabs.map((tab) => (
               <button
-                key={tab.key}
+                key={tab.id}
                 type="button"
-                onClick={() => setActive(tab.key)}
+                onClick={() => setActive(tab.id)}
                 className={cn(
                   "relative rounded-full px-5 py-2.5 text-[13px] font-medium transition-colors duration-300",
-                  active === tab.key
+                  active === tab.id
                     ? "text-white"
                     : "text-white/50 hover:text-white/80",
                 )}
               >
-                {active === tab.key && (
+                {active === tab.id && (
                   <motion.span
                     layoutId="pricing-tab"
                     className="absolute inset-0 rounded-full bg-gradient-to-r from-ember-500 to-flare-500"

@@ -1,13 +1,15 @@
-import { stats } from "@/lib/data";
+import { content } from "@/content";
 import { Counter } from "../ui/Counter";
 import { Reveal } from "../ui/Reveal";
+
+const { items } = content.stats;
 
 export function Stats() {
   return (
     <section className="relative py-20">
       <div className="shell">
         <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.05] md:grid-cols-4">
-          {stats.map((stat, i) => (
+          {items.map((stat, i) => (
             <Reveal
               key={stat.label}
               delay={i * 0.08}

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { Reveal } from "./Reveal";
+import { Reveal, TextReveal } from "./Reveal";
 
 export function Eyebrow({
   children,
@@ -25,9 +25,19 @@ export function Eyebrow({
   );
 }
 
+/**
+ * The band heading used by every section. Takes plain strings so it can be
+ * spread straight from a content file:
+ *
+ *   <SectionHeading {...content.services.section.heading} />
+ *
+ * `titleMuted` is the dimmed second half of the sentence — the pattern the
+ * whole site uses to land a headline on two tones.
+ */
 export function SectionHeading({
   eyebrow,
   title,
+  titleMuted,
   description,
   align = "left",
   className,
@@ -35,8 +45,9 @@ export function SectionHeading({
   children,
 }: {
   eyebrow?: string;
-  title: ReactNode;
-  description?: ReactNode;
+  title: string;
+  titleMuted?: string;
+  description?: string;
   align?: "left" | "center";
   className?: string;
   titleClassName?: string;
@@ -56,16 +67,27 @@ export function SectionHeading({
         </Reveal>
       )}
 
-      <Reveal delay={0.06}>
-        <h2
-          className={cn(
-            "max-w-3xl text-balance text-3xl font-semibold leading-[1.08] text-white sm:text-4xl md:text-[3.25rem]",
-            titleClassName,
-          )}
-        >
-          {title}
-        </h2>
-      </Reveal>
+      <h2
+        className={cn(
+          "max-w-3xl text-balance text-3xl font-semibold leading-[1.08] text-white sm:text-4xl md:text-[3.25rem]",
+          titleClassName,
+        )}
+      >
+        <TextReveal text={title} inView delay={0.05} stagger={0.04} />
+        {titleMuted && (
+          <>
+            {" "}
+            <span className="text-white/40">
+              <TextReveal
+                text={titleMuted}
+                inView
+                delay={0.05 + title.split(" ").length * 0.04}
+                stagger={0.04}
+              />
+            </span>
+          </>
+        )}
+      </h2>
 
       {description && (
         <Reveal delay={0.12}>

@@ -80,7 +80,9 @@ export function RevealGroup({
       viewport={{ once: true, margin: "-80px" }}
       variants={{
         hidden: {},
-        show: { transition: { staggerChildren: stagger, delayChildren: delay } },
+        show: {
+          transition: { staggerChildren: stagger, delayChildren: delay },
+        },
       }}
     >
       {children}
@@ -125,12 +127,15 @@ export function TextReveal({
   wordClassName,
   delay = 0,
   stagger = 0.045,
+  inView = false,
 }: {
   text: string;
   className?: string;
   wordClassName?: string;
   delay?: number;
   stagger?: number;
+  /** Wait until scrolled into view instead of animating on mount. */
+  inView?: boolean;
 }) {
   const reduce = useReducedMotion();
   const words = text.split(" ");
@@ -141,10 +146,14 @@ export function TextReveal({
     <motion.span
       className={cn("inline", className)}
       initial="hidden"
-      animate="show"
+      {...(inView
+        ? { whileInView: "show", viewport: { once: true, margin: "-80px" } }
+        : { animate: "show" })}
       variants={{
         hidden: {},
-        show: { transition: { staggerChildren: stagger, delayChildren: delay } },
+        show: {
+          transition: { staggerChildren: stagger, delayChildren: delay },
+        },
       }}
       aria-label={text}
     >

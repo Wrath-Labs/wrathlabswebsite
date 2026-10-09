@@ -1,15 +1,17 @@
-import { techStack } from "@/lib/data";
+import { content } from "@/content";
 import { Marquee } from "../ui/Marquee";
 
+const { label, items } = content.sections.techMarquee;
+
 export function TechMarquee() {
-  const half = Math.ceil(techStack.length / 2);
-  const rows = [techStack.slice(0, half), techStack.slice(half)];
+  const half = Math.ceil(items.length / 2);
+  const rows = [items.slice(0, half), items.slice(half)];
 
   return (
     <section className="relative border-y border-white/[0.06] bg-ink-950/60 py-12">
       <div className="shell mb-8 flex items-center justify-center">
         <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/30">
-          The stack we reach for by default
+          {label}
         </p>
       </div>
 

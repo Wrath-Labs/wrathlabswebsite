@@ -1,11 +1,18 @@
+import { content } from "@/content";
 import { Button } from "../ui/Button";
 import { Reveal } from "../ui/Reveal";
 import { ParticleField } from "../fx/ParticleField";
 
+const cta = content.sections.callToAction;
+
+/**
+ * The closing invitation. Defaults come from content/sections.json; individual
+ * pages override the wording from their own `page.closing` block.
+ */
 export function CTA({
-  eyebrow = "Next step",
-  title = "Got something worth building?",
-  description = "Two slots left this quarter. Book a 30-minute call with an engineer — no deck, no discovery theatre, just a straight answer on whether we can help.",
+  eyebrow = cta.eyebrow,
+  title = cta.title,
+  description = cta.description,
 }: {
   eyebrow?: string;
   title?: string;
@@ -44,18 +51,18 @@ export function CTA({
 
         <Reveal delay={0.24}>
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
-            <Button href="/book" size="lg" withArrow magnetic>
-              Book a meeting
+            <Button href={cta.primary.href} size="lg" withArrow magnetic>
+              {cta.primary.label}
             </Button>
-            <Button href="/contact" size="lg" variant="secondary">
-              Send a message
+            <Button href={cta.secondary.href} size="lg" variant="secondary">
+              {cta.secondary.label}
             </Button>
           </div>
         </Reveal>
 
         <Reveal delay={0.3}>
           <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.18em] text-white/25">
-            hello@wrathlabs.in · Replies within one business day
+            {cta.footnote}
           </p>
         </Reveal>
       </div>

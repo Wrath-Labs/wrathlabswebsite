@@ -1,0 +1,754 @@
+{
+  "_note": [
+    "PRICES — both the agency engagements and the product plans.",
+    "",
+    "The two tabs on the pricing band come from `tabs` below. Each tab has its",
+    "own list of `tiers`.",
+    "",
+    "`price` and `unit` are free text, so \"$12k\" / \"/ 2-week sprint\" or",
+    "\"Custom\" / \"/ annual\" all work. Exactly one tier per tab should have",
+    "`featured` set to true — that is the one lifted out with the red glow and",
+    "the \"Most popular\" ribbon."
+  ],
+  "page": {
+    "seo": {
+      "title": "Pricing",
+      "description": "Starter, Growth, Pro and Custom builds for Indian and global clients. Ranges start from ₹20,000 or $2,000; actual pricing depends on your scope."
+    },
+    "hero": {
+      "eyebrow": "Pricing",
+      "title": "Simple, transparent pricing for all your needs.",
+      "description": "Pay for clarity, quality, and code that scales with your ambition. Price ranges give you an idea; the final quote depends on your scope.",
+      "breadcrumb": [
+        {
+          "label": "Pricing",
+          "href": "{{navigation.paths.pricing}}"
+        }
+      ]
+    },
+    "closing": {
+      "eyebrow": "Still deciding",
+      "title": "Cheapest way to evaluate us: talk to us.",
+      "description": "A scoping call costs nothing and you'll leave with an architecture opinion whether or not you hire us."
+    }
+  },
+  "section": {
+    "heading": {
+      "eyebrow": "Pricing",
+      "title": "Plans designed",
+      "titleMuted": "to match your vision.",
+      "description": "Three builds for every stage, with separate Indian and global pricing. Switch below to see your region."
+    },
+    "featuredBadge": "Most popular"
+  },
+  "tabs": [
+    {
+      "id": "india",
+      "label": "Indian",
+      "note": "These price ranges are only to give you an idea. Actual pricing depends on the scope of your needs, and add-ons are priced separately.",
+      "tiers": [
+        {
+          "name": "Starter",
+          "price": "₹20,000 - ₹35,000",
+          "unit": "",
+          "featured": false,
+          "blurb": "Perfect for early-stage founders, student startups, small businesses. Ideal for MVPs, simple apps, landing-page backed tools.",
+          "features": [
+            "5-8 screens/pages",
+            "Simple UI or clean custom UI",
+            "Basic authentication",
+            "BaaS backend (Firebase / Supabase)",
+            "CRUD features (Optional)",
+            "Basic testing",
+            "Website and App Deployment",
+            "1 week free support"
+          ],
+          "cta": {
+            "label": "Choose Starter",
+            "href": "{{navigation.paths.contact}}"
+          }
+        },
+        {
+          "name": "Growth",
+          "price": "₹50,000 - ₹75,000",
+          "unit": "",
+          "featured": true,
+          "blurb": "Perfect for founders ready to scale, startups in MVP → v1 stage. Ideal for more complex apps, SaaS dashboards, multi-role apps.",
+          "features": [
+            "9-15 screens/pages",
+            "Strong UI/UX",
+            "Full authentication system",
+            "Custom API integration (or BaaS)",
+            "Simple admin panel",
+            "Testing + launch support",
+            "Database design",
+            "1-2 weeks post-launch support"
+          ],
+          "cta": {
+            "label": "Choose Growth",
+            "href": "{{navigation.paths.contact}}"
+          }
+        },
+        {
+          "name": "Pro",
+          "price": "₹1,00,000 onwards",
+          "unit": "",
+          "featured": false,
+          "blurb": "Perfect for funded startups, enterprise clients, founders with long-term vision. Ideal for full-scale products, SaaS, marketplace apps, consumer platforms.",
+          "features": [
+            "Unlimited screens",
+            "Premium UI/UX",
+            "Role management",
+            "Custom backend",
+            "Dashboard / CMS",
+            "Production-level security",
+            "Payment + advanced integrations",
+            "1-2 months free support"
+          ],
+          "cta": {
+            "label": "Choose Pro",
+            "href": "{{navigation.paths.contact}}"
+          }
+        },
+        {
+          "name": "Custom",
+          "price": "Custom",
+          "unit": "",
+          "featured": false,
+          "blurb": "For founders whose needs don't fit a standard build. Tell us what you're building and we'll scope it together.",
+          "features": [
+            "Scope and deliverables tailored to you",
+            "Any combination of our services",
+            "Start with an MVP, grow into the full product",
+            "Price agreed after scoping",
+            "Free first call, plan in 2–3 business days"
+          ],
+          "cta": {
+            "label": "Talk to us",
+            "href": "{{navigation.paths.contact}}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "global",
+      "label": "Global",
+      "note": "These price ranges are only to give you an idea. Actual pricing depends on the scope of your needs, and add-ons are priced separately.",
+      "tiers": [
+        {
+          "name": "Starter",
+          "price": "$2,000 - $3,200",
+          "unit": "",
+          "featured": false,
+          "blurb": "Perfect for early-stage founders, student startups, small businesses. Ideal for MVPs, simple apps, landing-page backed tools.",
+          "features": [
+            "5-8 screens/pages",
+            "Simple UI or clean custom UI",
+            "Basic authentication",
+            "BaaS backend (Firebase / Supabase)",
+            "CRUD features (Optional)",
+            "Basic testing",
+            "Website and App Deployment",
+            "1 week free support"
+          ],
+          "cta": {
+            "label": "Choose Starter",
+            "href": "{{navigation.paths.contact}}"
+          }
+        },
+        {
+          "name": "Growth",
+          "price": "$4,000 - $6,000",
+          "unit": "",
+          "featured": true,
+          "blurb": "Perfect for founders ready to scale, startups in MVP → v1 stage. Ideal for more complex apps, SaaS dashboards, multi-role apps.",
+          "features": [
+            "9-15 screens/pages",
+            "Strong UI/UX",
+            "Full authentication system",
+            "Custom API integration (or BaaS)",
+            "Simple admin panel",
+            "Testing + launch support",
+            "Database design",
+            "1-2 weeks post-launch support"
+          ],
+          "cta": {
+            "label": "Choose Growth",
+            "href": "{{navigation.paths.contact}}"
+          }
+        },
+        {
+          "name": "Pro",
+          "price": "$8,000 onwards",
+          "unit": "",
+          "featured": false,
+          "blurb": "Perfect for funded startups, enterprise clients, founders with long-term vision. Ideal for full-scale products, SaaS, marketplace apps, consumer platforms.",
+          "features": [
+            "Unlimited screens",
+            "Premium UI/UX",
+            "Role management",
+            "Custom backend",
+            "Dashboard / CMS",
+            "Production-level security",
+            "Payment + advanced integrations",
+            "1-2 months free support"
+          ],
+          "cta": {
+            "label": "Choose Pro",
+            "href": "{{navigation.paths.contact}}"
+          }
+        },
+        {
+          "name": "Custom",
+          "price": "Custom",
+          "unit": "",
+          "featured": false,
+          "blurb": "For founders whose needs don't fit a standard build. Tell us what you're building and we'll scope it together.",
+          "features": [
+            "Scope and deliverables tailored to you",
+            "Any combination of our services",
+            "Start with an MVP, grow into the full product",
+            "Price agreed after scoping",
+            "Free first call, plan in 2–3 business days"
+          ],
+          "cta": {
+            "label": "Talk to us",
+            "href": "{{navigation.paths.contact}}"
+          }
+        }
+      ]
+    }
+  ],
+  "finePrint": {
+    "_note": [
+      "The two lists near the bottom of the Pricing page — one ticked in green,",
+      "one crossed out in red."
+    ],
+    "heading": {
+      "eyebrow": "The fine print",
+      "title": "Always included.",
+      "titleMuted": "Never charged extra."
+    },
+    "includedTitle": "In every engagement",
+    "included": [
+      "Senior engineers only — no junior bench",
+      "Your repository, your infrastructure",
+      "Full IP transfer from the first commit",
+      "Friday demos and written weekly recaps",
+      "Architecture decision records",
+      "Recorded handover walkthroughs"
+    ],
+    "excludedTitle": "Things we don't do",
+    "excluded": [
+      "Minimum 12-month lock-ins",
+      "Change-request surcharges",
+      "Charging for the scoping call",
+      "Account managers between you and the team"
+    ]
+  },
+  "comparePlans": {
+    "_note": [
+      "COMPARE PLANS — the table on the Pricing page.",
+      "Each row's `values` lists one entry per plan, in the same order as",
+      "`plans`. Use true for a tick, false for a dash, or any text."
+    ],
+    "heading": {
+      "eyebrow": "Compare plans",
+      "title": "Every plan,",
+      "titleMuted": "side by side.",
+      "description": "See exactly what each build includes. Need something different? The Custom tier is scoped around you."
+    },
+    "plans": [
+      {
+        "name": "Starter",
+        "price": "From ₹20,000",
+        "unit": "/ $2,000",
+        "featured": false
+      },
+      {
+        "name": "Growth",
+        "price": "From ₹50,000",
+        "unit": "/ $4,000",
+        "featured": true
+      },
+      {
+        "name": "Pro",
+        "price": "From ₹1,00,000",
+        "unit": "/ $8,000",
+        "featured": false
+      }
+    ],
+    "groups": [
+      {
+        "title": "Design & interface",
+        "rows": [
+          {
+            "label": "Screens / Pages",
+            "values": [
+              "5-8",
+              "9-15",
+              "Unlimited"
+            ]
+          },
+          {
+            "label": "UI Design",
+            "values": [
+              "Simple / Clean UI",
+              "Strong UI/UX",
+              "Premium, Brand-Focused UI/UX"
+            ]
+          },
+          {
+            "label": "Custom UI Components",
+            "values": [
+              "Limited",
+              true,
+              "Yes (Advanced)"
+            ]
+          },
+          {
+            "label": "Animations",
+            "values": [
+              false,
+              "Basic",
+              "Advanced / Micro-interactions"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Authentication & users",
+        "rows": [
+          {
+            "label": "Authentication (Email/Password)",
+            "values": [
+              true,
+              true,
+              true
+            ]
+          },
+          {
+            "label": "OTP Verification",
+            "values": [
+              false,
+              true,
+              true
+            ]
+          },
+          {
+            "label": "Password Reset",
+            "values": [
+              false,
+              true,
+              true
+            ]
+          },
+          {
+            "label": "Social Login",
+            "values": [
+              false,
+              true,
+              true
+            ]
+          },
+          {
+            "label": "User Roles & Permissions",
+            "values": [
+              false,
+              "Limited",
+              "Advanced / Multi-Role"
+            ]
+          },
+          {
+            "label": "Admin Panel / Dashboard",
+            "values": [
+              false,
+              "Basic",
+              "Advanced CMS / Dashboard"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Backend & integrations",
+        "rows": [
+          {
+            "label": "Backend Type",
+            "values": [
+              "BaaS (Firebase / Supabase)",
+              "BaaS or Custom APIs",
+              "Fully Custom Backend"
+            ]
+          },
+          {
+            "label": "Database Design",
+            "values": [
+              "Basic",
+              "Structured",
+              "Scalable & Optimized"
+            ]
+          },
+          {
+            "label": "CRUD Operations",
+            "values": [
+              "Optional Add-on",
+              true,
+              true
+            ]
+          },
+          {
+            "label": "API Integrations",
+            "values": [
+              false,
+              "Basic",
+              "Advanced / Multiple"
+            ]
+          },
+          {
+            "label": "Payment Gateway Integration",
+            "values": [
+              false,
+              false,
+              true
+            ]
+          },
+          {
+            "label": "Push Notifications",
+            "values": [
+              false,
+              false,
+              true
+            ]
+          },
+          {
+            "label": "Third-Party Integrations",
+            "values": [
+              false,
+              "Limited",
+              "Advanced"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Quality & support",
+        "rows": [
+          {
+            "label": "Security Practices",
+            "values": [
+              "Basic",
+              "Standard",
+              "Production-Grade"
+            ]
+          },
+          {
+            "label": "Testing",
+            "values": [
+              "Basic",
+              "Full Testing",
+              "Advanced Testing + QA"
+            ]
+          },
+          {
+            "label": "Deployment & Launch Support",
+            "values": [
+              true,
+              true,
+              true
+            ]
+          },
+          {
+            "label": "Documentation",
+            "values": [
+              false,
+              false,
+              "Technical Documentation"
+            ]
+          },
+          {
+            "label": "Post-Launch Free Support",
+            "values": [
+              "1 Week",
+              "1-2 Weeks",
+              "1-2 Months"
+            ]
+          }
+        ]
+      }
+    ],
+    "cta": {
+      "label": "Book a free call",
+      "href": "{{navigation.paths.contact}}"
+    }
+  },
+  "choosePlan": {
+    "_note": [
+      "CHOOSE THE RIGHT PLAN — short 'if this sounds like you' cards.",
+      "`plan` should match a plan name in comparePlans."
+    ],
+    "heading": {
+      "eyebrow": "Choose the right plan",
+      "title": "Not sure where",
+      "titleMuted": "you fit?",
+      "description": "Find the sentence that sounds most like your situation."
+    },
+    "items": [
+      {
+        "icon": "Rocket",
+        "situation": "I'm an early-stage founder, student startup or small business with an idea to validate.",
+        "plan": "Starter",
+        "reason": "Ideal for MVPs, simple apps and landing-page backed tools. 5–8 screens, basic auth and a BaaS backend."
+      },
+      {
+        "icon": "Users",
+        "situation": "I'm ready to scale and moving from MVP to v1.",
+        "plan": "Growth",
+        "reason": "Ideal for more complex apps, SaaS dashboards and multi-role apps, with a full auth system and a simple admin panel."
+      },
+      {
+        "icon": "Target",
+        "situation": "I'm a funded startup or enterprise with a long-term vision.",
+        "plan": "Pro",
+        "reason": "Ideal for full-scale products, SaaS, marketplaces and consumer platforms, with a custom backend and production-level security."
+      },
+      {
+        "icon": "Hammer",
+        "situation": "My needs don't fit neatly into one of these builds.",
+        "plan": "Custom",
+        "reason": "No fixed price. We scope it around your needs, whether that's an MVP first or a bespoke full product."
+      }
+    ],
+    "unsure": {
+      "text": "Not sure which tier is right? Book a free call and we'll come back within 2–3 business days with a plan, pricing and timeline.",
+      "button": {
+        "label": "Book a free call",
+        "href": "{{navigation.paths.contact}}"
+      }
+    }
+  },
+  "addOns": {
+    "_note": [
+      "ADD-ONS & SCOPE ADJUSTMENT — optional extras. Each add-on has:",
+      "`meaning` (what it is, in plain words), `chargedBy` (the unit we charge per),",
+      "`priceIndia` / `priceGlobal` (indicative starting ranges) and `examples`."
+    ],
+    "heading": {
+      "eyebrow": "Add-ons & scope adjustment",
+      "title": "Start lean.",
+      "titleMuted": "Add only what you need.",
+      "description": "Anything beyond your build's inclusions is an add-on. Here is exactly what each one means and how we charge for it."
+    },
+    "items": [
+      {
+        "icon": "Sparkles",
+        "name": "Complex animations",
+        "chargedBy": "per animated section or flow",
+        "meaning": "Motion that goes beyond simple fades and hover effects: scroll-driven storytelling, 3D elements, Lottie animations and multi-step micro-interactions.",
+        "examples": "Scroll-triggered sequences · 3D with Spline or Three.js · Animated onboarding flows",
+        "priceIndia": "From ₹5,000 per section",
+        "priceGlobal": "From $500 per section"
+      },
+      {
+        "icon": "FileText",
+        "name": "Additional screens",
+        "chargedBy": "per screen",
+        "meaning": "A screen is one distinct page or app view with its own layout, like a login page, dashboard or profile. Extra states of the same screen (a popup, an empty state) don't count as new screens.",
+        "examples": "Anything beyond your tier's screen limit",
+        "priceIndia": "₹3,000 – ₹5,000 per screen",
+        "priceGlobal": "$300 – $500 per screen"
+      },
+      {
+        "icon": "Network",
+        "name": "Extra integrations",
+        "chargedBy": "per integration",
+        "meaning": "Connecting your product to another service beyond what your build includes, such as a payment gateway, maps, SMS or email service, analytics or a CRM.",
+        "examples": "Payments · Maps · SMS and email · Analytics · CRM",
+        "priceIndia": "₹5,000 – ₹15,000 each",
+        "priceGlobal": "$500 – $1,500 each"
+      },
+      {
+        "icon": "LockKeyhole",
+        "name": "Third-party auth",
+        "chargedBy": "per provider",
+        "meaning": "Letting users sign in with an existing account, such as Google, Apple or GitHub, in addition to email and password.",
+        "examples": "Google sign-in · Apple sign-in · GitHub sign-in",
+        "priceIndia": "From ₹3,000 per provider",
+        "priceGlobal": "From $300 per provider"
+      },
+      {
+        "icon": "Users",
+        "name": "Multiple roles",
+        "chargedBy": "per additional role",
+        "meaning": "Separate types of users with their own permissions and views, like admin, staff and customer. Each role beyond what your tier includes is charged.",
+        "examples": "Admin vs staff vs customer · Role-based screens and permissions",
+        "priceIndia": "₹5,000 – ₹12,000 per role",
+        "priceGlobal": "$500 – $1,200 per role"
+      },
+      {
+        "icon": "Terminal",
+        "name": "Advanced API work",
+        "chargedBy": "per module",
+        "meaning": "Custom backend logic and endpoints beyond standard create, read, update and delete, such as complex business rules, data processing, or wrapping third-party APIs for your app.",
+        "examples": "Custom business logic · Reporting endpoints · Wrapping external APIs",
+        "priceIndia": "₹8,000 – ₹25,000 per module",
+        "priceGlobal": "$800 – $2,500 per module"
+      }
+    ],
+    "adjustments": {
+      "title": "Adjusting your scope",
+      "items": [
+        {
+          "label": "Scope-based pricing",
+          "detail": "Pricing increases proportionally based on scope and complexity."
+        },
+        {
+          "label": "Doesn't fit a tier?",
+          "detail": "We customize 100%. Your scope defines your tier, not the other way around."
+        },
+        {
+          "label": "Upgrade any time",
+          "detail": "Many clients start at Starter and upgrade once they raise funds or scale."
+        },
+        {
+          "label": "Pause or continue",
+          "detail": "With pay-per-feature there is no long-term commitment, so you can pause or continue any time."
+        }
+      ]
+    },
+    "note": "These prices are only to give you an idea. Actual pricing depends on the scope of your needs, and we confirm the exact amount in writing before any add-on work begins."
+  },
+  "payments": {
+    "_note": [
+      "FLEXIBLE PAYMENT OPTIONS — how clients can pay. Edit the terms freely.",
+      "`badge` is the small tag on a card; leave it empty for none."
+    ],
+    "heading": {
+      "eyebrow": "Flexible payment options",
+      "title": "Pay the way",
+      "titleMuted": "that suits your cash flow.",
+      "description": "Pick a structure when we scope the work. It can change at any milestone."
+    },
+    "items": [
+      {
+        "icon": "Target",
+        "name": "50/30/20 Split",
+        "badge": "Most popular",
+        "detail": "Pay in three milestones tied to real progress.",
+        "terms": [
+          "50% upfront to kickstart development",
+          "30% after mid-milestone, once core features are completed",
+          "20% on final delivery, after testing and deployment"
+        ]
+      },
+      {
+        "icon": "CalendarDays",
+        "name": "Monthly Subscription",
+        "badge": "Best for long builds",
+        "detail": "Spread the cost across the life of the build.",
+        "terms": [
+          "2–6 month billing cycles with flexible monthly payments",
+          "Includes development and updates",
+          "Ideal for evolving products that scale as you grow"
+        ]
+      },
+      {
+        "icon": "Zap",
+        "name": "Pay-Per-Feature",
+        "badge": "Budget friendly",
+        "detail": "Only pay for what you build.",
+        "terms": [
+          "Feature-by-feature development",
+          "Flexible roadmap, develop gradually",
+          "No long-term commitment, pause or continue any time"
+        ]
+      }
+    ],
+    "methods": {
+      "title": "",
+      "items": []
+    },
+    "note": "Free first call · Transparent pricing · Zero hidden charges · Pay in milestones"
+  },
+  "faq": {
+    "_note": [
+      "PRICING FAQ — the questions shown on the Pricing page only.",
+      "The general FAQ for other pages lives in faq.json."
+    ],
+    "heading": {
+      "eyebrow": "Pricing questions",
+      "title": "Questions about",
+      "titleMuted": "cost and billing."
+    },
+    "sideCard": {
+      "icon": "MessagesSquare",
+      "title": "Need help choosing?",
+      "description": "Book a free call and we'll come back within 2–3 business days with a plan, pricing and timeline.",
+      "button": {
+        "label": "Book a free call",
+        "href": "{{navigation.paths.contact}}"
+      }
+    },
+    "items": [
+      {
+        "question": "Why is Indian pricing cheaper than international?",
+        "answer": "Because domestic budgets differ. We keep Indian tiers founder-friendly while staying competitive globally."
+      },
+      {
+        "question": "Are calls free?",
+        "answer": "Yes, three of them. The first call, where you explain your vision, is free. The second call covers our full plan, pricing and timeline and includes one round of revision, and the third is a free final call to finalise everything. Any additional call is ₹2,000 / $50 per call, because we keep our time for building. That fee is credited against your project if you go ahead."
+      },
+      {
+        "question": "What if my project doesn't fit exactly into one tier?",
+        "answer": "No worries, we customize 100%. Your scope defines your tier, not the other way around."
+      },
+      {
+        "question": "Do you offer maintenance?",
+        "answer": "Yes. Monthly retainers are available for bug fixes, new features, backend support, or design refreshes."
+      },
+      {
+        "question": "Can I upgrade my tier later?",
+        "answer": "Absolutely. Many clients start at Tier 1 and upgrade once they raise funds or scale."
+      },
+      {
+        "question": "How do I know which tier is right for me?",
+        "answer": "Just book a free consultation, and we'll evaluate your idea, budget, and timeline."
+      }
+    ]
+  },
+  "callPolicy": {
+    "_note": [
+      "HOW OUR CALLS WORK — shown on the Pricing and Contact pages. `extra` is the paid-calls card."
+    ],
+    "heading": {
+      "eyebrow": "Before you reach out",
+      "title": "How our calls work,",
+      "titleMuted": "and what's free.",
+      "description": "Three calls are on us. We're upfront about what comes after, so there are no surprises."
+    },
+    "steps": [
+      {
+        "label": "Call 1",
+        "tag": "Free",
+        "title": "Your vision",
+        "detail": "You tell us your idea, goals and timeline."
+      },
+      {
+        "label": "Call 2",
+        "tag": "Free",
+        "title": "Our plan",
+        "detail": "Within 2–3 business days we walk you through the full plan, pricing and timeline. You get one chance for revision."
+      },
+      {
+        "label": "Call 3",
+        "tag": "Free",
+        "title": "Finalise",
+        "detail": "A final call to lock everything in."
+      }
+    ],
+    "extra": {
+      "label": "Any extra call",
+      "price": "₹2,000 / $50",
+      "detail": "Calls beyond these three are chargeable, per call. We keep our time for building, and we're often on several projects at once. The fee is credited against your project if you go ahead."
+    }
+  }
+}

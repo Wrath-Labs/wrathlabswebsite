@@ -1,10 +1,50 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
-import { process } from "@/lib/data";
+import {
+  motion,
+  useInView,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "motion/react";
+import { content } from "@/content";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
+
+const { section, items } = content.process;
+
+/** Lights up the first time the centre of the screen passes it. */
+function Node() {
+  const ref = useRef<HTMLSpanElement>(null);
+  const lit = useInView(ref, { margin: "-48% 0px -48% 0px" });
+  const reduce = useReducedMotion();
+  const on = lit || reduce;
+
+  return (
+    <span
+      ref={ref}
+      className="absolute -left-10 top-1.5 grid size-6 place-items-center md:left-1/2 md:-translate-x-1/2"
+    >
+      <motion.span
+        className="absolute size-6 rounded-full bg-ember-500/15"
+        animate={{ scale: on ? 1.5 : 1, opacity: on ? 1 : 0.5 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      />
+      <motion.span
+        className="size-2 rounded-full bg-ember-500"
+        animate={{
+          scale: on ? 1.4 : 0.8,
+          boxShadow: on
+            ? "0 0 18px 4px rgba(255,45,85,0.7)"
+            : "0 0 0px 0px rgba(255,45,85,0)",
+        }}
+        transition={{ duration: 0.5 }}
+      />
+    </span>
+  );
+}
 
 export function Process() {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,16 +60,7 @@ export function Process() {
   return (
     <Section id="process" className="relative overflow-hidden">
       <div className="shell">
-        <SectionHeading
-          eyebrow="How it goes"
-          title={
-            <>
-              Five stages.{" "}
-              <span className="text-white/40">No black boxes.</span>
-            </>
-          }
-          description="You see working software in week three and every Friday after that. Nothing about our process requires you to take our word for it."
-        />
+        <SectionHeading {...section.heading} />
 
         <div ref={ref} className="relative mt-16 pl-10 md:pl-0">
           {/* rail */}
@@ -41,16 +72,13 @@ export function Process() {
           </div>
 
           <div className="flex flex-col gap-12 md:gap-4">
-            {process.map((stage, i) => (
+            {items.map((stage, i) => (
               <div
                 key={stage.step}
                 className="relative md:grid md:grid-cols-2 md:gap-16"
               >
                 {/* node */}
-                <span className="absolute -left-10 top-1.5 grid size-6 place-items-center md:left-1/2 md:-translate-x-1/2">
-                  <span className="absolute size-6 rounded-full bg-ember-500/15" />
-                  <span className="size-2 rounded-full bg-ember-500 shadow-[0_0_12px_2px_rgba(255,45,85,0.5)]" />
-                </span>
+                <Node />
 
                 <Reveal
                   direction={i % 2 === 0 ? "right" : "left"}

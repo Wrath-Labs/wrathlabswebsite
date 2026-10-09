@@ -1,0 +1,131 @@
+{
+  "_note": [
+    "BANDS THAT APPEAR ON SEVERAL PAGES.",
+    "",
+    "Each block below is one horizontal band of the site. Editing it changes",
+    "every page that band appears on.",
+    "",
+    "  whoWeAre     — the Lab / Studio pair of panels (home + About)",
+    "  techMarquee  — the scrolling list of technologies (home + About)",
+    "  socials      — the Follow Along grid (home, About, Products, Contact)",
+    "  callToAction — the big closing invitation at the foot of most pages"
+  ],
+  "whoWeAre": {
+    "heading": {
+      "eyebrow": "Why us",
+      "title": "Bold design, solid code,",
+      "titleMuted": "honest pricing.",
+      "description": "We're a small, agile studio built around one goal: getting your idea in front of real users fast, then building the full product properly. You work directly with the people doing the work."
+    },
+    "panels": [
+      {
+        "_note": [
+          "Two panels side by side. `colour` tints the icon, the bullets and the",
+          "glow that follows your mouse — either \"ember\" (red) or \"volt\" (blue).",
+          "`kicker` is the small grey text in the top-right corner."
+        ],
+        "id": "lab",
+        "kicker": "Ship to learn",
+        "title": "Fast, creative, market-aware",
+        "icon": "Zap",
+        "colour": "ember",
+        "blurb": "We get your idea in front of real users quickly, so you learn what the market actually wants before you spend big. We pair creative, user-first design with an eye on what's working in your space.",
+        "points": [
+          "Testable MVPs in weeks, not months",
+          "Market-aware product thinking",
+          "Creative design, built around your users"
+        ],
+        "link": {
+          "label": "See our services",
+          "href": "{{navigation.paths.services}}"
+        }
+      },
+      {
+        "id": "studio",
+        "kicker": "Precision & transparency",
+        "title": "Built to last, priced in the open",
+        "icon": "Users",
+        "colour": "volt",
+        "blurb": "When you're ready to build the whole product, we do it with precision and quality. Clear tiers in rupees or dollars, a free first call, and a full plan, pricing and timeline before you commit.",
+        "points": [
+          "Zero hidden charges",
+          "Pay in milestones that match your progress",
+          "Post-launch support, updates and bug fixes"
+        ],
+        "link": {
+          "label": "See pricing",
+          "href": "{{navigation.paths.pricing}}"
+        }
+      }
+    ]
+  },
+  "techMarquee": {
+    "_note": [
+      "The two rows of technology names that scroll in opposite directions.",
+      "They are split into two rows automatically, so just keep one flat list."
+    ],
+    "label": "The stack we reach for by default",
+    "items": [
+      "Figma",
+      "Blender",
+      "Spline",
+      "Framer",
+      "Lovable",
+      "Subframe",
+      "Flutter",
+      "Dart",
+      "FlutterFlow",
+      "React",
+      "Next.js",
+      "Tailwind",
+      "Vite",
+      "Angular",
+      "Flame",
+      "Django",
+      "Flask",
+      "Node.js",
+      "Express",
+      "Firebase",
+      "Supabase",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "AWS",
+      "Google Cloud",
+      "Heroku",
+      "Digital Ocean"
+    ]
+  },
+  "socials": {
+    "_note": [
+      "Only the heading lives here. The channels themselves — names, links and",
+      "one-line descriptions — are in brand.json under `socials`."
+    ],
+    "heading": {
+      "eyebrow": "Follow along",
+      "title": "We build",
+      "titleMuted": "in the open.",
+      "description": "Most of what we learn gets written down or recorded. Pick whichever channel you actually read."
+    }
+  },
+  "callToAction": {
+    "_note": [
+      "The closing invitation band. This is the wording used wherever a page",
+      "does not set its own — the Services, Products, Pricing, About and Case",
+      "Studies pages each override the first three lines in their own file."
+    ],
+    "eyebrow": "Next step",
+    "title": "Got an idea worth building?",
+    "description": "Reach out and book a free first call to explain your vision. We'll come back within 2–3 business days with a full plan, pricing and timeline.",
+    "primary": {
+      "label": "{{shared.buttons.bookMeeting.label}}",
+      "href": "{{shared.buttons.bookMeeting.href}}"
+    },
+    "secondary": {
+      "label": "{{shared.buttons.sendMessage.label}}",
+      "href": "{{shared.buttons.sendMessage.href}}"
+    },
+    "footnote": "{{brand.email}} · Replies within {{brand.words.responseTime}}"
+  }
+}

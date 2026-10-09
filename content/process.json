@@ -1,0 +1,57 @@
+{
+  "_note": [
+    "HOW YOU WORK — the five numbered stages on the timeline.",
+    "",
+    "This section appears on both the home page and the Services page. Add or",
+    "remove a stage and the timeline redraws itself.",
+    "",
+    "`step` is the number shown beside the stage, `duration` is the little",
+    "pill next to it."
+  ],
+  "section": {
+    "heading": {
+      "eyebrow": "How it goes",
+      "title": "Six steps.",
+      "titleMuted": "No black boxes.",
+      "description": "From the first call to long after launch, you always know what's happening and what comes next."
+    }
+  },
+  "items": [
+    {
+      "step": "01",
+      "title": "Discovery call",
+      "duration": "Understand",
+      "blurb": "Reach out and book a free first call to explain your vision. Within 2–3 business days we walk you through the plan, pricing and timeline (one revision included), then finalise on a third free call. Extra calls are ₹2,000 / $50."
+    },
+    {
+      "step": "02",
+      "title": "UI/UX design",
+      "duration": "Design",
+      "blurb": "We sketch, moodboard and prototype in Figma, iterating with you until the concept feels exactly like you imagined it."
+    },
+    {
+      "step": "03",
+      "title": "Development",
+      "duration": "Build",
+      "blurb": "We build your product with clean, scalable code, showing progress along the way so there are no surprises."
+    },
+    {
+      "step": "04",
+      "title": "Testing",
+      "duration": "Verify",
+      "blurb": "We test and refine every detail so what reaches your users is reliable and matches your vision."
+    },
+    {
+      "step": "05",
+      "title": "Launch",
+      "duration": "Go live",
+      "blurb": "We deploy your product live and make sure the launch goes smoothly."
+    },
+    {
+      "step": "06",
+      "title": "Support & maintenance",
+      "duration": "Ongoing",
+      "blurb": "We don't leave your side after launch. Updates, bug fixes and improvements keep your product healthy as it grows."
+    }
+  ]
+}
