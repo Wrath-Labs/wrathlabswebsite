@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  --void: #030305;
+  --ink: #0b0b11;
+  --ember-400: #ff5c79;
+  --ember-500: #ff2d55;
+  --flare-500: #ff6b2c;
+  --display: "Space Grotesk", system-ui, sans-serif;
+  --mono: "Geist Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; margin: 0; }
+html, body { background: var(--void); -webkit-font-smoothing: antialiased; }
+
+/* the dark brand surface: faint grid plus the two glows from the site */
+.surface {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 90% at 8% 20%, rgba(255, 45, 85, 0.16), transparent 70%),
+    radial-gradient(50% 80% at 92% 90%, rgba(255, 107, 44, 0.1), transparent 70%),
+    var(--void);
+  color: #fff;
+  font-family: var(--display);
+}
+.surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: var(--grid, 40px) var(--grid, 40px);
+}
+.surface > * { position: relative; }
+
+.lockup { display: inline-flex; align-items: center; gap: 0.5em; line-height: 1; }
+.lockup [data-mark] { width: 1.9em; height: 1.9em; display: block; }
+.lockup .name { font-weight: 600; letter-spacing: -0.02em; }
+.lockup .name span { font-weight: 400; color: rgba(255, 255, 255, 0.45); margin-left: 0.22em; }
+
+.mono { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.2em; }
+.grad { background: linear-gradient(100deg, var(--ember-500), var(--flare-500)); -webkit-background-clip: text; background-clip: text; color: transparent; }

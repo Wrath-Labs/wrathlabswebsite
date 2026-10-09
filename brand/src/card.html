@@ -1,0 +1,78 @@
+<!doctype html><meta charset="utf-8"><title>Business card</title>
+<link rel="stylesheet" href="brand.css">
+<!--
+  Business card, 90 x 50 mm trim + 3 mm bleed = 96 x 56 mm.
+  URL options:  ?side=front|back  &theme=dark|light  &png=1 (300 dpi preview)
+                &name=Full+Name  &role=Job+title  (optional, back side)
+-->
+<style>
+  @page { size: 96mm 56mm; margin: 0; }
+  html, body { margin: 0; width: 96mm; height: 56mm; }
+  body.png { zoom: 3.125; }
+  .card { width: 96mm; height: 56mm; --grid: 4mm; position: relative; overflow: hidden; }
+  .card.surface::before { opacity: 0.55; } /* keep the grid subtle on press */
+  /* safe area: 5 mm inside the trim line, so 8 mm from the bleed edge */
+  .safe { position: absolute; inset: 8mm; display: flex; }
+
+  /* ---------- front ---------- */
+  .front .safe { flex-direction: column; align-items: center; justify-content: center; gap: 4.4mm; }
+  .front .lockup { font-size: 6.6mm; }
+  .front .tag { font-size: 1.85mm; color: rgba(255, 255, 255, 0.5); }
+  .front .tag b { color: var(--ember-400); font-weight: 500; }
+
+  /* ---------- back ---------- */
+  .back .safe { justify-content: space-between; align-items: stretch; }
+  .col { display: flex; flex-direction: column; justify-content: space-between; }
+  .back .lockup { font-size: 4.2mm; }
+  .who .nm { font-size: 5mm; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+  .who .rl { margin-top: 1.1mm; font-size: 1.7mm; color: var(--ember-400); }
+  .rows { display: flex; flex-direction: column; gap: 1.7mm; }
+  .row { display: flex; align-items: center; gap: 2mm; font-size: 2.45mm; color: rgba(255, 255, 255, 0.85); letter-spacing: -0.005em; }
+  .row svg { width: 2.7mm; height: 2.7mm; flex: none; stroke: var(--ember-400); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .qr { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 1.4mm; }
+  .qr .chip { width: 19mm; height: 19mm; padding: 1.6mm; background: #fff; border-radius: 2mm; }
+  .qr img { width: 100%; height: 100%; display: block; }
+  .qr .cap { font-size: 1.45mm; color: rgba(255, 255, 255, 0.5); }
+
+  /* ---------- light theme (cheaper to print, reads on any stock) ---------- */
+  .light.surface { background: #fff; color: var(--ink); }
+  .light.surface::before { background-image: linear-gradient(rgba(11,11,17,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(11,11,17,0.05) 1px, transparent 1px); background-size: var(--grid) var(--grid); }
+  .light .lockup .name span { color: rgba(11, 11, 17, 0.45); }
+  .light.front .tag, .light .qr .cap { color: rgba(11, 11, 17, 0.55); }
+  .light .row { color: rgba(11, 11, 17, 0.85); }
+  .light .qr .chip { background: #fff; border: 0.3mm solid rgba(11, 11, 17, 0.12); }
+  .light .who .rl { color: var(--ember-500); }
+</style>
+<body>
+<div id="card" class="card surface"></div>
+<script src="mark.js"></script>
+<script>
+  const q = new URLSearchParams(location.search);
+  const side = q.get("side") || "front", theme = q.get("theme") || "dark";
+  const name = q.get("name"), role = q.get("role");
+  if (q.get("png")) document.body.classList.add("png");
+  const card = document.getElementById("card");
+  card.classList.add(side, theme === "light" ? "light" : "x");
+  const lockup = `<div class="lockup"><span data-mark data-strength="${theme === "light" ? "0.9" : "0.45"}"></span><span class="name">Wrath<span>Labs</span></span></div>`;
+  const ico = {
+    mail: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>',
+    phone: '<svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>',
+    web: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>',
+    pin: '<svg viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+  };
+  if (side === "front") {
+    card.innerHTML = `<div class="safe">${lockup}<div class="tag mono">Idea to live, fast <b>·</b> Then built to last</div></div>`;
+  } else {
+    const who = name
+      ? `<div class="who"><div class="nm">${name}</div>${role ? `<div class="rl mono">${role}</div>` : ""}</div>`
+      : lockup;
+    card.innerHTML = `<div class="safe"><div class="col">${who}<div class="rows">
+      <div class="row">${ico.mail}subroto.2003@gmail.com</div>
+      <div class="row">${ico.phone}+91 89544 02360</div>
+      <div class="row">${ico.web}wrathlabs.in</div>
+      <div class="row">${ico.pin}Remote first, Agra, India</div></div></div>
+      <div class="qr"><div class="chip"><img src="qr-wrathlabs-in.svg" alt="wrathlabs.in"></div><div class="cap mono">wrathlabs.in</div></div></div>`;
+  }
+  document.querySelectorAll("[data-mark]").forEach(() => {});
+  const s = document.createElement("script"); s.src = "mark.js"; document.body.appendChild(s);
+</script>
