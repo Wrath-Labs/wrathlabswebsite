@@ -13,7 +13,7 @@
   "page": {
     "seo": {
       "title": "Pricing",
-      "description": "Starter, Growth, Pro and Custom builds for Indian and global clients. Ranges start from ₹20,000 or $2,000; actual pricing depends on your scope."
+      "description": "Starter, Growth, Pro and Custom builds for Indian and global clients. Ranges start from ₹15,000 or $800; actual pricing depends on your scope."
     },
     "hero": {
       "eyebrow": "Pricing",
@@ -49,7 +49,7 @@
       "tiers": [
         {
           "name": "Starter",
-          "price": "₹20,000 - ₹35,000",
+          "price": "₹15,000 - ₹35,000",
           "unit": "",
           "featured": false,
           "blurb": "Perfect for early-stage founders, student startups, small businesses. Ideal for MVPs, simple apps, landing-page backed tools.",
@@ -70,7 +70,7 @@
         },
         {
           "name": "Growth",
-          "price": "₹50,000 - ₹75,000",
+          "price": "₹40,000 - ₹65,000",
           "unit": "",
           "featured": true,
           "blurb": "Perfect for founders ready to scale, startups in MVP → v1 stage. Ideal for more complex apps, SaaS dashboards, multi-role apps.",
@@ -91,7 +91,7 @@
         },
         {
           "name": "Pro",
-          "price": "₹1,00,000 onwards",
+          "price": "₹80,000 onwards",
           "unit": "",
           "featured": false,
           "blurb": "Perfect for funded startups, enterprise clients, founders with long-term vision. Ideal for full-scale products, SaaS, marketplace apps, consumer platforms.",
@@ -137,7 +137,7 @@
       "tiers": [
         {
           "name": "Starter",
-          "price": "$2,000 - $3,200",
+          "price": "$800 - $2,200",
           "unit": "",
           "featured": false,
           "blurb": "Perfect for early-stage founders, student startups, small businesses. Ideal for MVPs, simple apps, landing-page backed tools.",
@@ -158,7 +158,7 @@
         },
         {
           "name": "Growth",
-          "price": "$4,000 - $6,000",
+          "price": "$3,000 - $5,000",
           "unit": "",
           "featured": true,
           "blurb": "Perfect for founders ready to scale, startups in MVP → v1 stage. Ideal for more complex apps, SaaS dashboards, multi-role apps.",
@@ -179,7 +179,7 @@
         },
         {
           "name": "Pro",
-          "price": "$8,000 onwards",
+          "price": "$7,000 onwards",
           "unit": "",
           "featured": false,
           "blurb": "Perfect for funded startups, enterprise clients, founders with long-term vision. Ideal for full-scale products, SaaS, marketplace apps, consumer platforms.",
@@ -261,20 +261,20 @@
     "plans": [
       {
         "name": "Starter",
-        "price": "From ₹20,000",
-        "unit": "/ $2,000",
+        "price": "From ₹15,000",
+        "unit": "/ $800",
         "featured": false
       },
       {
         "name": "Growth",
-        "price": "From ₹50,000",
-        "unit": "/ $4,000",
+        "price": "From ₹40,000",
+        "unit": "/ $3,000",
         "featured": true
       },
       {
         "name": "Pro",
-        "price": "From ₹1,00,000",
-        "unit": "/ $8,000",
+        "price": "From ₹80,000",
+        "unit": "/ $7,000",
         "featured": false
       }
     ],
