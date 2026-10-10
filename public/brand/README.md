@@ -1,6 +1,6 @@
 # Brand assets
 
-Generated from `src/components/layout/Logo.tsx` — same vector geometry, same
+The logo files are generated from `src/components/layout/Logo.tsx` — same vector geometry, same
 colours, so these match the logo on the live site exactly. Regenerate rather
 than hand-edit if the component changes.
 
@@ -15,6 +15,8 @@ than hand-edit if the component changes.
 | `og-1200x630.png` | Open Graph / Twitter card. Link previews on every platform. |
 | `banner-x-1500x500.png` | X / Twitter profile header. |
 | `banner-linkedin-1128x191.png` | LinkedIn company page cover. |
+
+The social images (`og-1200x630.png`, `banner-*`) are drawn from `brand/src/`, see `brand/README.md`.
 
 ## Notes
 

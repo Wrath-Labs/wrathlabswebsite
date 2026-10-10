@@ -100,43 +100,5 @@
         "blurb": "We also build our own startups, so we keep learning what it takes to take a product to market."
       }
     ]
-  },
-  "team": {
-    "_note": [
-      "THE TEAM — photo cards on the About page. Images live in public/team.",
-      "`xLink` is optional; leave it empty to hide the X icon."
-    ],
-    "heading": {
-      "eyebrow": "The team",
-      "title": "The people",
-      "titleMuted": "behind the work.",
-      "description": "A small team of designers and developers. You talk to the people building your product."
-    },
-    "members": [
-      {
-        "name": "Antara Paul",
-        "role": "Lead Product Designer",
-        "image": "/team/antara.png",
-        "xLink": "https://x.com/Paul_Antara04"
-      },
-      {
-        "name": "Mrutyunjay Lodhi",
-        "role": "Fullstack Developer",
-        "image": "/team/MJ2.png",
-        "xLink": "https://x.com/Mrutyunjay1010"
-      },
-      {
-        "name": "Swarnabha Khamrui",
-        "role": "App Developer",
-        "image": "/team/SK.png",
-        "xLink": "https://x.com/SwarnabhaK74163"
-      },
-      {
-        "name": "Saksham Jaiswal",
-        "role": "Fullstack Developer",
-        "image": "/team/SJ.png",
-        "xLink": "https://x.com/SakshamJais2004"
-      }
-    ]
   }
 }

@@ -1,12 +1,10 @@
-import Image from "next/image";
 import { content } from "@/content";
-import { BrandIcon } from "../ui/BrandIcon";
 import { Section, SectionHeading } from "../ui/SectionHeading";
 import { SpotlightCard } from "../ui/SpotlightCard";
 import { Reveal } from "../ui/Reveal";
 import { Icon } from "../ui/Icon";
 
-const { manifesto, timeline, values, team } = content.about;
+const { manifesto, timeline, values } = content.about;
 
 export function Values() {
   return (
@@ -103,51 +101,6 @@ export function Manifesto() {
             </span>
           </div>
         </Reveal>
-      </div>
-    </Section>
-  );
-}
-
-export function Team() {
-  return (
-    <Section id="team" className="border-t border-white/[0.06]">
-      <div className="shell">
-        <SectionHeading {...team.heading} />
-
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {team.members.map((member, i) => (
-            <Reveal key={member.name} delay={i * 0.08} className="h-full">
-              <SpotlightCard className="h-full">
-                <div className="flex h-full flex-col items-center p-7 text-center">
-                  <span className="relative size-28 overflow-hidden rounded-full border border-white/[0.1] bg-gradient-to-br from-ember-600/20 to-flare-500/10 transition-transform duration-500 group-hover:scale-105">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      sizes="112px"
-                      className="object-cover"
-                    />
-                  </span>
-                  <h3 className="mt-6 font-display text-lg font-semibold tracking-tight text-white">
-                    {member.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-white/50">{member.role}</p>
-                  {member.xLink && (
-                    <a
-                      href={member.xLink}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      aria-label={`${member.name} on X`}
-                      className="mt-5 grid size-9 place-items-center rounded-full border border-white/[0.08] text-white/50 transition-all duration-300 hover:-translate-y-0.5 hover:border-ember-500/40 hover:text-white"
-                    >
-                      <BrandIcon brand="x" className="size-3.5" />
-                    </a>
-                  )}
-                </div>
-              </SpotlightCard>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </Section>
   );
