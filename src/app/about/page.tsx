@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/PageHero";
 // import { DualNature } from "@/components/sections/DualNature";
-import { Manifesto, Team, Timeline, Values } from "@/components/sections/About";
+import { Manifesto, Timeline, Values } from "@/components/sections/About";
 // import { Stats } from "@/components/sections/Stats";
 // import { TechMarquee } from "@/components/sections/TechMarquee";
 // import { Socials } from "@/components/sections/Socials";
@@ -32,7 +32,6 @@ export default function AboutPage() {
       {/* <DualNature /> */}
       <Values />
       <Timeline />
-      <Team />
       {/* <TechMarquee /> */}
       {/* <Socials /> */}
       {/* <CTA {...closing} /> */}
